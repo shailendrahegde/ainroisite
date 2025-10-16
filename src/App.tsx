@@ -38,6 +38,13 @@ const projects: Project[] = [
     tags: ["Powershell"],
     githubUrl: "https://github.com/microsoft/PAX",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
+  },
+  {
+    title: "AI in One",
+    description: "Simplified single report brings M365 Copilot, Free Chat and Agent usage in a single view.",
+    tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
+    githubUrl: "https://github.com/microsoft/AIinOne",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
   }
 ]
 
