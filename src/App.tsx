@@ -50,6 +50,12 @@ const projects: Project[] = [
     description: "Move beyond correlation to causation. What impact is high usage of Copilot having?",
     tags: ["Python", "Copilot Analytics"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&brightness=0.9"
+  },
+  {
+    title: "M365 to Copilot Bridge",
+    description: "Analyze M365 app usage to inform likelihood of Copilot Adoption",
+    tags: ["Power BI", "M365 Usage"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&brightness=1.1"
   }
 ]
 
