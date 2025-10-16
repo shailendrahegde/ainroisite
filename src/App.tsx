@@ -54,7 +54,7 @@ const projects: Project[] = [
   {
     title: "M365 to Copilot Bridge",
     description: "Analyze M365 app usage to inform likelihood of Copilot Adoption",
-    tags: ["Power BI", "M365 Usage"],
+    tags: ["Power BI", "Microsoft Graph"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&brightness=1.1"
   }
 ]
