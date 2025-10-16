@@ -53,7 +53,7 @@ function App() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20">
         <div className="mb-16 md:mb-20">
-          <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
             Who we are
           </h1>
           <p className="text-base md:text-lg text-foreground/80 max-w-4xl leading-relaxed">
