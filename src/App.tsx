@@ -41,7 +41,7 @@ const projects: Project[] = [
   },
   {
     title: "AI in One",
-    description: "Simplified single report brings M365 Copilot, Free Chat and Agent usage in a single view.",
+    description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
     tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
     githubUrl: "https://github.com/microsoft/AIinOne",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
