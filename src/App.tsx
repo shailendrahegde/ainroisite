@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     title: "GitHub Copilot Impact",
     description: "A tribute to the magic of GitHub Copilot. Learn success patterns of GitHub Copilot use.",
-    tags: ["Power BI", "GitHub Usage Insights Preview"],
+    tags: ["Power BI, GitHub Usage Insights"],
     githubUrl: "https://github.com/microsoft/GitHubCopilotImpact",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&sat=-100"
   },
