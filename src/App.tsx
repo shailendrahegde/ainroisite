@@ -52,10 +52,19 @@ function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20">
-        <div className="mb-12 md:mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
-            Featured Assets
+        <div className="mb-16 md:mb-20">
+          <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
+            Who we are
           </h1>
+          <p className="text-base md:text-lg text-foreground/80 max-w-4xl leading-relaxed">
+            We champion your Copilot success by turning telemetry and organizational context into clear decisions: what's working, where to deploy, how to drive adoption, and how to measure impact.
+          </p>
+        </div>
+
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
+            Featured Assets
+          </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
             Explore projects that help organizations unlock the full potential of Copilot through actionable insights and advanced analytics.
           </p>
