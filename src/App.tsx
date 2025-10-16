@@ -14,28 +14,28 @@ const projects: Project[] = [
   {
     title: "Decoding Super Usage",
     description: "Learn what your best users of M365 Copilot do differently.",
-    tags: ["TypeScript", "React", "Power BI"],
+    tags: ["Power BI"],
     githubUrl: "https://github.com/microsoft/DecodingSuperUsage",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
   },
   {
     title: "Copilot Chat Analytics",
     description: "Intelligence on free Chat and Agent usage.",
-    tags: ["TypeScript", "React", "Azure"],
+    tags: ["Power BI"],
     githubUrl: "https://github.com/microsoft/CopilotChatAnalytics",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
   },
   {
     title: "GitHub Copilot Impact",
     description: "A tribute to the magic of GitHub Copilot. Learn success patterns of GitHub Copilot use.",
-    tags: ["Python", "Analytics", "AI"],
+    tags: ["Power BI"],
     githubUrl: "https://github.com/microsoft/GitHubCopilotImpact",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&sat=-100"
   },
   {
     title: "Portable Audit Exporter",
     description: "A powerful tool to export audit log files which you can use to run enterprise wide analytics.",
-    tags: ["Python", "Data Export", "Enterprise"],
+    tags: ["Powershell"],
     githubUrl: "https://github.com/microsoft/PAX",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
   }
