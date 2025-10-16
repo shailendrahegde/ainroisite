@@ -7,40 +7,42 @@
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 :root {
-  --background: oklch(0.15 0.05 280);
-  --foreground: oklch(0.98 0 0);
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.2 0 0);
   
-  --card: oklch(0.2 0.06 285 / 0.6);
-  --card-foreground: oklch(0.98 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0 0);
   
-  --popover: oklch(0.2 0.06 285);
-  --popover-foreground: oklch(0.98 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0 0);
   
-  --primary: oklch(0.25 0.08 280);
-  --primary-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.51 0.19 264);
+  --primary-foreground: oklch(1 0 0);
   
-  --secondary: oklch(0.45 0.15 290);
-  --secondary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.95 0.01 264);
+  --secondary-foreground: oklch(0.2 0 0);
   
-  --muted: oklch(0.25 0.05 285);
-  --muted-foreground: oklch(0.75 0.02 280);
+  --muted: oklch(0.96 0.005 264);
+  --muted-foreground: oklch(0.5 0.01 264);
   
-  --accent: oklch(0.65 0.18 240);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.51 0.19 264);
+  --accent-foreground: oklch(1 0 0);
   
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive-foreground: oklch(1 0 0);
   
-  --border: oklch(0.35 0.08 285);
-  --input: oklch(0.35 0.08 285);
-  --ring: oklch(0.65 0.18 240);
+  --border: oklch(0.89 0.005 264);
+  --input: oklch(0.89 0.005 264);
+  --ring: oklch(0.51 0.19 264);
   
-  --radius: 0.75rem;
+  --radius: 0.25rem;
 }
 
 @theme {

@@ -35,70 +35,71 @@ The site presents static project information with links to external GitHub repos
 
 ## Design Direction
 
-The design should evoke a premium, tech-forward aesthetic with a dark purple/navy gradient background, glassmorphic card styling, and vibrant accent colors. It should feel professional yet modern - like a high-end developer portfolio that showcases enterprise-level work with polish and sophistication.
+The design should embody Microsoft's Fluent Design System principles - clean, approachable, and professional with soft shadows, subtle borders, and a light color palette. It should feel modern yet familiar, emphasizing clarity and usability with a calm, productivity-focused aesthetic that reflects Microsoft's design language.
 
 ## Color Selection
 
-Custom palette with deep purple/navy gradients and bright accent colors for visual interest.
+Microsoft Fluent Design System palette with light backgrounds, subtle neutrals, and the iconic Microsoft blue for primary actions.
 
-- **Primary Color**: Deep Purple/Navy (oklch(0.25 0.08 280)) - Sophisticated tech background that doesn't compete with card content
-- **Secondary Colors**: Rich Purple accent (oklch(0.45 0.15 290)) for subtle highlights and borders
-- **Accent Color**: Bright Blue (oklch(0.65 0.18 240)) - High-energy accent for interactive elements and the "Projects" text highlight
+- **Primary Color**: Microsoft Blue (oklch(0.51 0.19 264)) - The signature Microsoft brand color for interactive elements and links
+- **Secondary Colors**: Light gray (oklch(0.95 0.01 264)) for subtle backgrounds and non-primary surfaces
+- **Accent Color**: Microsoft Blue (oklch(0.51 0.19 264)) - Used consistently for emphasis and interactivity
 - **Foreground/Background Pairings**:
-  - Background (Deep Navy oklch(0.15 0.05 280)): White text (oklch(0.98 0 0)) - Ratio 14.2:1 ✓
-  - Card (Translucent Dark oklch(0.2 0.06 285 / 0.6)): White text (oklch(0.98 0 0)) - Ratio 12.8:1 ✓
-  - Primary (Deep Purple oklch(0.25 0.08 280)): White text (oklch(0.98 0 0)) - Ratio 11.5:1 ✓
-  - Accent (Bright Blue oklch(0.65 0.18 240)): White text (oklch(0.98 0 0)) - Ratio 5.2:1 ✓
-  - Muted tags (Dark Purple oklch(0.25 0.05 285)): Light Gray text (oklch(0.75 0.02 280)) - Ratio 5.8:1 ✓
+  - Background (Near White oklch(0.98 0 0)): Dark Gray text (oklch(0.2 0 0)) - Ratio 16.5:1 ✓
+  - Card (Pure White oklch(1 0 0)): Dark Gray text (oklch(0.2 0 0)) - Ratio 17.8:1 ✓
+  - Primary (Microsoft Blue oklch(0.51 0.19 264)): White text (oklch(1 0 0)) - Ratio 4.6:1 ✓
+  - Secondary (Light Gray oklch(0.95 0.01 264)): Dark Gray text (oklch(0.2 0 0)) - Ratio 15.2:1 ✓
+  - Muted (Soft Gray oklch(0.96 0.005 264)): Medium Gray text (oklch(0.5 0.01 264)) - Ratio 7.1:1 ✓
 
 ## Font Selection
 
-Clean, modern sans-serif typography that conveys technical precision and readability, using Inter for its excellent screen rendering and professional appearance.
+Segoe UI, Microsoft's signature typeface, providing a clean, modern, and highly readable interface that's optimized for clarity and accessibility.
 
 - **Typographic Hierarchy**:
-  - H1 (Page Title): Inter Bold/48px/tight letter-spacing/-0.02em - Commanding presence
-  - H2 (Project Titles): Inter Semibold/24px/tight letter-spacing/-0.01em - Clear hierarchy
-  - Body (Descriptions): Inter Regular/15px/relaxed line-height/1.6 - Comfortable reading
-  - Small (Tags): Inter Medium/12px/uppercase/letter-spacing/0.05em - Technical feel
-  - Link Text: Inter Medium/14px/normal - Clear actionability
+  - H1 (Page Title): Segoe UI Semibold/40px/normal letter-spacing - Clean and approachable
+  - H2 (Project Titles): Segoe UI Semibold/20px/normal letter-spacing - Clear hierarchy without being heavy
+  - Body (Descriptions): Segoe UI Regular/14px/relaxed line-height/1.6 - Optimal readability
+  - Small (Tags): Segoe UI Regular/12px/normal - Subtle and clean
+  - Link Text: Segoe UI Semibold/14px/normal - Clear actionability
 
 ## Animations
 
-Subtle, purposeful animations that enhance premium feel without distracting from content - gentle hover elevations, smooth transitions, and soft glows that respond to user interaction.
+Fluent Design emphasizes subtle, responsive animations that provide feedback without distraction - gentle elevations on hover, smooth opacity transitions, and minimal movement that feels natural and predictable.
 
-- **Purposeful Meaning**: Hover animations communicate interactivity; smooth transitions maintain visual continuity
-- **Hierarchy of Movement**: Card hover effects are primary (scale + glow), link hovers are secondary (color shift), background gradient is ambient (slow subtle shift)
+- **Purposeful Meaning**: Hover animations provide clear feedback; elevation changes indicate interactivity
+- **Hierarchy of Movement**: Card hover effects are primary (slight lift + shadow increase), link hovers are secondary (color opacity change), all transitions use consistent 200ms timing
 
 ## Component Selection
 
 - **Components**: 
-  - Card component for project tiles with customized glassmorphic styling (backdrop-blur, border gradients)
-  - Button component for GitHub links with icon integration
-  - Badge component for technology tags with custom muted styling
+  - Card component for project tiles with Fluent styling (subtle shadows, minimal borders)
+  - Badge component for technology tags with soft secondary background
+  - Text links with Microsoft blue color and arrow indicators
   
 - **Customizations**: 
-  - Custom gradient background with animated shift
-  - Glassmorphic cards with border-gradient effects
-  - Custom image overlays with gradient masks
-  - Technology tag badges with pill styling
+  - Clean white cards with subtle box shadows
+  - Minimal 1px borders in light gray
+  - Small rounded corners (4px radius) per Fluent guidelines
+  - Soft secondary backgrounds for badges
+  - GitHub icon badges in top-right of images
   
 - **States**: 
-  - Card hover: Subtle scale (1.02) + elevated shadow + bright border glow
-  - Link hover: Color shift to accent blue + icon scale
-  - Default: Soft shadows and subtle borders for depth
+  - Card hover: Subtle upward movement (2px) + increased shadow depth
+  - Link hover: Opacity reduction (80%) + arrow translation
+  - Default: Soft shadows (shadow-sm) and thin borders for definition
   
 - **Icon Selection**: 
-  - GithubLogo from @phosphor-icons/react for repository links (recognizable, on-brand)
-  - ArrowUpRight or Link for external link indicators
+  - GithubLogo from @phosphor-icons/react for repository identification
+  - Custom chevron arrow for link indicators (Fluent style)
   
 - **Spacing**: 
-  - Container: px-8 py-16 (lg: px-16 py-24) for generous breathing room
-  - Grid gap: gap-6 (lg: gap-8) for clear separation
-  - Card padding: p-6 for comfortable content spacing
-  - Section spacing: space-y-4 for title/description grouping
+  - Container: px-8 py-16 (lg: px-16 py-20) for clean, spacious layout
+  - Grid gap: gap-4 (lg: gap-6) for comfortable but compact arrangement
+  - Card padding: p-5 for balanced content spacing
+  - Consistent 8px spacing units throughout
   
 - **Mobile**: 
   - Mobile-first: Single column grid, full-width cards, reduced padding (px-4 py-12)
   - Tablet (md): 2-column grid, moderate spacing
-  - Desktop (lg): 3-column grid (or 4 if 4 projects), maximum spacing
+  - Desktop (lg): 2-column grid (or 4 if needed), consistent spacing
   - Images: Aspect ratio 16/9 maintained across all breakpoints

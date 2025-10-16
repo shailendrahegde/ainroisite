@@ -43,41 +43,40 @@ const projects: Project[] = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[oklch(0.15_0.05_280)] via-[oklch(0.18_0.06_285)] to-[oklch(0.12_0.04_275)] text-foreground">
-      <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-24">
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
-            My Featured <span className="text-accent">Projects</span>
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20">
+        <div className="mb-12 md:mb-16">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
+            My Featured Projects
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
             A selection of my work that demonstrates my skills in software engineering, from concept to deployment.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group overflow-hidden bg-card/60 backdrop-blur-xl border-border/50 hover:border-accent/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-accent/20 flex flex-col"
+              className="group overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col"
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-secondary">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <GithubLogo size={32} weight="fill" className="text-accent opacity-80" />
+                <div className="absolute top-3 right-3 bg-card/90 backdrop-blur-sm rounded-full p-2 shadow-sm">
+                  <GithubLogo size={20} weight="fill" className="text-foreground/70" />
                 </div>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col">
-                <h2 className="text-xl md:text-2xl font-semibold mb-3 tracking-tight">
+              <div className="p-5 flex-1 flex flex-col">
+                <h2 className="text-lg md:text-xl font-semibold mb-2 text-foreground">
                   {project.title}
                 </h2>
                 
-                <p className="text-sm md:text-base text-card-foreground/80 mb-4 leading-relaxed flex-1">
+                <p className="text-sm text-foreground/70 mb-4 leading-relaxed flex-1">
                   {project.description}
                 </p>
 
@@ -86,7 +85,7 @@ function App() {
                     <Badge
                       key={tagIndex}
                       variant="secondary"
-                      className="bg-muted/80 text-muted-foreground text-xs uppercase tracking-wider font-medium px-3 py-1"
+                      className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm"
                     >
                       {tag}
                     </Badge>
@@ -97,10 +96,12 @@ function App() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-foreground transition-colors group/link mt-auto"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
                 >
-                  <GithubLogo size={20} weight="fill" className="transition-transform group-hover/link:scale-110" />
-                  <span>GitHub</span>
+                  <span>View on GitHub</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                    <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </a>
               </div>
             </Card>
