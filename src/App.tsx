@@ -19,7 +19,7 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
   },
   {
-    title: "Copilot Chat Analytics",
+    title: "Chat & Agent Intelligence",
     description: "Intelligence on free Chat and Agent usage.",
     tags: ["Power BI"],
     githubUrl: "https://github.com/microsoft/CopilotChatAnalytics",
