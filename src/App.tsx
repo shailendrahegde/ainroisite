@@ -45,6 +45,13 @@ const projects: Project[] = [
     tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
     githubUrl: "https://github.com/microsoft/AIinOne",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
+  },
+  {
+    title: "Causal Inference",
+    description: "Move beyond correlation to causation. What impact is high usage of Copilot having?",
+    tags: ["Python", "Copilot Analytics"],
+    githubUrl: "https://github.com/microsoft/CausalInference",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&brightness=0.9"
   }
 ]
 
