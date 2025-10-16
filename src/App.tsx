@@ -6,7 +6,7 @@ interface Project {
   title: string
   description: string
   tags: string[]
-  githubUrl: string
+  githubUrl?: string
   image: string
 }
 
@@ -43,14 +43,12 @@ const projects: Project[] = [
     title: "AI in One",
     description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
     tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
-    githubUrl: "https://github.com/microsoft/AIinOne",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
   },
   {
     title: "Causal Inference",
     description: "Move beyond correlation to causation. What impact is high usage of Copilot having?",
     tags: ["Python", "Copilot Analytics"],
-    githubUrl: "https://github.com/microsoft/CausalInference",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&brightness=0.9"
   }
 ]
@@ -115,17 +113,23 @@ function App() {
                   ))}
                 </div>
 
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
-                >
-                  <span>View on GitHub</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                    <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
+                  >
+                    <span>View on GitHub</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                      <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mt-auto">
+                    Coming soon
+                  </span>
+                )}
               </div>
             </Card>
           ))}
