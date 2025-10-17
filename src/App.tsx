@@ -74,7 +74,7 @@ function App() {
 
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
-            Featured Assets
+            Featured assets
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
             Explore projects that help organizations unlock the full potential of Copilot through actionable insights and advanced analytics.
