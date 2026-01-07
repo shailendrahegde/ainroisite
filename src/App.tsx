@@ -24,10 +24,10 @@ interface Article {
 
 const articles: Article[] = [
   {
-    title: "Article Title 1",
-    summary: "A brief preview of the first article content. This gives readers a quick overview of what they'll learn.",
+    title: "Decoding Super Usage: What Your Best Copilot Users Do Differently",
+    summary: "Discover the patterns and behaviors that distinguish high-impact Copilot users from the rest. Learn how to identify super users in your organization and replicate their success strategies.",
     category: "Copilot Analytics",
-    readTime: "5 min read",
+    readTime: "8 min read",
     content: `[PLACEHOLDER - Replace with content from first SharePoint link]
 
 Please copy and paste the full text from:
@@ -36,10 +36,10 @@ https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQBJLlV5JmsQQIpLr9o4I9ugAS
 This is where the full article text will appear when users click on the preview card.`
   },
   {
-    title: "Article Title 2",
-    summary: "A brief preview of the second article content. This gives readers a quick overview of what they'll learn.",
+    title: "From Insights to Impact: Building a Data-Driven Copilot Strategy",
+    summary: "Transform raw telemetry into actionable adoption strategies. Learn how to use analytics to guide deployment decisions, measure ROI, and drive meaningful organizational change with Copilot.",
     category: "Adoption Strategy",
-    readTime: "7 min read",
+    readTime: "10 min read",
     content: `[PLACEHOLDER - Replace with content from second SharePoint link]
 
 Please copy and paste the full text from:
@@ -48,10 +48,10 @@ https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQCpSSzTEsADSqoAfXFlaAkaAV
 This is where the full article text will appear when users click on the preview card.`
   },
   {
-    title: "Article Title 3",
-    summary: "A brief preview of the third article content. This gives readers a quick overview of what they'll learn.",
+    title: "The Analytics Playbook: Essential Metrics for Copilot Success",
+    summary: "Master the key performance indicators that matter for Copilot adoption. From engagement rates to productivity gains, learn which metrics to track and how to interpret them for maximum impact.",
     category: "Best Practices",
-    readTime: "6 min read",
+    readTime: "7 min read",
     content: `[PLACEHOLDER - Replace with content from third SharePoint link]
 
 Please copy and paste the full text from:
