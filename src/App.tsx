@@ -2,7 +2,9 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { GithubLogo } from "@phosphor-icons/react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { GithubLogo, Article } from "@phosphor-icons/react"
 
 interface Project {
   title: string
@@ -11,6 +13,53 @@ interface Project {
   githubUrl?: string
   image: string
 }
+
+interface Article {
+  title: string
+  summary: string
+  category: string
+  readTime: string
+  content: string
+}
+
+const articles: Article[] = [
+  {
+    title: "Article Title 1",
+    summary: "A brief preview of the first article content. This gives readers a quick overview of what they'll learn.",
+    category: "Copilot Analytics",
+    readTime: "5 min read",
+    content: `[PLACEHOLDER - Replace with content from first SharePoint link]
+
+Please copy and paste the full text from:
+https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQBJLlV5JmsQQIpLr9o4I9ugASPEk6l7pKG6xdUSsmgHmvA?e=8LMrwB
+
+This is where the full article text will appear when users click on the preview card.`
+  },
+  {
+    title: "Article Title 2",
+    summary: "A brief preview of the second article content. This gives readers a quick overview of what they'll learn.",
+    category: "Adoption Strategy",
+    readTime: "7 min read",
+    content: `[PLACEHOLDER - Replace with content from second SharePoint link]
+
+Please copy and paste the full text from:
+https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQA1GIVgaMT9SKhv4yqJkn5LAa_qp7kN0rd6nWObQYz3FEo?e=Y9xuq7
+
+This is where the full article text will appear when users click on the preview card.`
+  },
+  {
+    title: "Article Title 3",
+    summary: "A brief preview of the third article content. This gives readers a quick overview of what they'll learn.",
+    category: "Best Practices",
+    readTime: "6 min read",
+    content: `[PLACEHOLDER - Replace with content from third SharePoint link]
+
+Please copy and paste the full text from:
+https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQCpSSzTEsADSqoAfXFlaAkaAVXe2oeS9OUFRh9U1f2_HXs?e=AxXwBR
+
+This is where the full article text will appear when users click on the preview card.`
+  }
+]
 
 const projects: Project[] = [
   {
@@ -65,15 +114,15 @@ const projects: Project[] = [
 function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20">
+      <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20 max-w-[1600px]">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className="mb-12 md:mb-16">
-            <TabsTrigger value="insights">Insights</TabsTrigger>
-            <TabsTrigger value="projects">Projects/Code</TabsTrigger>
-            <TabsTrigger value="about">About Us</TabsTrigger>
+          <TabsList className="mb-12 md:mb-16 h-12 px-2">
+            <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger>
+            <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>
+            <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="insights">
+          <TabsContent value="insights" className="mt-0">
             <div className="mb-16 md:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
                 Insights
@@ -82,9 +131,68 @@ function App() {
                 Discover actionable insights and analytics to drive your Copilot success.
               </p>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {articles.map((article, index) => (
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <Card className="group cursor-pointer overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col p-6">
+                      <div className="flex items-start gap-3 mb-4">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <Article size={24} weight="duotone" className="text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm mb-2">
+                            {article.category}
+                          </Badge>
+                          <p className="text-xs text-muted-foreground">{article.readTime}</p>
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-xl md:text-2xl font-semibold mb-3 text-foreground">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-4">
+                        {article.summary}
+                      </p>
+
+                      <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors mt-auto">
+                        <span>Read full article</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                          <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </Card>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[85vh]">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl md:text-3xl font-semibold pr-8">
+                        {article.title}
+                      </DialogTitle>
+                      <div className="flex items-center gap-3 pt-2">
+                        <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm">
+                          {article.category}
+                        </Badge>
+                        <span className="text-sm text-muted-foreground">{article.readTime}</span>
+                      </div>
+                    </DialogHeader>
+                    <ScrollArea className="mt-6 pr-4 max-h-[calc(85vh-180px)]">
+                      <div className="prose prose-sm md:prose-base max-w-none text-foreground">
+                        {article.content.split('\n').map((paragraph, idx) => (
+                          <p key={idx} className="mb-4 leading-relaxed whitespace-pre-wrap">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    </ScrollArea>
+                  </DialogContent>
+                </Dialog>
+              ))}
+            </div>
           </TabsContent>
 
-          <TabsContent value="projects">
+          <TabsContent value="projects" className="mt-0">
             <div className="mb-16 md:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
                 Who we are
@@ -103,7 +211,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {projects.map((project, index) => (
                 <Card
                   key={index}
@@ -164,7 +272,7 @@ function App() {
             </div>
           </TabsContent>
 
-          <TabsContent value="about">
+          <TabsContent value="about" className="mt-0">
             <div className="mb-16 md:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
                 About Us
