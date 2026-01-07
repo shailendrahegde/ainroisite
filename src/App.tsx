@@ -105,7 +105,7 @@ function App() {
         const loadedArticles: Article[] = [
           {
             title: "ROI Demands Patience",
-            summary: "Understanding the long-term value proposition of AI investments requires patience and strategic planning.",
+            summary: "AI value unfolds in stages. Focusing on ROI prematurely can lead to missed opportunities. Here's what to focus on instead",
             category: "ROI Analysis",
             readTime: "5 min read",
             content: `AI ROI Is the Wrong First Question: Here’s What to Measure Instead
@@ -129,7 +129,7 @@ The sequence matters. First, make AI accessible and useful. Invest in education,
           },
           {
             title: "What Early AI Adoption Really Looks Like in the Enterprise",
-            summary: "A practical look at the realities of enterprise AI adoption in organizations.",
+            summary: "Early adoption is concentrated in few surfaces and within a small set of superusers, and this is ok",
             category: "AI Adoption",
             readTime: "7 min read",
             content: `What Early AI Adoption Really Looks Like in the Enterprise
@@ -422,14 +422,12 @@ Once those habits are in place and you see sustained interaction levels, focus o
                   
                   <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed space-y-4">
                     <p>
-                      Shailendra is a Senior Product Manager at Microsoft, specializing in AI and Copilot analytics. With a deep passion for data-driven insights, he helps organizations measure and maximize the impact of their AI investments.
+                      Shailendra is a Product Manager at Microsoft, specializing in AI and Copilot analytics. With a deep passion for data-driven insights, he helps organizations measure and maximize the impact of their AI investments.
                     </p>
                     <p>
                       His work focuses on creating actionable analytics frameworks that help enterprises understand usage patterns, adoption metrics, and ROI from Microsoft 365 Copilot, GitHub Copilot, and other AI solutions. Through innovative Power BI dashboards and analytical tools, Shailendra enables organizations to decode what their best users do differently and apply those insights at scale.
                     </p>
-                    <p>
-                      At Microsoft, Shailendra has led the development of several flagship analytics projects including Decoding Super Usage, Chat & Agent Intelligence, and AI in One Dashboard. His approach combines technical expertise with a pragmatic understanding of how organizations adopt and scale AI in the real world.
-                    </p>
+                    
                   </div>
                 </div>
 
