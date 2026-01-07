@@ -231,15 +231,6 @@ Return ONLY a valid JSON object with this exact structure:
           </TabsContent>
 
           <TabsContent value="projects" className="mt-0">
-            <div className="mb-16 md:mb-20">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
-                Who we are
-              </h1>
-              <p className="text-base md:text-lg text-foreground/80 max-w-4xl leading-relaxed">
-                We champion your Copilot success by turning telemetry and organizational context into clear decisions: what's working, where to deploy, how to drive adoption, and how to measure impact.
-              </p>
-            </div>
-
             <div className="mb-12 md:mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
                 Featured assets
