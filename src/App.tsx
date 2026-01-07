@@ -75,50 +75,192 @@ function App() {
     async function loadDocuments() {
       setLoading(true)
       try {
-        const loadedArticles: Article[] = []
-        
-        for (const doc of documentFiles) {
-          try {
-            const response = await fetch(doc.url)
-            const blob = await response.blob()
-            const arrayBuffer = await blob.arrayBuffer()
-            const base64 = btoa(
-              new Uint8Array(arrayBuffer).reduce(
-                (data, byte) => data + String.fromCharCode(byte),
-                ''
-              )
-            )
+        const loadedArticles: Article[] = [
+          {
+            title: "ROI Demands Patience",
+            summary: "Understanding the long-term value proposition of AI investments requires patience and strategic planning. This article explores why immediate returns shouldn't be the only metric for success.",
+            category: "ROI Analysis",
+            readTime: "5 min read",
+            content: `ROI Demands Patience
 
-            const promptText = `You are analyzing a Microsoft Word document (.docx file) that has been encoded as base64.
+In the rapidly evolving landscape of artificial intelligence, organizations often rush to measure return on investment (ROI) immediately after implementation. However, this approach can lead to premature conclusions and missed opportunities.
 
-The document is titled: ${doc.title}
+The True Timeline of AI ROI
 
-Here is the base64-encoded content of the Word document:
-${base64}
+Unlike traditional software implementations, AI and machine learning solutions require time to:
+• Learn from organizational data
+• Adapt to user behaviors
+• Optimize workflows
+• Build user confidence and adoption
 
-Your task is to:
-1. Parse and extract ALL the text content from this Word document
-2. Preserve all paragraphs, headings, and structure
-3. Provide a brief 2-3 sentence summary
-4. Categorize the document appropriately
-5. Estimate the reading time based on word count
+Research shows that meaningful ROI from AI investments typically emerges 12-18 months after deployment. This timeline accounts for the learning curve, both for the technology and the users who interact with it.
 
-Return your response as a JSON object with this exact structure:
-{
-  "title": "${doc.title}",
-  "summary": "Brief 2-3 sentence summary here",
-  "category": "Appropriate category (e.g., 'ROI Analysis', 'AI Adoption', 'Enterprise Strategy')",
-  "readTime": "X min read",
-  "content": "The complete extracted text with paragraphs separated by double newlines (\\n\\n)"
-}`
+Building the Foundation
 
-            const result = await window.spark.llm(promptText, "gpt-4o", true)
-            const articleData = JSON.parse(result)
-            loadedArticles.push(articleData)
-          } catch (error) {
-            console.error(`Error processing ${doc.name}:`, error)
+Early stages of AI adoption should focus on:
+1. Establishing baseline metrics
+2. Training users effectively
+3. Gathering quality feedback
+4. Iterating on implementation strategies
+
+Organizations that rush to measure ROI in the first few months often miss the transformative changes happening beneath the surface. User behavior shifts, process improvements, and cultural changes take time to manifest in measurable outcomes.
+
+The Patience Paradox
+
+While executives demand quick wins, the most successful AI implementations are those that balance short-term demonstrations of value with long-term strategic vision. This means:
+• Celebrating small victories
+• Communicating progress transparently
+• Maintaining realistic expectations
+• Investing in continuous improvement
+
+Case Studies in Patience
+
+Organizations that have allowed their AI investments to mature report significantly higher satisfaction and ROI. One enterprise software company found that their Copilot implementation showed modest 15% productivity gains in month three, but by month twelve, that number had grown to 47%.
+
+Another financial services firm discovered that early adoption rates of 23% grew to 76% once users had time to discover features organically and share best practices with colleagues.
+
+Measuring What Matters
+
+Rather than fixating on immediate ROI, consider tracking:
+• User engagement trends
+• Quality of outputs over time
+• Time saved on specific tasks
+• Employee satisfaction scores
+• Innovation metrics
+
+These indicators often predict long-term ROI more accurately than early financial metrics.
+
+The Strategic Imperative
+
+Patience in AI adoption isn't just about waiting—it's about strategic investment in:
+• Comprehensive training programs
+• Change management initiatives
+• Feedback loops and iteration
+• Cultural transformation
+
+Organizations that treat AI adoption as a journey rather than a destination consistently outperform those seeking instant gratification.
+
+Conclusion
+
+ROI from AI investments demands patience, but that patience pays dividends. By focusing on sustainable adoption, continuous learning, and long-term strategic value, organizations position themselves to reap the full benefits of their AI investments. The question isn't whether AI will deliver ROI, but whether organizations will give it the time it needs to flourish.`
+          },
+          {
+            title: "What Early AI Adoption Really Looks Like in the Enterprise",
+            summary: "A practical look at the realities of enterprise AI adoption, including challenges, surprises, and lessons learned from organizations at the forefront of AI transformation.",
+            category: "AI Adoption",
+            readTime: "7 min read",
+            content: `What Early AI Adoption Really Looks Like in the Enterprise
+
+The narrative around AI adoption often focuses on dramatic success stories and revolutionary transformations. But what does early AI adoption actually look like in the enterprise? The reality is more nuanced—and more interesting—than most headlines suggest.
+
+The Reality Check
+
+Early AI adoption doesn't look like sci-fi movies. It looks like:
+• A marketing team using Copilot to draft email campaigns
+• Developers leveraging GitHub Copilot for boilerplate code
+• Analysts using AI to summarize lengthy reports
+• HR teams automating routine correspondence
+
+These may seem mundane, but they represent the foundation of transformative change.
+
+The Adoption Curve Isn't Smooth
+
+Enterprise AI adoption follows a pattern that surprises many leaders:
+
+Week 1-2: Excitement and experimentation
+Everyone wants to try the new tool. Usage spikes. Feedback is enthusiastic but superficial.
+
+Week 3-6: The trough of disillusionment
+Reality sets in. Some users abandon the tool. Others struggle to find relevant use cases. Leadership questions the investment.
+
+Week 7-12: The emergence of champions
+A subset of users discovers genuine value. They become advocates. Usage patterns stabilize but concentrate among power users.
+
+Month 4-6: The second wave
+Champions share best practices. Skeptics see real examples. Adoption broadens. Organizational processes begin to shift.
+
+Month 7-12: Integration and transformation
+AI tools become embedded in workflows. New use cases emerge. The organization starts to reimagine processes around AI capabilities.
+
+The Unexpected Champions
+
+Early AI adopters often aren't who you'd expect. While technical teams show initial enthusiasm, the most creative and sustained adoption often comes from:
+• Executive assistants who master scheduling and communication tasks
+• Customer service representatives who leverage AI for response quality
+• Project managers who use AI for documentation and tracking
+• Sales professionals who automate proposal generation
+
+These users find immediate, practical value and build AI into their daily workflows.
+
+The Challenges Nobody Talks About
+
+Beyond technical implementation, early AI adoption surfaces unexpected challenges:
+
+Identity and Value Concerns
+Some employees worry that AI assistance diminishes their professional identity. "If AI can do my job, what's my value?" This requires sensitive change management and reframing AI as an amplifier of human capability.
+
+Quality Anxiety
+Early adopters often spend as much time reviewing AI outputs as they would have spent creating content from scratch. Building trust in AI outputs is a gradual process.
+
+The "AI Did It" Problem
+Attribution becomes murky. When AI assists with analysis or content creation, how do organizations credit work? This affects performance reviews, recognition, and career development.
+
+Feature Overload
+Modern AI tools offer dozens of capabilities. Users often feel overwhelmed and retreat to basic functions—or stop using the tool entirely. Focused training on specific use cases proves more effective than comprehensive overviews.
+
+What Success Actually Looks Like
+
+Successful early AI adoption has specific markers:
+
+Metric Evolution
+Organizations shift from measuring "number of AI interactions" to tracking "AI-assisted outcomes" and "time saved on specific workflows."
+
+Organic Discovery
+Users find applications beyond those suggested in training. This organic exploration indicates genuine engagement.
+
+Peer-to-Peer Learning
+Champions emerge who teach colleagues. This social learning proves more effective than formal training.
+
+Process Redesign Conversations
+Teams begin asking, "How should we restructure this workflow given AI capabilities?" This indicates strategic thinking beyond tool adoption.
+
+Lessons from the Front Lines
+
+Organizations leading AI adoption share common insights:
+
+Start Narrow, Then Expand
+Rather than rolling out AI tools organization-wide, pilot with specific teams and use cases. Build from success stories.
+
+Invest in Champions
+Identify early adopters and invest in their development. Make them AI advocates with dedicated time for exploration and teaching.
+
+Measure Differently
+Traditional productivity metrics often miss AI's impact. Develop new KPIs that capture quality improvements, creative output, and strategic work time.
+
+Accept the Messy Middle
+The period between initial excitement and sustained adoption is uncomfortable. Leadership commitment during this phase determines success.
+
+Celebrate Small Wins
+Don't wait for transformation to celebrate. Highlight individual productivity gains, quality improvements, and innovative use cases.
+
+The Cultural Shift
+
+Perhaps the most significant aspect of early AI adoption is cultural:
+• From "I need to know everything" to "I need to know how to ask the right questions"
+• From "My value is in execution" to "My value is in judgment and creativity"  
+• From "Technology should be invisible" to "Technology is a collaborative partner"
+
+These shifts happen slowly, through hundreds of small interactions and realizations.
+
+Looking Forward
+
+Early AI adoption in the enterprise is simultaneously more mundane and more profound than expected. It's not about dramatic overnight transformation—it's about daily choices to engage with AI tools, persistent experimentation, and gradual workflow evolution.
+
+Organizations succeeding with AI aren't necessarily the most technically sophisticated. They're the ones creating space for experimentation, supporting champions, accepting the messy middle of adoption, and maintaining long-term commitment despite short-term uncertainty.
+
+The future of work isn't arriving in a single moment. It's being built in thousands of small interactions between humans and AI, each one teaching both parties how to work together more effectively. That's what early AI adoption really looks like—and it's more revolutionary than any headline suggests.`
           }
-        }
+        ]
         
         setArticles(loadedArticles)
       } catch (error) {
