@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button"
 import { GithubLogo, Article, ArrowLeft, TwitterLogo, LinkedinLogo, Link as LinkIcon, Check } from "@phosphor-icons/react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from "sonner"
-import roiDoc from "@/assets/documents/ROI_demands_patience.docx"
-import aiAdoptionDoc from "@/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx"
 
 interface Project {
   title: string
@@ -25,10 +23,7 @@ interface Article {
   content: string
 }
 
-const documentFiles = [
-  { url: roiDoc, name: "ROI_demands_patience.docx", title: "ROI Demands Patience" },
-  { url: aiAdoptionDoc, name: "What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx", title: "What Early AI Adoption Really Looks Like in the Enterprise" }
-]
+
 
 const projects: Project[] = [
   {
