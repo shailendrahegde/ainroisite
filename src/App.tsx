@@ -51,24 +51,11 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&sat=-100"
   },
   {
-    title: "Portable Audit Exporter",
-    description: "A powerful tool to export audit log files which you can use to run enterprise wide analytics.",
-    tags: ["Powershell"],
-    githubUrl: "https://github.com/microsoft/PAX",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
-  },
-  {
     title: "AI in One",
     description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
     tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
     githubUrl: "https://github.com/microsoft/AI-in-One-Dashboard",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
-  },
-  {
-    title: "Causal Inference",
-    description: "Move beyond correlation to causation. What impact is high usage of Copilot having?",
-    tags: ["Python", "Copilot Analytics"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&brightness=0.9"
   },
   {
     title: "M365 to Copilot Bridge",
