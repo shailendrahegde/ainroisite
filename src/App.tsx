@@ -215,11 +215,15 @@ Base64 document content: ${base64.substring(0, 50000)}`
                     </DialogHeader>
                     <ScrollArea className="mt-6 pr-4 max-h-[calc(85vh-180px)]">
                       <div className="prose prose-sm md:prose-base max-w-none text-foreground">
-                        {article.content.split('\n').map((paragraph, idx) => (
-                          <p key={idx} className="mb-4 leading-relaxed whitespace-pre-wrap">
-                            {paragraph}
-                          </p>
-                        ))}
+                        {article.content ? (
+                          article.content.split('\n').map((paragraph, idx) => (
+                            <p key={idx} className="mb-4 leading-relaxed whitespace-pre-wrap">
+                              {paragraph}
+                            </p>
+                          ))
+                        ) : (
+                          <p className="text-muted-foreground">Content could not be loaded.</p>
+                        )}
                       </div>
                     </ScrollArea>
                   </DialogContent>
