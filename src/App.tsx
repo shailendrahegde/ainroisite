@@ -3,8 +3,9 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { GithubLogo, Article, ArrowLeft } from "@phosphor-icons/react"
+import { GithubLogo, Article, ArrowLeft, TwitterLogo, LinkedinLogo, Link as LinkIcon, Check } from "@phosphor-icons/react"
 import { Skeleton } from "@/components/ui/skeleton"
+import { toast } from "sonner"
 import roiDoc from "@/assets/documents/ROI_demands_patience.docx"
 import aiAdoptionDoc from "@/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx"
 
@@ -70,6 +71,32 @@ function App() {
   const [articles, setArticles] = useState<Article[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyLink = () => {
+    if (selectedArticle) {
+      const url = window.location.href
+      navigator.clipboard.writeText(url)
+      setCopied(true)
+      toast.success("Link copied to clipboard!")
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }
+
+  const handleShareTwitter = () => {
+    if (selectedArticle) {
+      const url = window.location.href
+      const text = `${selectedArticle.title} - ${selectedArticle.summary}`
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank')
+    }
+  }
+
+  const handleShareLinkedIn = () => {
+    if (selectedArticle) {
+      const url = window.location.href
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank')
+    }
+  }
 
   useEffect(() => {
     async function loadDocuments() {
@@ -169,9 +196,40 @@ Once those habits are in place and you see sustained interaction levels, focus o
                     {selectedArticle.title}
                   </h1>
 
-                  <p className="text-xl text-foreground/80 mb-12 leading-relaxed">
+                  <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
                     {selectedArticle.summary}
                   </p>
+
+                  <div className="flex items-center gap-3 mb-12 pb-8 border-b border-border">
+                    <span className="text-sm font-medium text-muted-foreground mr-2">Share:</span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleShareTwitter}
+                      className="gap-2"
+                    >
+                      <TwitterLogo size={18} weight="fill" />
+                      Twitter
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleShareLinkedIn}
+                      className="gap-2"
+                    >
+                      <LinkedinLogo size={18} weight="fill" />
+                      LinkedIn
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleCopyLink}
+                      className="gap-2"
+                    >
+                      {copied ? <Check size={18} weight="bold" /> : <LinkIcon size={18} />}
+                      {copied ? "Copied!" : "Copy Link"}
+                    </Button>
+                  </div>
 
                   <div className="text-base text-foreground/90 leading-relaxed space-y-6">
                     {selectedArticle.content.split('\n').map((paragraph, idx) => (
