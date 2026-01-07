@@ -385,13 +385,100 @@ Once those habits are in place and you see sustained interaction levels, focus o
           </TabsContent>
 
           <TabsContent value="about" className="mt-0">
-            <div className="mb-16 md:mb-20">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
-                About Us
-              </h1>
-              <p className="text-base md:text-lg text-foreground/80 max-w-4xl leading-relaxed">
-                Learn more about our mission and what drives us to help organizations succeed with Copilot.
-              </p>
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-12 md:mb-16">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
+                  About Us
+                </h1>
+                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+                  We are passionate about helping organizations unlock the full potential of AI and Copilot through actionable insights, advanced analytics, and strategic guidance.
+                </p>
+              </div>
+
+              <div className="space-y-12">
+                <div className="border-b border-border pb-12">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
+                      <span className="text-3xl font-bold text-primary">SH</span>
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
+                        Shailendra Hegde
+                      </h2>
+                      <p className="text-lg text-primary font-medium mb-3">
+                        Senior Product Manager, Microsoft
+                      </p>
+                      <a
+                        href="https://www.linkedin.com/in/shailendrahegde"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <LinkedinLogo size={20} weight="fill" />
+                        View LinkedIn Profile
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed space-y-4">
+                    <p>
+                      Shailendra is a Senior Product Manager at Microsoft, specializing in AI and Copilot analytics. With a deep passion for data-driven insights, he helps organizations measure and maximize the impact of their AI investments.
+                    </p>
+                    <p>
+                      His work focuses on creating actionable analytics frameworks that help enterprises understand usage patterns, adoption metrics, and ROI from Microsoft 365 Copilot, GitHub Copilot, and other AI solutions. Through innovative Power BI dashboards and analytical tools, Shailendra enables organizations to decode what their best users do differently and apply those insights at scale.
+                    </p>
+                    <p>
+                      At Microsoft, Shailendra has led the development of several flagship analytics projects including Decoding Super Usage, Chat & Agent Intelligence, and AI in One Dashboard. His approach combines technical expertise with a pragmatic understanding of how organizations adopt and scale AI in the real world.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pb-12">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
+                      <span className="text-3xl font-bold text-primary">KM</span>
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
+                        Keith McGrane
+                      </h2>
+                      <p className="text-lg text-primary font-medium mb-3">
+                        AI & Data Solutions Specialist
+                      </p>
+                      <a
+                        href="https://www.linkedin.com/in/keith-mcgrane-46184029/?originalSubdomain=uk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <LinkedinLogo size={20} weight="fill" />
+                        View LinkedIn Profile
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed space-y-4">
+                    <p>
+                      Keith is an experienced AI and Data Solutions Specialist based in the UK, with extensive expertise in helping organizations leverage artificial intelligence and data analytics to drive business outcomes.
+                    </p>
+                    <p>
+                      With a strong background in enterprise technology solutions, Keith specializes in designing and implementing AI-powered analytics systems that deliver measurable value. His work spans across strategic planning, technical implementation, and organizational change management to ensure successful AI adoption.
+                    </p>
+                    <p>
+                      Keith brings a practical, results-oriented approach to AI transformation, helping organizations navigate the complexities of enterprise AI deployment while maintaining focus on real-world business impact and user adoption.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12 p-6 bg-secondary/50 rounded-lg border border-border">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Our Mission
+                </h3>
+                <p className="text-base text-foreground/80 leading-relaxed">
+                  We believe that AI adoption is not just about technology—it's about people, processes, and measurable outcomes. Our mission is to empower organizations with the insights and tools they need to drive meaningful AI adoption, build sustainable habits, and achieve long-term ROI from their Copilot investments.
+                </p>
+              </div>
             </div>
           </TabsContent>
         </Tabs>
