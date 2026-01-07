@@ -89,27 +89,28 @@ function App() {
               )
             )
 
-            const promptText = `You are extracting the exact text content from a Word document (.docx file).
+            const promptText = `You are analyzing a Microsoft Word document (.docx file) that has been encoded as base64.
 
-The document is titled "${doc.title}".
+The document is titled: ${doc.title}
 
-I'm providing the document's base64 encoded content. Your task is to extract ALL the text exactly as it appears in the document, preserving:
-- All paragraphs
-- All line breaks
-- All formatting structure
-- All headings and subheadings
-- All content without summarizing or changing anything
+Here is the base64-encoded content of the Word document:
+${base64}
 
-Return ONLY a valid JSON object with this exact structure:
+Your task is to:
+1. Parse and extract ALL the text content from this Word document
+2. Preserve all paragraphs, headings, and structure
+3. Provide a brief 2-3 sentence summary
+4. Categorize the document appropriately
+5. Estimate the reading time based on word count
+
+Return your response as a JSON object with this exact structure:
 {
   "title": "${doc.title}",
-  "summary": "A brief 2-3 sentence summary of what the document is about",
-  "category": "An appropriate category like 'ROI Analysis', 'AI Adoption', 'Enterprise Strategy', etc.",
-  "readTime": "Estimated read time like '7 min read' based on word count",
-  "content": "The COMPLETE document text with paragraphs separated by \\n\\n - extract EVERYTHING from the document"
-}
-
-Base64 document content: ${base64.substring(0, 50000)}`
+  "summary": "Brief 2-3 sentence summary here",
+  "category": "Appropriate category (e.g., 'ROI Analysis', 'AI Adoption', 'Enterprise Strategy')",
+  "readTime": "X min read",
+  "content": "The complete extracted text with paragraphs separated by double newlines (\\n\\n)"
+}`
 
             const result = await window.spark.llm(promptText, "gpt-4o", true)
             const articleData = JSON.parse(result)
