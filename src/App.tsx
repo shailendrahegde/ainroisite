@@ -401,7 +401,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
                         Shailendra Hegde
                       </h2>
                       <p className="text-lg text-primary font-medium mb-3">
-                        Senior Product Manager, Microsoft
+                        Principal Product Manager, Microsoft
                       </p>
                       <a
                         href="https://www.linkedin.com/in/shailendrahegde"
