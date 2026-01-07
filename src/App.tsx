@@ -2,9 +2,8 @@ import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { GithubLogo, Article, FileText } from "@phosphor-icons/react"
+import { Button } from "@/components/ui/button"
+import { GithubLogo, Article, ArrowLeft } from "@phosphor-icons/react"
 import { Skeleton } from "@/components/ui/skeleton"
 import roiDoc from "@/assets/documents/ROI_demands_patience.docx"
 import aiAdoptionDoc from "@/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx"
@@ -70,6 +69,7 @@ const projects: Project[] = [
 function App() {
   const [articles, setArticles] = useState<Article[]>([])
   const [loading, setLoading] = useState(true)
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
 
   useEffect(() => {
     async function loadDocuments() {
@@ -146,6 +146,46 @@ Once those habits are in place and you see sustained interaction levels, focus o
           </TabsList>
 
           <TabsContent value="insights" className="mt-0">
+            {selectedArticle ? (
+              <div className="max-w-4xl mx-auto">
+                <Button
+                  variant="ghost"
+                  onClick={() => setSelectedArticle(null)}
+                  className="mb-8 -ml-2 text-muted-foreground hover:text-foreground"
+                >
+                  <ArrowLeft size={20} className="mr-2" />
+                  Back to all insights
+                </Button>
+
+                <article className="prose prose-lg max-w-none">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Badge variant="secondary" className="bg-secondary text-foreground text-sm font-normal px-3 py-1 rounded-sm">
+                      {selectedArticle.category}
+                    </Badge>
+                    <span className="text-sm text-muted-foreground">{selectedArticle.readTime}</span>
+                  </div>
+
+                  <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
+                    {selectedArticle.title}
+                  </h1>
+
+                  <p className="text-xl text-foreground/80 mb-12 leading-relaxed">
+                    {selectedArticle.summary}
+                  </p>
+
+                  <div className="text-base text-foreground/90 leading-relaxed space-y-6">
+                    {selectedArticle.content.split('\n').map((paragraph, idx) => (
+                      paragraph.trim() ? (
+                        <p key={idx} className="whitespace-pre-wrap">
+                          {paragraph}
+                        </p>
+                      ) : null
+                    ))}
+                  </div>
+                </article>
+              </div>
+            ) : (
+              <>
             <div className="mb-16 md:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
                 Insights
@@ -175,68 +215,45 @@ Once those habits are in place and you see sustained interaction levels, focus o
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 {articles.map((article, index) => (
-                <Dialog key={index}>
-                  <DialogTrigger asChild>
-                    <Card className="group cursor-pointer overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col p-6">
-                      <div className="flex items-start gap-3 mb-4">
-                        <div className="p-2 bg-primary/10 rounded-lg">
-                          <Article size={24} weight="duotone" className="text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm mb-2">
-                            {article.category}
-                          </Badge>
-                          <p className="text-xs text-muted-foreground">{article.readTime}</p>
-                        </div>
-                      </div>
-                      
-                      <h3 className="text-xl md:text-2xl font-semibold mb-3 text-foreground">
-                        {article.title}
-                      </h3>
-                      
-                      <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-4">
-                        {article.summary}
-                      </p>
+                <Card 
+                  key={index}
+                  onClick={() => setSelectedArticle(article)}
+                  className="group cursor-pointer overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col p-6"
+                >
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Article size={24} weight="duotone" className="text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm mb-2">
+                        {article.category}
+                      </Badge>
+                      <p className="text-xs text-muted-foreground">{article.readTime}</p>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl md:text-2xl font-semibold mb-3 text-foreground">
+                    {article.title}
+                  </h3>
+                  
+                  <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-4">
+                    {article.summary}
+                  </p>
 
-                      <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors mt-auto">
-                        <span>Read full article</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                          <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                    </Card>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[85vh]">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl md:text-3xl font-semibold pr-8">
-                        {article.title}
-                      </DialogTitle>
-                      <div className="flex items-center gap-3 pt-2">
-                        <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm">
-                          {article.category}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground">{article.readTime}</span>
-                      </div>
-                    </DialogHeader>
-                    <ScrollArea className="mt-6 pr-4 max-h-[calc(85vh-180px)]">
-                      <div className="prose prose-sm md:prose-base max-w-none text-foreground">
-                        {article.content ? (
-                          article.content.split('\n').map((paragraph, idx) => (
-                            <p key={idx} className="mb-4 leading-relaxed whitespace-pre-wrap">
-                              {paragraph}
-                            </p>
-                          ))
-                        ) : (
-                          <p className="text-muted-foreground">Content could not be loaded.</p>
-                        )}
-                      </div>
-                    </ScrollArea>
-                  </DialogContent>
-                </Dialog>
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors mt-auto">
+                    <span>Read full article</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
+                      <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </Card>
               ))}
             </div>
             )}
+            </>
+            )}
           </TabsContent>
+
 
           <TabsContent value="projects" className="mt-0">
             <div className="mb-12 md:mb-16">
