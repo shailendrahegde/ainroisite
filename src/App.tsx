@@ -6,6 +6,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { GithubLogo, Article, FileText } from "@phosphor-icons/react"
 import { Skeleton } from "@/components/ui/skeleton"
+import roiDoc from "@/assets/documents/ROI_demands_patience.docx"
+import aiAdoptionDoc from "@/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx"
 
 interface Project {
   title: string
@@ -24,8 +26,8 @@ interface Article {
 }
 
 const documentFiles = [
-  { path: "/src/assets/documents/ROI_demands_patience.docx", name: "ROI_demands_patience.docx" },
-  { path: "/src/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx", name: "What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx" }
+  { url: roiDoc, name: "ROI_demands_patience.docx", title: "ROI Demands Patience" },
+  { url: aiAdoptionDoc, name: "What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx", title: "What Early AI Adoption Really Looks Like in the Enterprise" }
 ]
 
 const projects: Project[] = [
@@ -76,34 +78,44 @@ function App() {
         const loadedArticles: Article[] = []
         
         for (const doc of documentFiles) {
-          const docTitle = doc.name.replace('.docx', '').replace(/_/g, ' ')
-          
-          const promptText = `You are writing a comprehensive, professional article based on the document titled "${docTitle}".
+          try {
+            const response = await fetch(doc.url)
+            const blob = await response.blob()
+            const arrayBuffer = await blob.arrayBuffer()
+            const base64 = btoa(
+              new Uint8Array(arrayBuffer).reduce(
+                (data, byte) => data + String.fromCharCode(byte),
+                ''
+              )
+            )
 
-Write a full-length article (800-1200 words) that thoroughly explores this topic in the context of enterprise AI and Copilot adoption. The article should be insightful, well-researched in tone, and provide actionable insights for enterprise decision-makers.
+            const promptText = `You are extracting the exact text content from a Word document (.docx file).
 
-Structure the article with:
-- Multiple substantive paragraphs (at least 6-8 paragraphs)
-- Clear topic sentences
-- Specific examples and scenarios where relevant
-- Practical takeaways
-- Professional, authoritative voice
+The document is titled "${doc.title}".
+
+I'm providing the document's base64 encoded content. Your task is to extract ALL the text exactly as it appears in the document, preserving:
+- All paragraphs
+- All line breaks
+- All formatting structure
+- All headings and subheadings
+- All content without summarizing or changing anything
 
 Return ONLY a valid JSON object with this exact structure:
 {
-  "title": "A professional title derived from the document name",
-  "summary": "A compelling 2-3 sentence summary",
+  "title": "${doc.title}",
+  "summary": "A brief 2-3 sentence summary of what the document is about",
   "category": "An appropriate category like 'ROI Analysis', 'AI Adoption', 'Enterprise Strategy', etc.",
-  "readTime": "Estimated read time like '7 min read'",
-  "content": "The complete article text with paragraphs separated by \\n\\n"
-}`
+  "readTime": "Estimated read time like '7 min read' based on word count",
+  "content": "The COMPLETE document text with paragraphs separated by \\n\\n - extract EVERYTHING from the document"
+}
 
-          try {
+Base64 document content: ${base64.substring(0, 50000)}`
+
             const result = await window.spark.llm(promptText, "gpt-4o", true)
             const articleData = JSON.parse(result)
             loadedArticles.push(articleData)
           } catch (error) {
-            console.error(`Error generating content for ${doc.name}:`, error)
+            console.error(`Error processing ${doc.name}:`, error)
           }
         }
         
