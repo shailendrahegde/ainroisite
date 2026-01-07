@@ -81,30 +81,46 @@ function App() {
             summary: "Understanding the long-term value proposition of AI investments requires patience and strategic planning.",
             category: "ROI Analysis",
             readTime: "5 min read",
-            content: `PASTE THE EXACT CONTENT FROM "ROI_demands_patience.docx" HERE.
+            content: `AI ROI Is the Wrong First Question: Here’s What to Measure Instead
+When organizations switch on new AI tech, the instinct is to look for hard proof of return on investment (ROI) almost immediately. A dashboard or a chart that goes up and to the right on a monetary measure. A before-and-after business case. But real ROI rarely shows up that neatly or that quickly. It is nuanced, shows up in different forms over time, and depends heavily on how people actually use the technology.
+Before we can fairly judge ROI, we need a minimum level, and the right kind of, usage. In the early days of any AI journey, the most important signal is not immediate cost savings or revenue impact, but whether people are showing up, experimenting, and beginning to build habits around AI-powered work.
+How AI Value Really Shows Up
+Value from AI unfolds in stages. It may first appear as growing usage (new users and returning users), improving satisfaction, anecdotes and case studies (qualitative stories), time savings, and eventually as shifts in key performance indicators (KPIs) that lead to financial outcomes. We are likely to see meaningful results and patterns that tell us whether AI is valuable or not, if we align our measurement to this sequence. 
+ Note that along the way, there are also powerful, but harder-to-measure benefits like giving people access to a new skill, a better starting point, or a thinking partner they never had before.
+Value Measurement Journey
+Deep usage. Great usage precedes great value. We must first ask “are users engaging with AI often enough for it to become part of how they work, not just an occasional experiment?” As a rough benchmark, look for patterns like 11–15 AI actions (any interaction with AI) per week for habit formation, or people returning to AI on 2–3 days each week.
+Quality. Are AI outputs getting better over time as people learn how to prompt more effectively and as tech improve? Signals might include an increasing proportion of thumbs-up or positive ratings, and higher “return rates” where people come back to AI repeatedly for similar tasks.
+Satisfaction. Do users feel that AI is genuinely improving their work? Ask directly: How many people believe AI has improved their work quality? Where are they finding the most success—summarization, redrafting, specific workflows, or routine tasks like status reports and emails?
+Time savings. How much time is AI giving back to people? You can combine self-reported estimates (for example, “AI saves me X-Y mins per day, with 15 min intervals”) and usage based assistance (each action provides X mins of assistance). 
+KPI improvement. Once usage, satisfaction, and quality signals are strong, you can begin to look for changes in concrete metrics. Use before-and-after comparisons for specific, predictable workflows or divisions where AI—often via agents—can consistently assist with well-defined tasks. Note that this approach is hard to scale and can only be done for proof of value and building executive confidence in specific divisions. We will cover this in a separate blog.
+Financials. Over a longer horizon, improvements in productivity and quality can show up in financial metrics such as revenue per employee or cost per unit of work. Even then, remember that some of AI’s greatest benefits—like unlocking new skills or enabling work that simply wasn’t possible before—may not be fully visible in traditional financial reports.
+Take Away: ROI Demands Patience
+The sequence matters. First, make AI accessible and useful. Invest in education, coaching, and examples so employees feel confident and capable. Track deep usage, satisfaction, quality, and time savings as your early indicators. Only once those foundations are in place does it make sense to look for shifts in KPIs and, later, financial outcomes. In other words: don’t rush to measure AI ROI prematurely—build it, then measure it.
+ 
 
-Replace this entire string (including this instruction) with the full text from your Word document.
-
-To get the text:
-1. Open ROI_demands_patience.docx
-2. Select all text (Ctrl+A or Cmd+A)
-3. Copy it
-4. Paste it here, replacing this message completely`
+`
           },
           {
             title: "What Early AI Adoption Really Looks Like in the Enterprise",
             summary: "A practical look at the realities of enterprise AI adoption in organizations.",
             category: "AI Adoption",
             readTime: "7 min read",
-            content: `PASTE THE EXACT CONTENT FROM "What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx" HERE.
-
-Replace this entire string (including this instruction) with the full text from your Word document.
-
-To get the text:
-1. Open What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx
-2. Select all text (Ctrl+A or Cmd+A)
-3. Copy it
-4. Paste it here, replacing this message completely`
+            content: `What Early AI Adoption Really Looks Like in the Enterprise
+The Reality: A Power-Law of AI Usage
+In almost every organization, AI usage quickly settles into a power-law distribution. A small group of superusers drive a disproportionately high number of interactions, while most employees sit in a long tail of light or experimental use. These superusers matter, but if you lead IT or digital transformation, you also need to understand what “healthy” early adoption looks like across the broader population.
+First 90–120 Days: What Good Engagement Looks Like
+In the first three to four months after rolling out an AI solution, we typically see average weekly interactions in the 7–10 range per active user. That means a user is prompting, refining responses, or accepting AI-generated suggestions 7–10 times a week.
+During this phase, two surfaces usually dominate:
+•	Meeting platforms (automated notes, summaries, and actions)
+•	General-purpose chat (Q&A, drafting, quick analysis)
+This is both normal and desirable. These experiences deliver clear value, require almost no training, and match existing user behavior. Getting a quick answer, finding a doc or enterprise knowledge, and accessing meeting notes without attending a 60-minute call are intuitive, low-friction wins that are essential for habit formation.
+Months 4–6: Expanding Surfaces and Confidence
+As users gain familiarity and confidence, adoption grows along two dimensions. First, interactions on the initial, high-traffic surfaces continue to increase. Second, people begin to experiment with AI inside creator tools such as email, documents, and spreadsheets. Design tools tend to ramp more slowly as they demand new ways of working.
+A key indicator to track at this stage is the number of apps or surfaces per active user. By around month six, a healthy pattern is for the average user to be using AI consistently in three to four surfaces, not just in meetings and chat.
+What IT Leaders Should Do
+If you are responsible for driving AI adoption, your early strategy should be about habit formation at scale, not chasing niche use cases. Start by making AI indispensable in one or two high-traffic, familiar experiences: meeting platforms and general-purpose chat. Make it easy to turn on, easy to try, and easy to see value within a week. Ensure that AI is able work well and isn’t blocked on technicalities like access to recordings or web-grounding.
+Once those habits are in place and you see sustained interaction levels, focus on higher-value, specialized scenarios in email, documents, spreadsheets, and eventually design tools. At that point, your goal shifts from proving AI’s value to broadening where that value shows up—moving from a few superusers to a durable, organization-wide capability.
+`
           }
         ]
         
