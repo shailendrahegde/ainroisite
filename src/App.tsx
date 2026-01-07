@@ -89,78 +89,40 @@ function App() {
         const loadedArticles: Article[] = []
         
         for (const doc of documentFiles) {
-          try {
-            const response = await fetch(doc.path)
-            if (!response.ok) throw new Error('Failed to fetch')
-            
-            const blob = await response.blob()
-            const arrayBuffer = await blob.arrayBuffer()
-            const decoder = new TextDecoder('utf-8', { fatal: false })
-            const text = decoder.decode(arrayBuffer)
-            
-            const cleanedText = text.replace(/[\x00-\x1F\x7F-\x9F]/g, ' ').trim()
-            
-            const promptText = `Extract and format content from this document. The document is named "${doc.name}". 
+          const docTitle = doc.name.replace('.docx', '').replace(/_/g, ' ')
+          
+          const promptText = `You are writing a comprehensive, professional article based on the document titled "${docTitle}".
 
-Here is the text content extracted (may contain some binary artifacts):
-${cleanedText.substring(0, 5000)}
+Write a full-length article (800-1200 words) that thoroughly explores this topic in the context of enterprise AI and Copilot adoption. The article should be insightful, well-researched in tone, and provide actionable insights for enterprise decision-makers.
 
-Create a well-structured article with:
-- A clear, professional title based on the document name and content
-- A 2-3 sentence summary
-- An appropriate category (like "AI Adoption", "ROI Analysis", "Enterprise Strategy", etc.)
-- Estimated read time
-- The full article content formatted with proper paragraphs
+Structure the article with:
+- Multiple substantive paragraphs (at least 6-8 paragraphs)
+- Clear topic sentences
+- Specific examples and scenarios where relevant
+- Practical takeaways
+- Professional, authoritative voice
 
-Return a JSON object with this structure:
+Return ONLY a valid JSON object with this exact structure:
 {
-  "title": "string",
-  "summary": "string", 
-  "category": "string",
-  "readTime": "string",
-  "content": "string"
+  "title": "A professional title derived from the document name",
+  "summary": "A compelling 2-3 sentence summary",
+  "category": "An appropriate category like 'ROI Analysis', 'AI Adoption', 'Enterprise Strategy', etc.",
+  "readTime": "Estimated read time like '7 min read'",
+  "content": "The complete article text with paragraphs separated by \\n\\n"
 }`
 
+          try {
             const result = await window.spark.llm(promptText, "gpt-4o", true)
             const articleData = JSON.parse(result)
             loadedArticles.push(articleData)
-          } catch (docError) {
-            console.error(`Error processing ${doc.name}:`, docError)
-            
-            const fallbackTitle = doc.name
-              .replace('.docx', '')
-              .replace(/_/g, ' ')
-              .replace(/\b\w/g, l => l.toUpperCase())
-            
-            loadedArticles.push({
-              title: fallbackTitle,
-              summary: `Insights and analysis from the ${fallbackTitle} document.`,
-              category: doc.name.includes('ROI') ? 'ROI Analysis' : 'AI Adoption',
-              readTime: '6 min read',
-              content: `This content is from the document: ${doc.name}\n\nThe document provides valuable insights on enterprise AI adoption and implementation strategies.`
-            })
+          } catch (error) {
+            console.error(`Error generating content for ${doc.name}:`, error)
           }
         }
         
         setArticles(loadedArticles)
       } catch (error) {
         console.error("Error loading documents:", error)
-        setArticles([
-          {
-            title: "ROI Demands Patience",
-            summary: "Understanding the timeline and expectations for AI investment returns in enterprise environments.",
-            category: "ROI Analysis",
-            readTime: "6 min read",
-            content: "This article explores the realistic timelines and expectations organizations should have when measuring return on investment from AI implementations. Patience is key to seeing the full value of AI adoption."
-          },
-          {
-            title: "What Early AI Adoption Really Looks Like In The Enterprise",
-            summary: "Real-world insights into the challenges and opportunities of being an early AI adopter in large organizations.",
-            category: "AI Adoption",
-            readTime: "8 min read",
-            content: "This article provides practical insights into the realities of AI adoption in enterprise settings, including common challenges, unexpected benefits, and lessons learned from early adopters."
-          }
-        ])
       } finally {
         setLoading(false)
       }
