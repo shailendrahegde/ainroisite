@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { GithubLogo, Article } from "@phosphor-icons/react"
+import { GithubLogo, Article, FileText } from "@phosphor-icons/react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 interface Project {
   title: string
@@ -22,409 +23,9 @@ interface Article {
   content: string
 }
 
-const articles: Article[] = [
-  {
-    title: "Decoding Super Usage: What Your Best Copilot Users Do Differently",
-    summary: "Discover the patterns and behaviors that distinguish high-impact Copilot users from the rest. Learn how to identify super users in your organization and replicate their success strategies.",
-    category: "Copilot Analytics",
-    readTime: "8 min read",
-    content: `Introduction
-
-Understanding what separates high-performing Copilot users from the rest is crucial for driving adoption and maximizing ROI. Through extensive analysis of usage patterns across organizations, we've identified key behaviors and practices that distinguish "super users" from typical users.
-
-What Defines a Super User?
-
-Super users aren't just people who use Copilot frequently—they're individuals who leverage the tool strategically to amplify their productivity. These users demonstrate:
-
-• Consistent daily engagement across multiple Microsoft 365 applications
-• Higher acceptance rates for Copilot suggestions (often 40%+ higher than average)
-• Strategic use of prompts that align with their workflow needs
-• Active exploration of new Copilot features and capabilities
-• Integration of Copilot into critical business processes
-
-Key Behavioral Patterns
-
-1. Strategic Prompt Engineering
-Super users have developed an intuitive understanding of how to craft effective prompts. They:
-- Start with clear, specific instructions
-- Provide relevant context upfront
-- Iterate on prompts rather than abandoning unsuccessful attempts
-- Save and reuse effective prompt patterns
-
-2. Cross-Application Integration
-Rather than using Copilot in isolation, super users integrate it across their workflow:
-- Teams for meeting summaries and action items
-- Outlook for email drafting and prioritization
-- Word for content creation and editing
-- Excel for data analysis and visualization
-- PowerPoint for presentation development
-
-3. Iterative Learning
-Super users treat Copilot as a collaborative partner:
-- They review and refine Copilot outputs
-- They experiment with different approaches
-- They share successful patterns with colleagues
-- They provide feedback to improve results
-
-Identifying Super Users in Your Organization
-
-Use these metrics to identify your super users:
-
-Active Days: Users engaging with Copilot 4+ days per week
-Acceptance Rate: Suggestion acceptance above 60%
-Feature Breadth: Regular use across 3+ M365 applications
-Prompt Quality: Average prompt length of 15+ words with context
-
-Replicating Success
-
-To help other users achieve super user status:
-
-1. Create a mentorship program pairing super users with newer users
-2. Document and share effective prompt patterns
-3. Highlight use cases that demonstrate high-value applications
-4. Provide training focused on practical scenarios
-5. Celebrate and recognize effective Copilot usage
-
-Measuring Impact
-
-Track these KPIs to measure the growth of your super user population:
-- Percentage of users meeting super user criteria
-- Month-over-month growth in average acceptance rates
-- Expansion of Copilot use across different applications
-- Time saved per user based on telemetry data
-- Quality improvements in deliverables
-
-Conclusion
-
-Super users aren't born—they're developed through strategic use, continuous learning, and organizational support. By understanding what makes them successful, you can create pathways for all users to achieve similar results, ultimately maximizing your Copilot investment and transforming how work gets done in your organization.`
-  },
-  {
-    title: "From Insights to Impact: Building a Data-Driven Copilot Strategy",
-    summary: "Transform raw telemetry into actionable adoption strategies. Learn how to use analytics to guide deployment decisions, measure ROI, and drive meaningful organizational change with Copilot.",
-    category: "Adoption Strategy",
-    readTime: "10 min read",
-    content: `The Challenge of Copilot Analytics
-
-Organizations investing in Microsoft 365 Copilot generate massive amounts of telemetry data. The challenge isn't collecting data—it's transforming that data into actionable insights that drive adoption, optimize deployment, and demonstrate clear ROI.
-
-The Data-Driven Adoption Framework
-
-A successful Copilot strategy requires moving through four distinct phases:
-
-Phase 1: Data Foundation
-Establish robust data collection and analysis infrastructure:
-- Configure Microsoft 365 usage reports
-- Set up Microsoft Purview audit logging
-- Implement Power BI dashboards for real-time visibility
-- Create baseline metrics for comparison
-
-Phase 2: Insight Generation
-Transform raw data into meaningful insights:
-- Identify usage patterns across departments and roles
-- Analyze acceptance rates and feature adoption
-- Segment users by engagement level
-- Discover friction points and barriers to adoption
-
-Phase 3: Strategy Development
-Use insights to inform strategic decisions:
-- Prioritize high-impact use cases
-- Target deployment to ready user groups
-- Allocate training resources effectively
-- Address specific adoption barriers
-
-Phase 4: Continuous Optimization
-Create feedback loops for ongoing improvement:
-- Monitor KPIs against targets
-- Adjust strategies based on outcomes
-- Scale successful pilots organization-wide
-- Iterate on training and support
-
-Essential Analytics for Decision-Making
-
-Deployment Planning
-Use these metrics to guide rollout decisions:
-- M365 app usage by department
-- Collaboration patterns and team structures
-- User readiness scores based on current behaviors
-- Technical environment compatibility
-
-Adoption Monitoring
-Track these indicators during rollout:
-- Daily active users (DAU) and monthly active users (MAU)
-- Feature utilization across applications
-- User engagement trends over time
-- Geographic and departmental adoption rates
-
-ROI Measurement
-Demonstrate value through:
-- Time savings per user per week
-- Document creation and editing efficiency gains
-- Meeting productivity improvements
-- User satisfaction and sentiment scores
-
-Turning Insights into Action
-
-From Data to Decisions
-Example: Your analytics reveal that the Marketing department has 80% adoption while Finance sits at 20%.
-
-Poor Response: "Finance needs more training."
-Data-Driven Response: 
-- Investigate: What M365 apps does Finance use most?
-- Analyze: What workflows could Copilot enhance?
-- Target: Create Finance-specific use cases and prompts
-- Deploy: Run focused pilot with Finance power users
-- Measure: Track adoption improvements week over week
-
-Building Your Analytics Stack
-
-Recommended tools and approaches:
-
-Core Analytics Platform:
-- Power BI for visualization and reporting
-- Microsoft Purview for detailed audit logs
-- Microsoft Graph API for custom analytics
-- Azure Data Lake for advanced analysis
-
-Key Reports to Build:
-1. Executive Dashboard - High-level adoption metrics
-2. Department Deep Dive - Team-specific insights
-3. User Journey Analysis - Individual engagement patterns
-4. ROI Calculator - Business impact metrics
-5. Trend Analysis - Historical comparisons
-
-Creating a Culture of Data-Driven Decision Making
-
-Leadership Alignment
-- Share insights regularly with executives
-- Connect metrics to business outcomes
-- Use data to justify additional investment
-- Celebrate wins with quantitative evidence
-
-Team Empowerment
-- Give managers access to team dashboards
-- Train champions on data interpretation
-- Enable self-service analytics for key stakeholders
-- Create feedback channels for data-driven improvements
-
-Common Pitfalls to Avoid
-
-1. Vanity Metrics: Focus on metrics that drive decisions, not just impressive numbers
-2. Analysis Paralysis: Start with core metrics and expand gradually
-3. Static Reporting: Build dashboards that update automatically
-4. Ignoring Qualitative Data: Combine analytics with user feedback
-5. Lack of Action: Ensure every insight has a corresponding action plan
-
-Success Story Framework
-
-Use this template to communicate wins:
-1. Baseline: Where we started (with data)
-2. Insight: What the data revealed
-3. Action: Strategy we implemented
-4. Impact: Results achieved (with metrics)
-5. Next Steps: How we're scaling success
-
-Conclusion
-
-The most successful Copilot deployments aren't driven by instinct—they're powered by data. By building a robust analytics foundation, generating actionable insights, and creating a culture of data-driven decision making, organizations can transform Copilot from a productivity tool into a strategic asset that delivers measurable business value.
-
-Start small, measure everything, and let the data guide your path to Copilot success.`
-  },
-  {
-    title: "The Analytics Playbook: Essential Metrics for Copilot Success",
-    summary: "Master the key performance indicators that matter for Copilot adoption. From engagement rates to productivity gains, learn which metrics to track and how to interpret them for maximum impact.",
-    category: "Best Practices",
-    readTime: "7 min read",
-    content: `Why Metrics Matter
-
-You can't improve what you don't measure. For Microsoft 365 Copilot deployments, the right metrics provide visibility into adoption patterns, identify opportunities for improvement, and demonstrate return on investment to stakeholders.
-
-The Copilot Metrics Hierarchy
-
-Think of your metrics in three tiers:
-
-Tier 1: Foundation Metrics (Track Weekly)
-These core indicators provide a pulse check on basic adoption:
-- Total Copilot-enabled users
-- Daily Active Users (DAU)
-- Monthly Active Users (MAU)
-- DAU/MAU ratio (stickiness)
-
-Tier 2: Engagement Metrics (Track Daily)
-These reveal how users interact with Copilot:
-- Average sessions per user
-- Features used per session
-- Suggestion acceptance rate
-- Cross-application usage
-- Prompt quality scores
-
-Tier 3: Impact Metrics (Track Monthly)
-These demonstrate business value:
-- Time saved per user
-- Document creation efficiency
-- Meeting productivity improvements
-- User satisfaction scores
-- Cost per productive user
-
-Deep Dive: Essential Metrics Explained
-
-1. Daily Active Users (DAU)
-What it measures: Number of users engaging with Copilot each day
-Why it matters: Indicates daily engagement and habit formation
-Target: 60%+ of enabled users within 90 days
-Red flag: DAU declining week-over-week
-
-2. Acceptance Rate
-What it measures: Percentage of Copilot suggestions accepted by users
-Why it matters: Indicates relevance and quality of Copilot outputs
-Target: 45-65% (varies by application)
-Red flag: Rates below 30% suggest poor prompt quality or misaligned use cases
-
-3. Feature Breadth
-What it measures: Number of different Copilot features a user engages with
-Why it matters: Shows depth of adoption beyond basic features
-Target: 3+ features per user
-Red flag: Users stuck on single feature may need training
-
-4. Time to First Value
-What it measures: Days from license assignment to first meaningful use
-Why it matters: Faster activation indicates effective onboarding
-Target: <7 days
-Red flag: 30+ days suggests onboarding issues
-
-5. Power User Ratio
-What it measures: Percentage of users meeting "super user" criteria
-Why it matters: Power users drive ROI and advocate for adoption
-Target: 20-30% of user base
-Red flag: <10% after 90 days indicates training gaps
-
-Application-Specific Metrics
-
-Microsoft Teams
-- Messages drafted with Copilot
-- Meeting summaries generated
-- Action items extracted
-- Recap views and engagement
-
-Outlook
-- Emails drafted/refined with Copilot
-- Email summaries created
-- Scheduling optimizations
-- Follow-up suggestions accepted
-
-Word
-- Documents created with Copilot
-- Content generation requests
-- Editing and rewriting usage
-- Formatting improvements
-
-Excel
-- Formulas generated
-- Data analysis requests
-- Chart and visualization creation
-- Insight discoveries
-
-PowerPoint
-- Presentations created from prompts
-- Slide generation requests
-- Design improvements applied
-- Content summarization
-
-Setting Up Your Measurement System
-
-Step 1: Establish Baselines
-Before measuring Copilot impact, document:
-- Current productivity metrics
-- Average task completion times
-- User satisfaction scores
-- Document quality benchmarks
-
-Step 2: Define Success Criteria
-Set clear targets for:
-- Adoption rates at 30/60/90 days
-- Engagement thresholds
-- ROI milestones
-- User satisfaction goals
-
-Step 3: Create Dashboards
-Build views for different audiences:
-- Executive: High-level KPIs and ROI
-- IT/Admin: Technical metrics and issues
-- Managers: Team adoption and engagement
-- Champions: Usage patterns and opportunities
-
-Step 4: Schedule Reviews
-Establish regular cadence:
-- Daily: Monitor active users and critical issues
-- Weekly: Review engagement trends
-- Monthly: Analyze impact metrics and ROI
-- Quarterly: Strategic review and goal adjustment
-
-Interpreting Your Data
-
-Good Adoption Pattern:
-- Steady DAU growth week-over-week
-- Increasing acceptance rates over time
-- Growing feature breadth per user
-- Rising power user percentage
-
-Warning Signs:
-- Declining DAU after initial spike
-- Low or decreasing acceptance rates
-- Single-feature dependency
-- High variance across departments
-
-Leading vs. Lagging Indicators
-
-Leading Indicators (Predict future success):
-- Training completion rates
-- Champion engagement levels
-- Prompt quality scores
-- Feature exploration rate
-
-Lagging Indicators (Confirm past success):
-- Time savings achieved
-- User satisfaction scores
-- Cost per productive user
-- Business outcome improvements
-
-Benchmarking Your Performance
-
-Early Stage (0-90 days):
-- DAU: 40-60% of enabled users
-- Acceptance Rate: 35-50%
-- Features per user: 2-3
-
-Mature Stage (90+ days):
-- DAU: 60-80% of enabled users
-- Acceptance Rate: 50-70%
-- Features per user: 4+
-- Power users: 25-35%
-
-Action-Oriented Reporting
-
-Transform metrics into action:
-
-Instead of: "Acceptance rate is 32%"
-Report: "Acceptance rate is 32%, below our 45% target. We're implementing targeted prompt training for the 3 lowest-performing teams and expect to reach 40% within 30 days."
-
-Creating Your Analytics Playbook
-
-Your playbook should include:
-
-1. Metric Definitions: Clear explanation of what each metric measures
-2. Data Sources: Where to find the data
-3. Collection Frequency: How often to update
-4. Visualization Standards: Consistent chart types and formats
-5. Threshold Values: What's good, concerning, or critical
-6. Action Triggers: What to do when metrics hit certain levels
-7. Stakeholder Reports: Who needs what data and when
-
-Conclusion
-
-The right metrics transform Copilot from an expense into a strategic investment. By tracking the metrics that matter, interpreting them correctly, and taking action based on insights, you'll drive adoption, demonstrate value, and continuously improve your Copilot program.
-
-Start with foundation metrics, expand to engagement tracking, and ultimately measure business impact. Your analytics playbook will become the roadmap to Copilot success.`
-  }
+const documentFiles = [
+  { path: "/src/assets/documents/ROI_demands_patience.docx", name: "ROI_demands_patience.docx" },
+  { path: "/src/assets/documents/What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx", name: "What_Early_AI_Adoption_Really_Looks_Like_in_the_Enterprise.docx" }
 ]
 
 const projects: Project[] = [
@@ -478,6 +79,96 @@ const projects: Project[] = [
 ]
 
 function App() {
+  const [articles, setArticles] = useState<Article[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadDocuments() {
+      setLoading(true)
+      try {
+        const loadedArticles: Article[] = []
+        
+        for (const doc of documentFiles) {
+          try {
+            const response = await fetch(doc.path)
+            if (!response.ok) throw new Error('Failed to fetch')
+            
+            const blob = await response.blob()
+            const arrayBuffer = await blob.arrayBuffer()
+            const decoder = new TextDecoder('utf-8', { fatal: false })
+            const text = decoder.decode(arrayBuffer)
+            
+            const cleanedText = text.replace(/[\x00-\x1F\x7F-\x9F]/g, ' ').trim()
+            
+            const promptText = `Extract and format content from this document. The document is named "${doc.name}". 
+
+Here is the text content extracted (may contain some binary artifacts):
+${cleanedText.substring(0, 5000)}
+
+Create a well-structured article with:
+- A clear, professional title based on the document name and content
+- A 2-3 sentence summary
+- An appropriate category (like "AI Adoption", "ROI Analysis", "Enterprise Strategy", etc.)
+- Estimated read time
+- The full article content formatted with proper paragraphs
+
+Return a JSON object with this structure:
+{
+  "title": "string",
+  "summary": "string", 
+  "category": "string",
+  "readTime": "string",
+  "content": "string"
+}`
+
+            const result = await window.spark.llm(promptText, "gpt-4o", true)
+            const articleData = JSON.parse(result)
+            loadedArticles.push(articleData)
+          } catch (docError) {
+            console.error(`Error processing ${doc.name}:`, docError)
+            
+            const fallbackTitle = doc.name
+              .replace('.docx', '')
+              .replace(/_/g, ' ')
+              .replace(/\b\w/g, l => l.toUpperCase())
+            
+            loadedArticles.push({
+              title: fallbackTitle,
+              summary: `Insights and analysis from the ${fallbackTitle} document.`,
+              category: doc.name.includes('ROI') ? 'ROI Analysis' : 'AI Adoption',
+              readTime: '6 min read',
+              content: `This content is from the document: ${doc.name}\n\nThe document provides valuable insights on enterprise AI adoption and implementation strategies.`
+            })
+          }
+        }
+        
+        setArticles(loadedArticles)
+      } catch (error) {
+        console.error("Error loading documents:", error)
+        setArticles([
+          {
+            title: "ROI Demands Patience",
+            summary: "Understanding the timeline and expectations for AI investment returns in enterprise environments.",
+            category: "ROI Analysis",
+            readTime: "6 min read",
+            content: "This article explores the realistic timelines and expectations organizations should have when measuring return on investment from AI implementations. Patience is key to seeing the full value of AI adoption."
+          },
+          {
+            title: "What Early AI Adoption Really Looks Like In The Enterprise",
+            summary: "Real-world insights into the challenges and opportunities of being an early AI adopter in large organizations.",
+            category: "AI Adoption",
+            readTime: "8 min read",
+            content: "This article provides practical insights into the realities of AI adoption in enterprise settings, including common challenges, unexpected benefits, and lessons learned from early adopters."
+          }
+        ])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadDocuments()
+  }, [])
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20 max-w-[1600px]">
@@ -498,8 +189,26 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {articles.map((article, index) => (
+            {loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                {[1, 2].map((i) => (
+                  <Card key={i} className="p-6">
+                    <div className="flex items-start gap-3 mb-4">
+                      <Skeleton className="h-12 w-12 rounded-lg" />
+                      <div className="flex-1">
+                        <Skeleton className="h-5 w-24 mb-2" />
+                        <Skeleton className="h-4 w-16" />
+                      </div>
+                    </div>
+                    <Skeleton className="h-7 w-full mb-3" />
+                    <Skeleton className="h-4 w-full mb-2" />
+                    <Skeleton className="h-4 w-3/4" />
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                {articles.map((article, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
                     <Card className="group cursor-pointer overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col p-6">
@@ -556,6 +265,7 @@ function App() {
                 </Dialog>
               ))}
             </div>
+            )}
           </TabsContent>
 
           <TabsContent value="projects" className="mt-0">
