@@ -43,7 +43,7 @@ This is where the full article text will appear when users click on the preview 
     content: `[PLACEHOLDER - Replace with content from second SharePoint link]
 
 Please copy and paste the full text from:
-https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQA1GIVgaMT9SKhv4yqJkn5LAa_qp7kN0rd6nWObQYz3FEo?e=Y9xuq7
+https://microsoft-my.sharepoint-df.com/:w:/p/shahegde/IQCpSSzTEsADSqoAfXFlaAkaAVXe2oeS9OUFRh9U1f2_HXs?e=5aa5DK
 
 This is where the full article text will appear when users click on the preview card.`
   },
