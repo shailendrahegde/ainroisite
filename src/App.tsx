@@ -161,13 +161,11 @@ Once those habits are in place and you see sustained interaction levels, focus o
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-12 md:px-8 md:py-16 lg:px-16 lg:py-20 max-w-[1600px]">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className="mb-12 md:mb-16 h-12 px-2">
-            <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger>
-            <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>
-            <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="insights" className="mt-0">
+          <TabsList className="mb-20 md:mb-24 h-12 px-2">
+            <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger> 
+            <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>                                                                                                         
+            <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>    
+          </TabsList>          <TabsContent value="insights" className="mt-0">
             {selectedArticle ? (
               <div className="max-w-4xl mx-auto">
                 <Button
