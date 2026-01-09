@@ -161,7 +161,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16 lg:px-16 lg:pt-16 lg:pb-20 max-w-[1600px]">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className=""h-12 px-2 gap-6"">
+          <TabsList className="h-12 px-2 gap-6">
             <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger> 
             <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>                                                                                                         
             <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>    
