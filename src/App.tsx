@@ -161,11 +161,11 @@ Once those habits are in place and you see sustained interaction levels, focus o
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16 lg:px-16 lg:pt-16 lg:pb-20 max-w-[1600px]">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className="h-12 px-2 gap-6">
+          <TabsList className="mb-12 md:mb-16 h-12 px-2 gap-6">
             <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger> 
             <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>                                                                                                         
             <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>    
-          </TabsList>          <TabsContent value="insights" className="mt-12 md:mt-16 lg:mt-20">
+          </TabsList>          <TabsContent value="insights" className="mt-0">
             {selectedArticle ? (
               <div className="max-w-4xl mx-auto">
                 <Button
@@ -306,7 +306,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
           </TabsContent>
 
 
-          <TabsContent value="projects" className="mt-12 md:mt-16 lg:mt-20">
+          <TabsContent value="projects" className="mt-0">
             <div className="mb-12 md:mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
                 Featured assets
@@ -377,7 +377,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
             </div>
           </TabsContent>
 
-          <TabsContent value="about" className="mt-12 md:mt-16 lg:mt-20">
+          <TabsContent value="about" className="mt-0">
             <div className="max-w-4xl mx-auto">
               <div className="mb-12 md:mb-16">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
