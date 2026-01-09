@@ -161,7 +161,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16 lg:px-16 lg:pt-16 lg:pb-20 max-w-[1600px]">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className="mb-12 md:mb-16 h-12 px-2 gap-6">
+          <TabsList className="mb-16 md:mb-20 lg:mb-24 h-12 px-2 gap-6">
             <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger> 
             <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>                                                                                                         
             <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>    
@@ -237,7 +237,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
               </div>
             ) : (
               <>
-            <div className="mb-16 md:mb-20">
+            <div className="mb-12 md:mb-16 lg:mb-20">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
                 Insights
               </h1>
@@ -247,7 +247,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
             </div>
 
             {loading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                 {[1, 2].map((i) => (
                   <Card key={i} className="p-6">
                     <div className="flex items-start gap-3 mb-4">
@@ -264,7 +264,7 @@ Once those habits are in place and you see sustained interaction levels, focus o
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                 {articles.map((article, index) => (
                 <Card 
                   key={index}
