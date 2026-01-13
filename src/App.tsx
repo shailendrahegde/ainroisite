@@ -115,7 +115,7 @@ function App() {
       {/* Header */}
       <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-8 py-6">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Ainroisite</h1>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
         </div>
       </header>
 
@@ -375,7 +375,7 @@ function App() {
 
       <footer className="border-t border-gray-200 mt-20 py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto px-8 text-center text-sm text-gray-600">
-          <p>© 2025 Ainroisite. All rights reserved.</p>
+          <p>© 2025 AInROI. All rights reserved.</p>
         </div>
       </footer>
     </div>
