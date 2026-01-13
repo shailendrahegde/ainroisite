@@ -1,0 +1,32 @@
+[
+  {
+    "id": "roi-demands-patience",
+    "title": "ROI Demands Patience",
+    "summary": "AI value unfolds in stages. Focusing on ROI prematurely can lead to missed opportunities. Here's what to focus on instead",
+    "category": "ROI Analysis",
+    "readTime": "5 min read",
+    "filename": "roi-demands-patience.md",
+    "date": "Jan 10, 2025",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "early-ai-adoption",
+    "title": "What Early AI Adoption Really Looks Like in the Enterprise",
+    "summary": "Early adoption is concentrated in few surfaces and within a small set of superusers, and this is ok",
+    "category": "AI Adoption",
+    "readTime": "7 min read",
+    "filename": "early-ai-adoption.md",
+    "date": "Jan 8, 2025",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+  },
+  {
+    "id": "tipping-point-habit-formation",
+    "title": "The Tipping Point For Habit Formation",
+    "summary": "When users reach 11-15 AI actions per week, experimentation becomes habit. Learn how to accelerate your users to this critical threshold",
+    "category": "AI Adoption",
+    "readTime": "4 min read",
+    "filename": "tipping-point-habit-formation.md",
+    "date": "Jan 12, 2025",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&sat=-100"
+  }
+]

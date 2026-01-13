@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { useState, useEffect, useMemo } from "react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-import { GithubLogo, Article, ArrowLeft, TwitterLogo, LinkedinLogo, Link as LinkIcon, Check } from "@phosphor-icons/react"
-import { Skeleton } from "@/components/ui/skeleton"
-import { toast } from "sonner"
+import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 
 interface Project {
   title: string
   description: string
   tags: string[]
-  githubUrl?: string
+  githubUrl: string
   image: string
 }
 
-interface Article {
+interface BlogMeta {
+  id: string
   title: string
   summary: string
   category: string
   readTime: string
-  content: string
+  filename: string
+  date: string
+  thumbnail: string
 }
-
-
 
 const projects: Project[] = [
   {
@@ -58,422 +58,326 @@ const projects: Project[] = [
     title: "M365 to Copilot Bridge",
     description: "Analyze M365 app usage to inform likelihood of Copilot Adoption",
     tags: ["Power BI", "Microsoft Graph"],
+    githubUrl: "https://github.com/microsoft/M365-to-Copilot-Bridge",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&brightness=1.1"
   }
 ]
 
 function App() {
-  const [articles, setArticles] = useState<Article[]>([])
+  const [blogs, setBlogs] = useState<BlogMeta[]>([])
+  const [selectedBlog, setSelectedBlog] = useState<BlogMeta | null>(null)
+  const [blogContent, setBlogContent] = useState<string>("")
   const [loading, setLoading] = useState(true)
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
-  const [copied, setCopied] = useState(false)
-
-  const handleCopyLink = () => {
-    if (selectedArticle) {
-      const url = window.location.href
-      navigator.clipboard.writeText(url)
-      setCopied(true)
-      toast.success("Link copied to clipboard!")
-      setTimeout(() => setCopied(false), 2000)
-    }
-  }
-
-  const handleShareTwitter = () => {
-    if (selectedArticle) {
-      const url = window.location.href
-      const text = `${selectedArticle.title} - ${selectedArticle.summary}`
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank')
-    }
-  }
-
-  const handleShareLinkedIn = () => {
-    if (selectedArticle) {
-      const url = window.location.href
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank')
-    }
-  }
+  const [selectedCategory, setSelectedCategory] = useState<string>("All")
 
   useEffect(() => {
-    async function loadDocuments() {
-      setLoading(true)
-      try {
-        const loadedArticles: Article[] = [
-          {
-            title: "ROI Demands Patience",
-            summary: "AI value unfolds in stages. Focusing on ROI prematurely can lead to missed opportunities. Here's what to focus on instead",
-            category: "ROI Analysis",
-            readTime: "5 min read",
-            content: `AI ROI Is the Wrong First Question: Here’s What to Measure Instead
-When organizations switch on new AI tech, the instinct is to look for hard proof of return on investment (ROI) almost immediately. A dashboard or a chart that goes up and to the right on a monetary measure. A before-and-after business case. But real ROI rarely shows up that neatly or that quickly. It is nuanced, shows up in different forms over time, and depends heavily on how people actually use the technology.
-Before we can fairly judge ROI, we need a minimum level, and the right kind of, usage. In the early days of any AI journey, the most important signal is not immediate cost savings or revenue impact, but whether people are showing up, experimenting, and beginning to build habits around AI-powered work.
-How AI Value Really Shows Up
-Value from AI unfolds in stages. It may first appear as growing usage (new users and returning users), improving satisfaction, anecdotes and case studies (qualitative stories), time savings, and eventually as shifts in key performance indicators (KPIs) that lead to financial outcomes. We are likely to see meaningful results and patterns that tell us whether AI is valuable or not, if we align our measurement to this sequence. 
- Note that along the way, there are also powerful, but harder-to-measure benefits like giving people access to a new skill, a better starting point, or a thinking partner they never had before.
-Value Measurement Journey
-Deep usage. Great usage precedes great value. We must first ask “are users engaging with AI often enough for it to become part of how they work, not just an occasional experiment?” As a rough benchmark, look for patterns like 11–15 AI actions (any interaction with AI) per week for habit formation, or people returning to AI on 2–3 days each week.
-Quality. Are AI outputs getting better over time as people learn how to prompt more effectively and as tech improve? Signals might include an increasing proportion of thumbs-up or positive ratings, and higher “return rates” where people come back to AI repeatedly for similar tasks.
-Satisfaction. Do users feel that AI is genuinely improving their work? Ask directly: How many people believe AI has improved their work quality? Where are they finding the most success—summarization, redrafting, specific workflows, or routine tasks like status reports and emails?
-Time savings. How much time is AI giving back to people? You can combine self-reported estimates (for example, “AI saves me X-Y mins per day, with 15 min intervals”) and usage based assistance (each action provides X mins of assistance). 
-KPI improvement. Once usage, satisfaction, and quality signals are strong, you can begin to look for changes in concrete metrics. Use before-and-after comparisons for specific, predictable workflows or divisions where AI—often via agents—can consistently assist with well-defined tasks. Note that this approach is hard to scale and can only be done for proof of value and building executive confidence in specific divisions. We will cover this in a separate blog.
-Financials. Over a longer horizon, improvements in productivity and quality can show up in financial metrics such as revenue per employee or cost per unit of work. Even then, remember that some of AI’s greatest benefits—like unlocking new skills or enabling work that simply wasn’t possible before—may not be fully visible in traditional financial reports.
-Take Away: ROI Demands Patience
-The sequence matters. First, make AI accessible and useful. Invest in education, coaching, and examples so employees feel confident and capable. Track deep usage, satisfaction, quality, and time savings as your early indicators. Only once those foundations are in place does it make sense to look for shifts in KPIs and, later, financial outcomes. In other words: don’t rush to measure AI ROI prematurely—build it, then measure it.
- 
-
-`
-          },
-          {
-            title: "What Early AI Adoption Really Looks Like in the Enterprise",
-            summary: "Early adoption is concentrated in few surfaces and within a small set of superusers, and this is ok",
-            category: "AI Adoption",
-            readTime: "7 min read",
-            content: `What Early AI Adoption Really Looks Like in the Enterprise
-The Reality: A Power-Law of AI Usage
-In almost every organization, AI usage quickly settles into a power-law distribution. A small group of superusers drive a disproportionately high number of interactions, while most employees sit in a long tail of light or experimental use. These superusers matter, but if you lead IT or digital transformation, you also need to understand what “healthy” early adoption looks like across the broader population.
-First 90–120 Days: What Good Engagement Looks Like
-In the first three to four months after rolling out an AI solution, we typically see average weekly interactions in the 7–10 range per active user. That means a user is prompting, refining responses, or accepting AI-generated suggestions 7–10 times a week.
-During this phase, two surfaces usually dominate:
-•	Meeting platforms (automated notes, summaries, and actions)
-•	General-purpose chat (Q&A, drafting, quick analysis)
-This is both normal and desirable. These experiences deliver clear value, require almost no training, and match existing user behavior. Getting a quick answer, finding a doc or enterprise knowledge, and accessing meeting notes without attending a 60-minute call are intuitive, low-friction wins that are essential for habit formation.
-Months 4–6: Expanding Surfaces and Confidence
-As users gain familiarity and confidence, adoption grows along two dimensions. First, interactions on the initial, high-traffic surfaces continue to increase. Second, people begin to experiment with AI inside creator tools such as email, documents, and spreadsheets. Design tools tend to ramp more slowly as they demand new ways of working.
-A key indicator to track at this stage is the number of apps or surfaces per active user. By around month six, a healthy pattern is for the average user to be using AI consistently in three to four surfaces, not just in meetings and chat.
-What IT Leaders Should Do
-If you are responsible for driving AI adoption, your early strategy should be about habit formation at scale, not chasing niche use cases. Start by making AI indispensable in one or two high-traffic, familiar experiences: meeting platforms and general-purpose chat. Make it easy to turn on, easy to try, and easy to see value within a week. Ensure that AI is able work well and isn’t blocked on technicalities like access to recordings or web-grounding.
-Once those habits are in place and you see sustained interaction levels, focus on higher-value, specialized scenarios in email, documents, spreadsheets, and eventually design tools. At that point, your goal shifts from proving AI’s value to broadening where that value shows up—moving from a few superusers to a durable, organization-wide capability.
-`
-          }
-        ]
-        
-        setArticles(loadedArticles)
-      } catch (error) {
-        console.error("Error loading documents:", error)
-      } finally {
+    // Fetch blog manifest
+    fetch("/ainroisite/blogs/manifest.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data)
         setLoading(false)
-      }
-    }
-
-    loadDocuments()
+      })
+      .catch((err) => {
+        console.error("Error loading blogs:", err)
+        setLoading(false)
+      })
   }, [])
 
+  useEffect(() => {
+    if (selectedBlog) {
+      // Fetch blog content
+      fetch(`/ainroisite/blogs/${selectedBlog.filename}`)
+        .then((res) => res.text())
+        .then((text) => setBlogContent(text))
+        .catch((err) => console.error("Error loading blog content:", err))
+    }
+  }, [selectedBlog])
+
+  // Get unique categories and count
+  const categories = useMemo(() => {
+    const categoryMap = new Map<string, number>()
+    categoryMap.set("All", blogs.length)
+    blogs.forEach((blog) => {
+      categoryMap.set(blog.category, (categoryMap.get(blog.category) || 0) + 1)
+    })
+    return categoryMap
+  }, [blogs])
+
+  // Filter blogs by category
+  const filteredBlogs = useMemo(() => {
+    if (selectedCategory === "All") return blogs
+    return blogs.filter((blog) => blog.category === selectedCategory)
+  }, [blogs, selectedCategory])
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16 lg:px-16 lg:pt-16 lg:pb-20 max-w-[1600px]">
+    <div id="spark-app" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Header */}
+      <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-8 py-6">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Ainroisite</h1>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-8 py-12">
         <Tabs defaultValue="insights" className="w-full">
-          <TabsList className="mb-16 md:mb-20 lg:mb-24 h-12 px-2 gap-6">
-            <TabsTrigger value="insights" className="px-6 py-3 text-base">Insights</TabsTrigger> 
-            <TabsTrigger value="projects" className="px-6 py-3 text-base">Projects/Code</TabsTrigger>                                                                                                         
-            <TabsTrigger value="about" className="px-6 py-3 text-base">About Us</TabsTrigger>    
-          </TabsList>          <TabsContent value="insights" className="mt-0">
-            {selectedArticle ? (
-              <div className="max-w-4xl mx-auto">
-                <Button
-                  variant="ghost"
-                  onClick={() => setSelectedArticle(null)}
-                  className="mb-8 -ml-2 text-muted-foreground hover:text-foreground"
+          {/* Navigation Tabs */}
+          <TabsList className="mb-12 bg-gray-50 border border-gray-200 p-1 gap-1">
+            <TabsTrigger value="insights" className="text-base px-6 py-2 data-[state=active]:bg-white">
+              Insights
+            </TabsTrigger>
+            <TabsTrigger value="projects" className="text-base px-6 py-2 data-[state=active]:bg-white">
+              Projects
+            </TabsTrigger>
+            <TabsTrigger value="about" className="text-base px-6 py-2 data-[state=active]:bg-white">
+              About Us
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Insights Tab */}
+          <TabsContent value="insights" className="mt-0">
+            {selectedBlog ? (
+              <div className="max-w-3xl mx-auto">
+                <button
+                  onClick={() => {
+                    setSelectedBlog(null)
+                    setBlogContent("")
+                  }}
+                  className="mb-8 text-gray-600 hover:text-gray-900 text-base"
                 >
-                  <ArrowLeft size={20} className="mr-2" />
-                  Back to all insights
-                </Button>
+                  ← Back to all posts
+                </button>
 
-                <article className="prose prose-lg max-w-none">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Badge variant="secondary" className="bg-secondary text-foreground text-sm font-normal px-3 py-1 rounded-sm">
-                      {selectedArticle.category}
-                    </Badge>
-                    <span className="text-sm text-muted-foreground">{selectedArticle.readTime}</span>
-                  </div>
-
-                  <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
-                    {selectedArticle.title}
-                  </h1>
-
-                  <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
-                    {selectedArticle.summary}
-                  </p>
-
-                  <div className="flex items-center gap-3 mb-12 pb-8 border-b border-border">
-                    <span className="text-sm font-medium text-muted-foreground mr-2">Share:</span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={handleShareTwitter}
-                      className="gap-2"
-                    >
-                      <TwitterLogo size={18} weight="fill" />
-                      Twitter
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={handleShareLinkedIn}
-                      className="gap-2"
-                    >
-                      <LinkedinLogo size={18} weight="fill" />
-                      LinkedIn
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={handleCopyLink}
-                      className="gap-2"
-                    >
-                      {copied ? <Check size={18} weight="bold" /> : <LinkIcon size={18} />}
-                      {copied ? "Copied!" : "Copy Link"}
-                    </Button>
-                  </div>
-
-                  <div className="text-base text-foreground/90 leading-relaxed space-y-6">
-                    {selectedArticle.content.split('\n').map((paragraph, idx) => (
-                      paragraph.trim() ? (
-                        <p key={idx} className="whitespace-pre-wrap">
-                          {paragraph}
-                        </p>
-                      ) : null
-                    ))}
-                  </div>
+                <article className="prose prose-lg prose-slate max-w-none">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{blogContent}</ReactMarkdown>
                 </article>
               </div>
             ) : (
-              <>
-            <div className="mb-12 md:mb-16 lg:mb-20">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
-                Insights
-              </h1>
-              <p className="text-base md:text-lg text-foreground/80 max-w-4xl leading-relaxed">
-                Discover actionable insights and analytics to drive your Copilot success.
-              </p>
-            </div>
+              <div className="flex gap-12">
+                {/* Main Content - Blog List */}
+                <div className="flex-1">
+                  {loading ? (
+                    <div className="text-center py-20 text-gray-500">Loading...</div>
+                  ) : (
+                    <div className="space-y-12">
+                      {filteredBlogs.map((blog, index) => (
+                        <article
+                          key={blog.id}
+                          onClick={() => setSelectedBlog(blog)}
+                          className="cursor-pointer group pb-12 border-b border-gray-200 last:border-0"
+                        >
+                          <div className="flex gap-6">
+                            {/* Date and Time */}
+                            <div className="w-24 flex-shrink-0 text-sm text-gray-500">
+                              <div>{blog.date}</div>
+                              <div className="mt-4">{blog.readTime}</div>
+                            </div>
 
-            {loading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                {[1, 2].map((i) => (
-                  <Card key={i} className="p-6">
-                    <div className="flex items-start gap-3 mb-4">
-                      <Skeleton className="h-12 w-12 rounded-lg" />
-                      <div className="flex-1">
-                        <Skeleton className="h-5 w-24 mb-2" />
-                        <Skeleton className="h-4 w-16" />
-                      </div>
+                            {/* Content */}
+                            <div className="flex-1">
+                              <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                                {blog.title}
+                              </h2>
+
+                              <div className="flex flex-wrap gap-2 mb-3">
+                                <Badge variant="outline" className="text-xs uppercase font-normal border-blue-200 text-blue-700 bg-blue-50">
+                                  {blog.category}
+                                </Badge>
+                              </div>
+
+                              <p className="text-base text-gray-600 leading-relaxed">
+                                {blog.summary}
+                              </p>
+                            </div>
+                          </div>
+                        </article>
+                      ))}
                     </div>
-                    <Skeleton className="h-7 w-full mb-3" />
-                    <Skeleton className="h-4 w-full mb-2" />
-                    <Skeleton className="h-4 w-3/4" />
-                  </Card>
-                ))}
+                  )}
+                </div>
+
+                {/* Right Sidebar - Categories */}
+                <aside className="w-48 flex-shrink-0">
+                  <div className="sticky top-24">
+                    <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">Categories</h3>
+                    <nav className="space-y-2">
+                      {Array.from(categories.entries()).map(([category, count]) => (
+                        <button
+                          key={category}
+                          onClick={() => setSelectedCategory(category)}
+                          className={`w-full text-left text-sm transition-all px-3 py-2 rounded-lg ${
+                            selectedCategory === category
+                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-md"
+                              : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                          }`}
+                        >
+                          {category} ({count})
+                        </button>
+                      ))}
+                    </nav>
+                  </div>
+                </aside>
               </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                {articles.map((article, index) => (
-                <Card 
-                  key={index}
-                  onClick={() => setSelectedArticle(article)}
-                  className="group cursor-pointer overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col p-6"
-                >
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <Article size={24} weight="duotone" className="text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <Badge variant="secondary" className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm mb-2">
-                        {article.category}
-                      </Badge>
-                      <p className="text-xs text-muted-foreground">{article.readTime}</p>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-semibold mb-3 text-foreground">
-                    {article.title}
-                  </h3>
-                  
-                  <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-4">
-                    {article.summary}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary/80 transition-colors mt-auto">
-                    <span>Read full article</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                      <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                </Card>
-              ))}
-            </div>
-            )}
-            </>
             )}
           </TabsContent>
 
-
+          {/* Projects Tab */}
           <TabsContent value="projects" className="mt-0">
-            <div className="mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 text-foreground">
-                Featured assets
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
-                Explore projects that help organizations unlock the full potential of Copilot through actionable insights and advanced analytics.
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold mb-4 text-gray-900">Featured Projects</h2>
+              <p className="text-lg text-gray-600 max-w-3xl">
+                Explore projects that help organizations unlock the full potential of Copilot.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map((project, index) => (
                 <Card
                   key={index}
-                  className="group overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] flex flex-col"
+                  className="overflow-hidden hover:shadow-lg transition-all duration-300 bg-white border border-gray-200"
                 >
-                  <div className="relative aspect-video overflow-hidden bg-secondary">
+                  <div className="relative aspect-video overflow-hidden bg-gray-100">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 right-3 bg-card/90 backdrop-blur-sm rounded-full p-2 shadow-sm">
-                      <GithubLogo size={20} weight="fill" className="text-foreground/70" />
-                    </div>
                   </div>
 
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h2 className="text-lg md:text-xl font-semibold mb-2 text-foreground">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900">
                       {project.title}
-                    </h2>
-                    
-                    <p className="text-sm text-foreground/70 mb-4 leading-relaxed flex-1">
+                    </h3>
+
+                    <p className="text-base text-gray-600 mb-4 leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
-                        <Badge
-                          key={tagIndex}
-                          variant="secondary"
-                          className="bg-secondary text-foreground text-xs font-normal px-2.5 py-0.5 rounded-sm"
-                        >
+                        <Badge key={tagIndex} variant="secondary" className="text-xs">
                           {tag}
                         </Badge>
                       ))}
                     </div>
 
-                    {project.githubUrl ? (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
-                      >
-                        <span>View on GitHub</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                          <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </a>
-                    ) : (
-                      <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground mt-auto">
-                        Coming soon
-                      </span>
-                    )}
-                  </div>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700"
+                    >
+                      <GithubLogo size={20} weight="fill" />
+                      View on GitHub →
+                    </a>
+                  </CardContent>
                 </Card>
               ))}
             </div>
           </TabsContent>
 
+          {/* About Us Tab */}
           <TabsContent value="about" className="mt-0">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-12 md:mb-16">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-foreground">
-                  About Us
-                </h1>
-                <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-                  We are passionate about helping organizations unlock the full potential of AI and Copilot through actionable insights, advanced analytics, and strategic guidance.
+              <div className="mb-12">
+                <h2 className="text-4xl font-bold mb-4 text-gray-900">About Us</h2>
+                <p className="text-lg text-gray-600">
+                  We are passionate about helping organizations unlock the full potential of AI and
+                  Copilot through actionable insights, advanced analytics, and strategic guidance.
                 </p>
               </div>
 
-              <div className="space-y-12">
-                <div className="border-b border-border pb-12">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                      <span className="text-3xl font-bold text-primary">SH</span>
+              <div className="space-y-10">
+                {/* Shailendra */}
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                        SH
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                          Shailendra Hegde
+                        </h3>
+                        <p className="text-lg text-blue-600 font-semibold mb-3">
+                          Principal Product Manager, Microsoft
+                        </p>
+                        <a
+                          href="https://www.linkedin.com/in/shailendrahegde"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                        >
+                          <LinkedinLogo size={18} weight="fill" />
+                          LinkedIn Profile
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-                        Shailendra Hegde
-                      </h2>
-                      <p className="text-lg text-primary font-medium mb-3">
-                        Principal Product Manager, Microsoft
-                      </p>
-                      <a
-                        href="https://www.linkedin.com/in/shailendrahegde"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <LinkedinLogo size={20} weight="fill" />
-                        View LinkedIn Profile
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed space-y-4">
-                    <p>
-                      Shailendra is a Product Manager at Microsoft, specializing in AI and Copilot analytics. With a deep passion for data-driven insights, he helps organizations measure and maximize the impact of their AI investments.
-                    </p>
-                    <p>
-                      His work focuses on creating actionable analytics frameworks that help enterprises understand usage patterns, adoption metrics, and ROI from Microsoft 365 Copilot, GitHub Copilot, and other AI solutions. Through innovative Power BI dashboards and analytical tools, Shailendra enables organizations to decode what their best users do differently and apply those insights at scale.
-                    </p>
-                    
-                  </div>
-                </div>
 
-                <div className="pb-12">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                      <span className="text-3xl font-bold text-primary">KM</span>
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-                        Keith McGrane
-                      </h2>
-                      <p className="text-lg text-primary font-medium mb-3">
-                        AI & Data Solutions Specialist
+                    <div className="space-y-3 text-base text-gray-700 leading-relaxed">
+                      <p>
+                        Shailendra is a Product Manager at Microsoft, specializing in AI and Copilot
+                        analytics. With a deep passion for data-driven insights, he helps organizations
+                        measure and maximize the impact of their AI investments.
                       </p>
-                      <a
-                        href="https://www.linkedin.com/in/keith-mcgrane-46184029/?originalSubdomain=uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        <LinkedinLogo size={20} weight="fill" />
-                        View LinkedIn Profile
-                      </a>
+                      <p>
+                        His work focuses on creating actionable analytics frameworks that help
+                        enterprises understand usage patterns, adoption metrics, and ROI from Microsoft
+                        365 Copilot, GitHub Copilot, and other AI solutions.
+                      </p>
                     </div>
-                  </div>
-                  
-                  <div className="prose prose-lg max-w-none text-foreground/80 leading-relaxed space-y-4">
-                    <p>
-                      Keith is an experienced AI and Data Solutions Specialist based in the UK, with extensive expertise in helping organizations leverage artificial intelligence and data analytics to drive business outcomes.
-                    </p>
-                    <p>
-                      With a strong background in enterprise technology solutions, Keith specializes in designing and implementing AI-powered analytics systems that deliver measurable value. His work spans across strategic planning, technical implementation, and organizational change management to ensure successful AI adoption.
-                    </p>
-                    <p>
-                      Keith brings a practical, results-oriented approach to AI transformation, helping organizations navigate the complexities of enterprise AI deployment while maintaining focus on real-world business impact and user adoption.
-                    </p>
-                  </div>
-                </div>
-              </div>
+                  </CardContent>
+                </Card>
 
-              <div className="mt-12 p-6 bg-secondary/50 rounded-lg border border-border">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Our Mission
-                </h3>
-                <p className="text-base text-foreground/80 leading-relaxed">
-                  We believe that AI adoption is not just about technology—it's about people, processes, and measurable outcomes. Our mission is to empower organizations with the insights and tools they need to drive meaningful AI adoption, build sustainable habits, and achieve long-term ROI from their Copilot investments.
-                </p>
+                {/* Keith */}
+                <Card className="bg-white border border-gray-200">
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                        KM
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Keith McGrane</h3>
+                        <p className="text-lg text-blue-600 font-semibold mb-3">
+                          AI & Data Solutions Specialist
+                        </p>
+                        <a
+                          href="https://www.linkedin.com/in/keith-mcgrane-46184029/?originalSubdomain=uk"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                        >
+                          <LinkedinLogo size={18} weight="fill" />
+                          LinkedIn Profile
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 text-base text-gray-700 leading-relaxed">
+                      <p>
+                        Keith is an experienced AI and Data Solutions Specialist based in the UK, with
+                        extensive expertise in helping organizations leverage artificial intelligence and
+                        data analytics to drive business outcomes.
+                      </p>
+                      <p>
+                        Keith brings a practical, results-oriented approach to AI transformation, helping
+                        organizations navigate the complexities of enterprise AI deployment while
+                        maintaining focus on real-world business impact and user adoption.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </TabsContent>
         </Tabs>
-      </div>
+      </main>
+
+      <footer className="border-t border-gray-200 mt-20 py-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-8 text-center text-sm text-gray-600">
+          <p>© 2025 Ainroisite. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   )
 }
