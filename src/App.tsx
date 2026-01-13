@@ -72,7 +72,7 @@ function App() {
 
   useEffect(() => {
     // Fetch blog manifest
-    fetch("/ainroisite/blogs/manifest.json")
+    fetch("/blogs/manifest.json")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data)
@@ -87,7 +87,7 @@ function App() {
   useEffect(() => {
     if (selectedBlog) {
       // Fetch blog content
-      fetch(`/ainroisite/blogs/${selectedBlog.filename}`)
+      fetch(`/blogs/${selectedBlog.filename}`)
         .then((res) => res.text())
         .then((text) => setBlogContent(text))
         .catch((err) => console.error("Error loading blog content:", err))
