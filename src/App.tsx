@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
+import { GithubLogo, LinkedinLogo, List, X } from "@phosphor-icons/react"
 
 interface Project {
   title: string
@@ -69,6 +69,7 @@ function App() {
   const [blogContent, setBlogContent] = useState<string>("")
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     // Fetch blog manifest
@@ -122,8 +123,8 @@ function App() {
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
               </div>
 
-              {/* Navigation Tabs */}
-              <TabsList className="bg-gray-50 border border-gray-200 p-1 gap-1">
+              {/* Desktop Navigation Tabs */}
+              <TabsList className="hidden md:flex bg-gray-50 border border-gray-200 p-1 gap-1">
                 <TabsTrigger value="insights" className="text-base px-6 py-2 data-[state=active]:bg-white">
                   Insights
                 </TabsTrigger>
@@ -134,7 +135,49 @@ function App() {
                   About Us
                 </TabsTrigger>
               </TabsList>
+
+              {/* Mobile Hamburger Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <X size={24} className="text-gray-700" weight="bold" />
+                ) : (
+                  <List size={24} className="text-gray-700" weight="bold" />
+                )}
+              </button>
             </div>
+
+            {/* Mobile Navigation Menu */}
+            {mobileMenuOpen && (
+              <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+                <TabsList className="flex flex-col w-full gap-2 bg-transparent p-0">
+                  <TabsTrigger
+                    value="insights"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-base px-6 py-3 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-purple-600 data-[state=active]:text-white bg-gray-50 border border-gray-200"
+                  >
+                    Insights
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="projects"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-base px-6 py-3 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-purple-600 data-[state=active]:text-white bg-gray-50 border border-gray-200"
+                  >
+                    Projects
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-base px-6 py-3 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-purple-600 data-[state=active]:text-white bg-gray-50 border border-gray-200"
+                  >
+                    About Us
+                  </TabsTrigger>
+                </TabsList>
+              </div>
+            )}
           </div>
         </header>
 
