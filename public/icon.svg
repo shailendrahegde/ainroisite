@@ -1,44 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="gradientLetter5" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
     </linearGradient>
   </defs>
 
-  <!-- Circular background -->
-  <circle cx="50" cy="50" r="48" fill="url(#gradient)" opacity="0.1"/>
+  <!-- Square container with rounded corners -->
+  <rect x="10" y="10" width="80" height="80" rx="12" fill="none" stroke="url(#gradientLetter5)" stroke-width="3"/>
 
-  <!-- AI Neural network nodes -->
-  <circle cx="30" cy="35" r="5" fill="url(#gradient)"/>
-  <circle cx="50" cy="30" r="5" fill="url(#gradient)"/>
-  <circle cx="70" cy="35" r="5" fill="url(#gradient)"/>
+  <!-- "AI" centered and bold -->
+  <text x="50" y="55" font-size="36" font-weight="bold" fill="url(#gradientLetter5)" font-family="Arial, sans-serif" text-anchor="middle">AI</text>
 
-  <circle cx="25" cy="50" r="5" fill="url(#gradient)"/>
-  <circle cx="50" cy="50" r="6" fill="url(#gradient)"/>
-  <circle cx="75" cy="50" r="5" fill="url(#gradient)"/>
+  <!-- Bar chart below AI - all aligned at bottom -->
+  <rect x="32" y="70" width="6" height="12" fill="url(#gradientLetter5)" rx="1"/>
+  <rect x="41" y="65" width="6" height="17" fill="url(#gradientLetter5)" rx="1"/>
+  <rect x="50" y="60" width="6" height="22" fill="url(#gradientLetter5)" rx="1"/>
+  <rect x="59" y="28" width="6" height="54" fill="url(#gradientLetter5)" rx="1"/>
 
-  <circle cx="30" cy="65" r="5" fill="url(#gradient)"/>
-  <circle cx="50" cy="70" r="5" fill="url(#gradient)"/>
-  <circle cx="70" cy="65" r="5" fill="url(#gradient)"/>
-
-  <!-- Connection lines -->
-  <line x1="30" y1="35" x2="25" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="30" y1="35" x2="50" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="50" y1="30" x2="50" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="50" y1="30" x2="75" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="70" y1="35" x2="75" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="70" y1="35" x2="50" y2="50" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-
-  <line x1="25" y1="50" x2="30" y2="65" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="25" y1="50" x2="50" y2="70" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="50" y1="50" x2="30" y2="65" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="50" y1="50" x2="50" y2="70" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="50" y1="50" x2="70" y2="65" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="75" y1="50" x2="70" y2="65" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-  <line x1="75" y1="50" x2="50" y2="70" stroke="url(#gradient)" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- ROI Arrow (upward trend) -->
-  <path d="M 65 75 L 85 75 L 85 85" stroke="url(#gradient)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <polygon points="85,72 90,77 85,77" fill="url(#gradient)"/>
+  <!-- Upward arrow in top right corner -->
+  <path d="M 75 25 L 82 18" stroke="url(#gradientLetter5)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="83,19 82,15 79,18" fill="url(#gradientLetter5)"/>
 </svg>
