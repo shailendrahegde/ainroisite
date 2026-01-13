@@ -112,30 +112,33 @@ function App() {
 
   return (
     <div id="spark-app" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Header */}
-      <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-8 py-6">
-          <div className="flex items-center gap-3">
-            <img src="/icon.svg" alt="AInROI" className="w-8 h-8" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
-          </div>
-        </div>
-      </header>
+      <Tabs defaultValue="insights" className="w-full">
+        {/* Header */}
+        <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+          <div className="max-w-6xl mx-auto px-8 py-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img src="/icon.svg" alt="AInROI" className="w-8 h-8" />
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
+              </div>
 
-      <main className="max-w-6xl mx-auto px-8 py-12">
-        <Tabs defaultValue="insights" className="w-full">
-          {/* Navigation Tabs */}
-          <TabsList className="mb-12 bg-gray-50 border border-gray-200 p-1 gap-1">
-            <TabsTrigger value="insights" className="text-base px-6 py-2 data-[state=active]:bg-white">
-              Insights
-            </TabsTrigger>
-            <TabsTrigger value="projects" className="text-base px-6 py-2 data-[state=active]:bg-white">
-              Projects
-            </TabsTrigger>
-            <TabsTrigger value="about" className="text-base px-6 py-2 data-[state=active]:bg-white">
-              About Us
-            </TabsTrigger>
-          </TabsList>
+              {/* Navigation Tabs */}
+              <TabsList className="bg-gray-50 border border-gray-200 p-1 gap-1">
+                <TabsTrigger value="insights" className="text-base px-6 py-2 data-[state=active]:bg-white">
+                  Insights
+                </TabsTrigger>
+                <TabsTrigger value="projects" className="text-base px-6 py-2 data-[state=active]:bg-white">
+                  Projects
+                </TabsTrigger>
+                <TabsTrigger value="about" className="text-base px-6 py-2 data-[state=active]:bg-white">
+                  About Us
+                </TabsTrigger>
+              </TabsList>
+            </div>
+          </div>
+        </header>
+
+        <main className="max-w-6xl mx-auto px-8 py-12">
 
           {/* Insights Tab */}
           <TabsContent value="insights" className="mt-0">
@@ -373,8 +376,8 @@ function App() {
               </div>
             </div>
           </TabsContent>
-        </Tabs>
-      </main>
+        </main>
+      </Tabs>
 
       <footer className="border-t border-gray-200 mt-20 py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto px-8 text-center text-sm text-gray-600">
