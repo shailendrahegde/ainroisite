@@ -115,7 +115,10 @@ function App() {
       {/* Header */}
       <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-8 py-6">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
+          <div className="flex items-center gap-3">
+            <img src="/icon.svg" alt="AInROI" className="w-8 h-8" />
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
+          </div>
         </div>
       </header>
 
