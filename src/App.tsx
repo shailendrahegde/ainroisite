@@ -197,21 +197,7 @@ function App() {
                   ← Back to all posts
                 </button>
 
-                <article className="prose prose-lg max-w-none
-                  prose-headings:font-bold prose-headings:text-gray-900
-                  prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-0
-                  prose-h2:text-2xl prose-h2:mb-5 prose-h2:mt-8
-                  prose-h3:text-lg prose-h3:mb-4 prose-h3:mt-6 prose-h3:font-bold
-                  prose-p:text-gray-800 prose-p:leading-7 prose-p:mb-6 prose-p:text-base
-                  prose-strong:text-gray-900 prose-strong:font-bold
-                  prose-ul:my-5 prose-ul:list-disc prose-ul:pl-6
-                  prose-ol:my-5 prose-ol:list-decimal prose-ol:pl-6
-                  prose-li:text-gray-800 prose-li:my-1 prose-li:leading-7
-                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:bg-blue-50 prose-blockquote:py-3 prose-blockquote:my-6 prose-blockquote:font-normal
-                  prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal
-                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-                  prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
-                >
+                <article className="max-w-none text-gray-800 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:mb-6 [&>h1]:mt-0 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mb-5 [&>h2]:mt-8 [&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mb-4 [&>h3]:mt-6 [&>p]:text-base [&>p]:leading-7 [&>p]:mb-6 [&>p]:text-gray-800 [&_strong]:font-bold [&_strong]:text-gray-900 [&>ul]:my-5 [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:my-5 [&>ol]:list-decimal [&>ol]:pl-6 [&_li]:text-gray-800 [&_li]:my-2 [&_li]:leading-7 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-700 [&>blockquote]:bg-blue-50 [&>blockquote]:py-3 [&>blockquote]:my-6 [&_code]:text-blue-600 [&_code]:bg-blue-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&>pre]:bg-gray-900 [&>pre]:text-gray-100 [&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:my-6 [&_a]:text-blue-600 [&_a]:no-underline hover:[&_a]:underline [&>table]:w-full [&>table]:my-6 [&>table]:border-collapse [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:border-gray-300 [&_td]:px-4 [&_td]:py-2">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{blogContent}</ReactMarkdown>
                 </article>
               </div>
