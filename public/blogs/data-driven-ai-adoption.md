@@ -1,4 +1,4 @@
-# From Data to Action: How Deep Adoption Data Turns Enterprise AI Into a Scalable Capability
+# Stop Guessing: The Data-Driven Way to Scale Enterprise AI
 
 ## TL;DR
 
