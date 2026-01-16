@@ -116,7 +116,7 @@ function App() {
       <Tabs defaultValue="insights" className="w-full">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-8 py-6">
+          <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 md:py-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img src="/icon.svg" alt="AInROI" className="w-8 h-8" />
@@ -181,7 +181,7 @@ function App() {
           </div>
         </header>
 
-        <main className="max-w-6xl mx-auto px-8 py-12">
+        <main className="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-12">
 
           {/* Insights Tab */}
           <TabsContent value="insights" className="mt-0">
@@ -192,64 +192,41 @@ function App() {
                     setSelectedBlog(null)
                     setBlogContent("")
                   }}
-                  className="mb-8 text-gray-600 hover:text-gray-900 text-base font-medium"
+                  className="mb-6 md:mb-8 text-gray-600 hover:text-gray-900 text-sm md:text-base font-medium"
                 >
                   ← Back to all posts
                 </button>
 
-                <article className="max-w-none text-gray-800 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:mb-6 [&>h1]:mt-0 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mb-5 [&>h2]:mt-8 [&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mb-4 [&>h3]:mt-6 [&>p]:text-base [&>p]:leading-7 [&>p]:mb-6 [&>p]:text-gray-800 [&_strong]:font-bold [&_strong]:text-gray-900 [&>ul]:my-5 [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:my-5 [&>ol]:list-decimal [&>ol]:pl-6 [&_li]:text-gray-800 [&_li]:my-2 [&_li]:leading-7 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-700 [&>blockquote]:bg-blue-50 [&>blockquote]:py-3 [&>blockquote]:my-6 [&_code]:text-blue-600 [&_code]:bg-blue-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&>pre]:bg-gray-900 [&>pre]:text-gray-100 [&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:my-6 [&_a]:text-blue-600 [&_a]:no-underline hover:[&_a]:underline [&>table]:w-full [&>table]:my-6 [&>table]:border-collapse [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:border-gray-300 [&_td]:px-4 [&_td]:py-2">
+                <article className="max-w-none text-gray-800 [&>h1]:text-2xl md:[&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:mb-4 md:[&>h1]:mb-6 [&>h1]:mt-0 [&>h2]:text-xl md:[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mb-4 md:[&>h2]:mb-5 [&>h2]:mt-6 md:[&>h2]:mt-8 [&>h3]:text-base md:[&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mb-3 md:[&>h3]:mb-4 [&>h3]:mt-5 md:[&>h3]:mt-6 [&>p]:text-sm md:[&>p]:text-base [&>p]:leading-relaxed md:[&>p]:leading-7 [&>p]:mb-4 md:[&>p]:mb-6 [&>p]:text-gray-800 [&_strong]:font-bold [&_strong]:text-gray-900 [&>ul]:my-4 md:[&>ul]:my-5 [&>ul]:list-disc [&>ul]:pl-5 md:[&>ul]:pl-6 [&>ol]:my-4 md:[&>ol]:my-5 [&>ol]:list-decimal [&>ol]:pl-5 md:[&>ol]:pl-6 [&_li]:text-gray-800 [&_li]:my-1.5 md:[&_li]:my-2 [&_li]:leading-relaxed md:[&_li]:leading-7 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-3 md:[&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-700 [&>blockquote]:bg-blue-50 [&>blockquote]:py-2 md:[&>blockquote]:py-3 [&>blockquote]:my-4 md:[&>blockquote]:my-6 [&_code]:text-blue-600 [&_code]:bg-blue-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs md:[&_code]:text-sm [&>pre]:bg-gray-900 [&>pre]:text-gray-100 [&>pre]:p-3 md:[&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:my-4 md:[&>pre]:my-6 [&>pre]:text-xs md:[&>pre]:text-sm [&_a]:text-blue-600 [&_a]:no-underline hover:[&_a]:underline [&>table]:w-full [&>table]:my-4 md:[&>table]:my-6 [&>table]:border-collapse [&>table]:text-sm [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:px-2 md:[&_th]:px-4 [&_th]:py-1.5 md:[&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:border-gray-300 [&_td]:px-2 md:[&_td]:px-4 [&_td]:py-1.5 md:[&_td]:py-2">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{blogContent}</ReactMarkdown>
                 </article>
               </div>
             ) : (
-              <div className="flex gap-12">
-                {/* Main Content - Blog List */}
-                <div className="flex-1">
-                  {loading ? (
-                    <div className="text-center py-20 text-gray-500">Loading...</div>
-                  ) : (
-                    <div className="space-y-12">
-                      {filteredBlogs.map((blog, index) => (
-                        <article
-                          key={blog.id}
-                          onClick={() => setSelectedBlog(blog)}
-                          className="cursor-pointer group pb-12 border-b border-gray-200 last:border-0"
+              <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+                {/* Categories - Top on Mobile, Right Sidebar on Desktop */}
+                <aside className="w-full md:w-48 md:order-2 md:flex-shrink-0">
+                  <div className="md:sticky md:top-24">
+                    <h3 className="text-base md:text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 md:mb-4">Categories</h3>
+
+                    {/* Mobile: Horizontal scrolling chips */}
+                    <nav className="flex md:hidden gap-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
+                      {Array.from(categories.entries()).map(([category, count]) => (
+                        <button
+                          key={category}
+                          onClick={() => setSelectedCategory(category)}
+                          className={`flex-shrink-0 text-sm transition-all px-4 py-2 rounded-full whitespace-nowrap ${
+                            selectedCategory === category
+                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-md"
+                              : "text-gray-600 bg-gray-100 hover:bg-gray-200"
+                          }`}
                         >
-                          <div className="flex gap-6">
-                            {/* Date and Time */}
-                            <div className="w-24 flex-shrink-0 text-sm text-gray-500">
-                              <div>{blog.date}</div>
-                              <div className="mt-4">{blog.readTime}</div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="flex-1">
-                              <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                                {blog.title}
-                              </h2>
-
-                              <div className="flex flex-wrap gap-2 mb-3">
-                                <Badge variant="outline" className="text-xs uppercase font-normal border-blue-200 text-blue-700 bg-blue-50">
-                                  {blog.category}
-                                </Badge>
-                              </div>
-
-                              <p className="text-base text-gray-600 leading-relaxed">
-                                {blog.summary}
-                              </p>
-                            </div>
-                          </div>
-                        </article>
+                          {category} ({count})
+                        </button>
                       ))}
-                    </div>
-                  )}
-                </div>
+                    </nav>
 
-                {/* Right Sidebar - Categories */}
-                <aside className="w-48 flex-shrink-0">
-                  <div className="sticky top-24">
-                    <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">Categories</h3>
-                    <nav className="space-y-2">
+                    {/* Desktop: Vertical list */}
+                    <nav className="hidden md:block space-y-2">
                       {Array.from(categories.entries()).map(([category, count]) => (
                         <button
                           key={category}
@@ -266,20 +243,69 @@ function App() {
                     </nav>
                   </div>
                 </aside>
+
+                {/* Main Content - Blog List */}
+                <div className="flex-1 md:order-1">
+                  {loading ? (
+                    <div className="text-center py-20 text-gray-500">Loading...</div>
+                  ) : (
+                    <div className="space-y-8 md:space-y-12">
+                      {filteredBlogs.map((blog, index) => (
+                        <article
+                          key={blog.id}
+                          onClick={() => setSelectedBlog(blog)}
+                          className="cursor-pointer group pb-8 md:pb-12 border-b border-gray-200 last:border-0"
+                        >
+                          <div className="flex flex-col md:flex-row gap-3 md:gap-6">
+                            {/* Date and Time - Desktop only (left column) */}
+                            <div className="hidden md:flex md:w-24 md:flex-shrink-0 text-sm text-gray-500 flex-col">
+                              <div>{blog.date}</div>
+                              <div className="mt-4">{blog.readTime}</div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-1">
+                              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                                {blog.title}
+                              </h2>
+
+                              {/* Date and Time - Mobile only (inline with content) */}
+                              <div className="flex md:hidden items-center gap-3 text-xs text-gray-500 mb-3">
+                                <span>{blog.date}</span>
+                                <span>•</span>
+                                <span>{blog.readTime}</span>
+                              </div>
+
+                              <div className="flex flex-wrap gap-2 mb-3">
+                                <Badge variant="outline" className="text-xs uppercase font-normal border-blue-200 text-blue-700 bg-blue-50">
+                                  {blog.category}
+                                </Badge>
+                              </div>
+
+                              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                                {blog.summary}
+                              </p>
+                            </div>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </TabsContent>
 
           {/* Projects Tab */}
           <TabsContent value="projects" className="mt-0">
-            <div className="mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-gray-900">Featured Projects</h2>
-              <p className="text-lg text-gray-600 max-w-3xl">
+            <div className="mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">Featured Projects</h2>
+              <p className="text-base md:text-lg text-gray-600 max-w-3xl">
                 Explore projects that help organizations unlock the full potential of Copilot.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {projects.map((project, index) => (
                 <Card
                   key={index}
@@ -293,16 +319,16 @@ function App() {
                     />
                   </div>
 
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-gray-900">
                       {project.title}
                     </h3>
 
-                    <p className="text-base text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <Badge key={tagIndex} variant="secondary" className="text-xs">
                           {tag}
@@ -314,9 +340,9 @@ function App() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700"
+                      className="inline-flex items-center gap-2 text-blue-600 text-sm md:text-base font-medium hover:text-blue-700"
                     >
-                      <GithubLogo size={20} weight="fill" />
+                      <GithubLogo size={18} weight="fill" className="md:w-5 md:h-5" />
                       View on GitHub →
                     </a>
                   </CardContent>
@@ -328,42 +354,42 @@ function App() {
           {/* About Us Tab */}
           <TabsContent value="about" className="mt-0">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-12">
-                <h2 className="text-4xl font-bold mb-4 text-gray-900">About Us</h2>
-                <p className="text-lg text-gray-600">
+              <div className="mb-8 md:mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">About Us</h2>
+                <p className="text-base md:text-lg text-gray-600">
                   We are passionate about helping organizations unlock the full potential of AI and
                   Copilot through actionable insights, advanced analytics, and strategic guidance.
                 </p>
               </div>
 
-              <div className="space-y-10">
+              <div className="space-y-6 md:space-y-10">
                 {/* Shailendra */}
                 <Card className="bg-white border border-gray-200">
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  <CardContent className="p-5 md:p-8">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold flex-shrink-0">
                         SH
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                           Shailendra Hegde
                         </h3>
-                        <p className="text-lg text-blue-600 font-semibold mb-3">
+                        <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
                           Principal Product Manager, Microsoft
                         </p>
                         <a
                           href="https://www.linkedin.com/in/shailendrahegde"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                          className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600 hover:text-gray-900"
                         >
-                          <LinkedinLogo size={18} weight="fill" />
+                          <LinkedinLogo size={16} weight="fill" className="md:w-[18px] md:h-[18px]" />
                           LinkedIn Profile
                         </a>
                       </div>
                     </div>
 
-                    <div className="space-y-3 text-base text-gray-700 leading-relaxed">
+                    <div className="space-y-2 md:space-y-3 text-sm md:text-base text-gray-700 leading-relaxed">
                       <p>
                         Shailendra is a Product Manager at Microsoft, specializing in AI and Copilot
                         analytics. With a deep passion for data-driven insights, he helps organizations
@@ -380,29 +406,29 @@ function App() {
 
                 {/* Keith */}
                 <Card className="bg-white border border-gray-200">
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  <CardContent className="p-5 md:p-8">
+                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold flex-shrink-0">
                         KM
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Keith McGrane</h3>
-                        <p className="text-lg text-blue-600 font-semibold mb-3">
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Keith McGrane</h3>
+                        <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
                           AI & Data Solutions Specialist
                         </p>
                         <a
                           href="https://www.linkedin.com/in/keith-mcgrane-46184029/?originalSubdomain=uk"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                          className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600 hover:text-gray-900"
                         >
-                          <LinkedinLogo size={18} weight="fill" />
+                          <LinkedinLogo size={16} weight="fill" className="md:w-[18px] md:h-[18px]" />
                           LinkedIn Profile
                         </a>
                       </div>
                     </div>
 
-                    <div className="space-y-3 text-base text-gray-700 leading-relaxed">
+                    <div className="space-y-2 md:space-y-3 text-sm md:text-base text-gray-700 leading-relaxed">
                       <p>
                         Keith is an experienced AI and Data Solutions Specialist based in the UK, with
                         extensive expertise in helping organizations leverage artificial intelligence and
@@ -422,8 +448,8 @@ function App() {
         </main>
       </Tabs>
 
-      <footer className="border-t border-gray-200 mt-20 py-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-8 text-center text-sm text-gray-600">
+      <footer className="border-t border-gray-200 mt-12 md:mt-20 py-6 md:py-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 text-center text-xs md:text-sm text-gray-600">
           <p>© 2025 AInROI. All rights reserved.</p>
         </div>
       </footer>
