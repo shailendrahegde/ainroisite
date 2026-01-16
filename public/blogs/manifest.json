@@ -1,5 +1,15 @@
 [
   {
+    "id": "ai-superusers-hidden-advantage",
+    "title": "AI Superusers: The Hidden Advantage in Your Organization",
+    "summary": "A small fraction of employees generates 5-10× more AI usage. Learn how to find them, learn from them, and scale what works",
+    "category": "AI Adoption",
+    "readTime": "6 min read",
+    "filename": "ai-superusers-hidden-advantage.md",
+    "date": "Jan 16, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+  },
+  {
     "id": "data-driven-ai-adoption",
     "title": "Stop Guessing: The Data-Driven Way to Scale Enterprise AI",
     "summary": "Bake measurement into every adoption workstream to go from generic enablement to targeted interventions that shift real behavior",
