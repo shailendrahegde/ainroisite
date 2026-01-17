@@ -17,7 +17,7 @@ interface Project {
   title: string
   description: string
   tags: string[]
-  githubUrl: string
+  githubUrl?: string
   image: string
 }
 
@@ -65,7 +65,6 @@ const projects: Project[] = [
     title: "M365 to Copilot Bridge",
     description: "Analyze M365 app usage to inform likelihood of Copilot Adoption",
     tags: ["Power BI", "Microsoft Graph"],
-    githubUrl: "https://github.com/microsoft/M365-to-Copilot-Bridge",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&brightness=1.1"
   }
 ]
@@ -560,15 +559,21 @@ function App() {
                       ))}
                     </div>
 
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-blue-600 text-xs md:text-sm font-medium hover:text-blue-700"
-                    >
-                      <GithubLogo size={16} weight="fill" className="md:w-4 md:h-4" />
-                      View on GitHub →
-                    </a>
+                    {project.githubUrl ? (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-blue-600 text-xs md:text-sm font-medium hover:text-blue-700"
+                      >
+                        <GithubLogo size={16} weight="fill" className="md:w-4 md:h-4" />
+                        View on GitHub →
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 text-gray-500 text-xs md:text-sm font-medium">
+                        Coming soon
+                      </span>
+                    )}
                   </CardContent>
                 </Card>
               ))}
