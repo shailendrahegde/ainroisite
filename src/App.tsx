@@ -77,6 +77,17 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [copiedBlogId, setCopiedBlogId] = useState<string | null>(null)
+  const baseUrl = import.meta.env.BASE_URL
+  const keithAvatarSources = useMemo(
+    () => [
+      `${baseUrl}Keith-McGrane%20Pic.jpg`,
+      `${baseUrl}Keith-McGrane%20Pic.png`,
+      "https://unavatar.io/linkedin/keith-mcgrane-46184029",
+    ],
+    [baseUrl]
+  )
+  const [keithAvatarIndex, setKeithAvatarIndex] = useState(0)
+  const [keithAvatarFailed, setKeithAvatarFailed] = useState(false)
 
   useEffect(() => {
     // Fetch blog manifest
@@ -639,11 +650,27 @@ function App() {
                 <Card className="bg-white border border-gray-200">
                   <CardContent className="p-5 md:p-8">
                     <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
-                      <img
-                        src="https://unavatar.io/linkedin/keith-mcgrane-46184029"
-                        alt="Keith McGrane"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600"
-                      />
+                      {!keithAvatarFailed ? (
+                        <img
+                          src={keithAvatarSources[keithAvatarIndex]}
+                          alt="Keith McGrane"
+                          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600"
+                          loading="lazy"
+                          decoding="async"
+                          onError={() => {
+                            setKeithAvatarIndex((currentIndex) => {
+                              const nextIndex = currentIndex + 1
+                              if (nextIndex < keithAvatarSources.length) return nextIndex
+                              setKeithAvatarFailed(true)
+                              return currentIndex
+                            })
+                          }}
+                        />
+                      ) : (
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold">
+                          KM
+                        </div>
+                      )}
                       <div className="flex-1">
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Keith McGrane</h3>
                         <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
