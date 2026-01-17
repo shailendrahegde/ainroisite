@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { GithubLogo, LinkedinLogo, List, X } from "@phosphor-icons/react"
+import { GithubLogo, LinkedinLogo, List, X, XLogo, ShareNetwork, Link as LinkIcon, Check } from "@phosphor-icons/react"
 
 interface Project {
   title: string
@@ -70,6 +70,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [copiedBlogId, setCopiedBlogId] = useState<string | null>(null)
 
   useEffect(() => {
     // Fetch blog manifest
@@ -78,6 +79,16 @@ function App() {
       .then((data) => {
         setBlogs(data)
         setLoading(false)
+
+        // Check if there's a blog ID in the URL
+        const urlParams = new URLSearchParams(window.location.search)
+        const blogId = urlParams.get('blog')
+        if (blogId) {
+          const blog = data.find((b: BlogMeta) => b.id === blogId)
+          if (blog) {
+            setSelectedBlog(blog)
+          }
+        }
       })
       .catch((err) => {
         console.error("Error loading blogs:", err)
@@ -110,6 +121,33 @@ function App() {
     if (selectedCategory === "All") return blogs
     return blogs.filter((blog) => blog.category === selectedCategory)
   }, [blogs, selectedCategory])
+
+  // Share functions
+  const getBlogUrl = (blogId: string) => {
+    return `${window.location.origin}${window.location.pathname}?blog=${blogId}`
+  }
+
+  const shareOnTwitter = (blog: BlogMeta) => {
+    const url = getBlogUrl(blog.id)
+    const text = `${blog.title} - ${blog.summary}`
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank')
+  }
+
+  const shareOnLinkedIn = (blog: BlogMeta) => {
+    const url = getBlogUrl(blog.id)
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank')
+  }
+
+  const copyLink = async (blogId: string) => {
+    const url = getBlogUrl(blogId)
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopiedBlogId(blogId)
+      setTimeout(() => setCopiedBlogId(null), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
 
   return (
     <div id="spark-app" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -192,15 +230,47 @@ function App() {
           <TabsContent value="insights" className="mt-0">
             {selectedBlog ? (
               <div className="max-w-4xl mx-auto">
-                <button
-                  onClick={() => {
-                    setSelectedBlog(null)
-                    setBlogContent("")
-                  }}
-                  className="mb-6 md:mb-8 text-gray-600 hover:text-gray-900 text-sm md:text-base font-medium"
-                >
-                  ← Back to all posts
-                </button>
+                <div className="flex items-center justify-between mb-6 md:mb-8">
+                  <button
+                    onClick={() => {
+                      setSelectedBlog(null)
+                      setBlogContent("")
+                    }}
+                    className="text-gray-600 hover:text-gray-900 text-sm md:text-base font-medium"
+                  >
+                    ← Back to all posts
+                  </button>
+
+                  {/* Share buttons for article */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs md:text-sm text-gray-500 mr-1">Share:</span>
+                    <button
+                      onClick={() => shareOnTwitter(selectedBlog)}
+                      className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                      title="Share on X/Twitter"
+                    >
+                      <XLogo size={18} className="text-gray-600" weight="fill" />
+                    </button>
+                    <button
+                      onClick={() => shareOnLinkedIn(selectedBlog)}
+                      className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                      title="Share on LinkedIn"
+                    >
+                      <LinkedinLogo size={18} className="text-gray-600" weight="fill" />
+                    </button>
+                    <button
+                      onClick={() => copyLink(selectedBlog.id)}
+                      className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                      title="Copy link"
+                    >
+                      {copiedBlogId === selectedBlog.id ? (
+                        <Check size={18} className="text-green-600" weight="bold" />
+                      ) : (
+                        <LinkIcon size={18} className="text-gray-600" weight="bold" />
+                      )}
+                    </button>
+                  </div>
+                </div>
 
                 <article className="max-w-none text-gray-800 [&>h1]:text-2xl md:[&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:mb-4 md:[&>h1]:mb-6 [&>h1]:mt-0 [&>h2]:text-xl md:[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mb-4 md:[&>h2]:mb-5 [&>h2]:mt-6 md:[&>h2]:mt-8 [&>h3]:text-base md:[&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mb-3 md:[&>h3]:mb-4 [&>h3]:mt-5 md:[&>h3]:mt-6 [&>p]:text-sm md:[&>p]:text-base [&>p]:leading-relaxed md:[&>p]:leading-7 [&>p]:mb-4 md:[&>p]:mb-6 [&>p]:text-gray-800 [&_strong]:font-bold [&_strong]:text-gray-900 [&>ul]:my-4 md:[&>ul]:my-5 [&>ul]:list-disc [&>ul]:pl-5 md:[&>ul]:pl-6 [&>ol]:my-4 md:[&>ol]:my-5 [&>ol]:list-decimal [&>ol]:pl-5 md:[&>ol]:pl-6 [&_li]:text-gray-800 [&_li]:my-1.5 md:[&_li]:my-2 [&_li]:leading-relaxed md:[&_li]:leading-7 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-3 md:[&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-700 [&>blockquote]:bg-blue-50 [&>blockquote]:py-2 md:[&>blockquote]:py-3 [&>blockquote]:my-4 md:[&>blockquote]:my-6 [&_code]:text-blue-600 [&_code]:bg-blue-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs md:[&_code]:text-sm [&>pre]:bg-gray-900 [&>pre]:text-gray-100 [&>pre]:p-3 md:[&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:my-4 md:[&>pre]:my-6 [&>pre]:text-xs md:[&>pre]:text-sm [&_a]:text-blue-600 [&_a]:no-underline hover:[&_a]:underline [&>table]:w-full [&>table]:my-4 md:[&>table]:my-6 [&>table]:border-collapse [&>table]:text-sm [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:px-2 md:[&_th]:px-4 [&_th]:py-1.5 md:[&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:border-gray-300 [&_td]:px-2 md:[&_td]:px-4 [&_td]:py-1.5 md:[&_td]:py-2">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{blogContent}</ReactMarkdown>
@@ -258,10 +328,12 @@ function App() {
                       {filteredBlogs.map((blog, index) => (
                         <article
                           key={blog.id}
-                          onClick={() => setSelectedBlog(blog)}
-                          className="cursor-pointer group pb-8 md:pb-12 border-b border-gray-200 last:border-0"
+                          className="group pb-8 md:pb-12 border-b border-gray-200 last:border-0"
                         >
-                          <div className="flex flex-col md:flex-row gap-3 md:gap-6">
+                          <div
+                            onClick={() => setSelectedBlog(blog)}
+                            className="cursor-pointer flex flex-col md:flex-row gap-3 md:gap-6"
+                          >
                             {/* Date and Time - Desktop only (left column) */}
                             <div className="hidden md:flex md:w-24 md:flex-shrink-0 text-sm text-gray-500 flex-col">
                               <div>{blog.date}</div>
@@ -287,10 +359,56 @@ function App() {
                                 </Badge>
                               </div>
 
-                              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-3">
                                 {blog.summary}
                               </p>
                             </div>
+                          </div>
+
+                          {/* Share buttons for preview */}
+                          <div className="flex items-center gap-2 mt-3 ml-0 md:ml-[7.5rem]">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                shareOnTwitter(blog)
+                              }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                              title="Share on X/Twitter"
+                            >
+                              <XLogo size={14} weight="fill" />
+                              <span className="hidden sm:inline">Share</span>
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                shareOnLinkedIn(blog)
+                              }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                              title="Share on LinkedIn"
+                            >
+                              <LinkedinLogo size={14} weight="fill" />
+                              <span className="hidden sm:inline">Share</span>
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                copyLink(blog.id)
+                              }}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                              title="Copy link"
+                            >
+                              {copiedBlogId === blog.id ? (
+                                <>
+                                  <Check size={14} weight="bold" className="text-green-600" />
+                                  <span className="hidden sm:inline text-green-600">Copied!</span>
+                                </>
+                              ) : (
+                                <>
+                                  <LinkIcon size={14} weight="bold" />
+                                  <span className="hidden sm:inline">Copy link</span>
+                                </>
+                              )}
+                            </button>
                           </div>
                         </article>
                       ))}
