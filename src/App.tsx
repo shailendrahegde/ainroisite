@@ -572,7 +572,10 @@ function App() {
       </Tabs>
 
       <footer className="border-t border-gray-200 mt-12 md:mt-20 py-6 md:py-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-8 text-center text-xs md:text-sm text-gray-600">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 text-center text-xs md:text-sm text-gray-600 space-y-2">
+          <p className="text-gray-500">
+            The views and opinions expressed on this site are personal and do not represent the views of Microsoft Corporation or any other organization.
+          </p>
           <p>© 2025 AInROI. All rights reserved.</p>
         </div>
       </footer>
