@@ -305,13 +305,13 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {projects.map((project, index) => (
                 <Card
                   key={index}
                   className="overflow-hidden hover:shadow-lg transition-all duration-300 bg-white border border-gray-200"
                 >
-                  <div className="relative h-32 md:h-40 overflow-hidden bg-gray-100">
+                  <div className="relative h-24 md:h-28 overflow-hidden bg-gray-100">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -319,18 +319,18 @@ function App() {
                     />
                   </div>
 
-                  <CardContent className="p-4 md:p-6">
-                    <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-gray-900">
+                  <CardContent className="p-3 md:p-4">
+                    <h3 className="text-base md:text-lg font-bold mb-1.5 md:mb-2 text-gray-900 line-clamp-1">
                       {project.title}
                     </h3>
 
-                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 leading-relaxed">
+                    <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3 leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-3 md:mb-4">
                       {project.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="text-xs">
+                        <Badge key={tagIndex} variant="secondary" className="text-[10px] md:text-xs py-0 px-2">
                           {tag}
                         </Badge>
                       ))}
@@ -340,9 +340,9 @@ function App() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-600 text-sm md:text-base font-medium hover:text-blue-700"
+                      className="inline-flex items-center gap-1.5 text-blue-600 text-xs md:text-sm font-medium hover:text-blue-700"
                     >
-                      <GithubLogo size={18} weight="fill" className="md:w-5 md:h-5" />
+                      <GithubLogo size={16} weight="fill" className="md:w-4 md:h-4" />
                       View on GitHub →
                     </a>
                   </CardContent>
