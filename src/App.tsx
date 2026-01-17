@@ -311,7 +311,7 @@ function App() {
                   key={index}
                   className="overflow-hidden hover:shadow-lg transition-all duration-300 bg-white border border-gray-200"
                 >
-                  <div className="relative aspect-video overflow-hidden bg-gray-100">
+                  <div className="relative h-32 md:h-40 overflow-hidden bg-gray-100">
                     <img
                       src={project.image}
                       alt={project.title}
