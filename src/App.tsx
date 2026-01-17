@@ -491,9 +491,9 @@ function App() {
                   <CardContent className="p-5 md:p-8">
                     <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
                       <img
-                        src="https://unavatar.io/linkedin/shailendrahegde"
+                        src="/shailendra-hegde.png"
                         alt="Shailendra Hegde"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-blue-500 to-purple-600"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0"
                       />
                       <div className="flex-1">
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
