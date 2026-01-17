@@ -103,6 +103,86 @@ function App() {
         .then((res) => res.text())
         .then((text) => setBlogContent(text))
         .catch((err) => console.error("Error loading blog content:", err))
+
+      // Add structured data for blog article
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": selectedBlog.title,
+        "description": selectedBlog.summary,
+        "image": selectedBlog.thumbnail,
+        "datePublished": selectedBlog.date,
+        "dateModified": selectedBlog.date,
+        "author": [
+          {
+            "@type": "Person",
+            "name": "Shailendra Hegde",
+            "url": "https://www.linkedin.com/in/shailendrahegde"
+          },
+          {
+            "@type": "Person",
+            "name": "Keith McGrane",
+            "url": "https://www.linkedin.com/in/keith-mcgrane-46184029"
+          }
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "AInROI",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.ainroi.com/icon.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://www.ainroi.com/?blog=${selectedBlog.id}`
+        },
+        "articleSection": selectedBlog.category,
+        "keywords": ["AI adoption", "Enterprise AI", "Copilot", "AI analytics", selectedBlog.category]
+      }
+
+      // Inject structured data into head
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.id = 'blog-structured-data'
+      script.textContent = JSON.stringify(structuredData)
+
+      // Remove existing blog structured data if present
+      const existing = document.getElementById('blog-structured-data')
+      if (existing) {
+        existing.remove()
+      }
+
+      document.head.appendChild(script)
+
+      // Update page title and meta description
+      document.title = `${selectedBlog.title} - AInROI`
+      const metaDescription = document.querySelector('meta[name="description"]')
+      if (metaDescription) {
+        metaDescription.setAttribute('content', selectedBlog.summary)
+      }
+
+      // Update canonical URL
+      const canonical = document.querySelector('link[rel="canonical"]')
+      if (canonical) {
+        canonical.setAttribute('href', `https://www.ainroi.com/?blog=${selectedBlog.id}`)
+      }
+    } else {
+      // Reset to homepage title and canonical when no blog selected
+      document.title = 'AInROI - AI and Copilot Analytics'
+      const metaDescription = document.querySelector('meta[name="description"]')
+      if (metaDescription) {
+        metaDescription.setAttribute('content', 'Enterprise AI insights informed by extensive building, deep customer listening, and advisory work—validated through analytics and real-world feedback from widely used projects with 1000+ downloads per week.')
+      }
+      const canonical = document.querySelector('link[rel="canonical"]')
+      if (canonical) {
+        canonical.setAttribute('href', 'https://www.ainroi.com/')
+      }
+      // Remove blog structured data
+      const existing = document.getElementById('blog-structured-data')
+      if (existing) {
+        existing.remove()
+      }
     }
   }, [selectedBlog])
 
