@@ -41,11 +41,11 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
   },
   {
-    title: "Chat & Agent Intelligence",
-    description: "Intelligence on free Chat and Agent usage.",
-    tags: ["Power BI", "Microsoft Purview"],
-    githubUrl: "https://github.com/microsoft/CopilotChatAnalytics",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
+    title: "AI in One",
+    description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
+    tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
+    githubUrl: "https://github.com/microsoft/AI-in-One-Dashboard",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
   },
   {
     title: "GitHub Copilot Impact",
@@ -55,11 +55,11 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&sat=-100"
   },
   {
-    title: "AI in One",
-    description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
-    tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
-    githubUrl: "https://github.com/microsoft/AI-in-One-Dashboard",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=450&fit=crop"
+    title: "Chat & Agent Intelligence",
+    description: "Intelligence on free Chat and Agent usage.",
+    tags: ["Power BI", "Microsoft Purview"],
+    githubUrl: "https://github.com/microsoft/CopilotChatAnalytics",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
   },
   {
     title: "M365 to Copilot Bridge",
