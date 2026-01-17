@@ -117,7 +117,7 @@ function App() {
         {/* Header */}
         <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 md:py-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-3">
                 <img src="/icon.svg" alt="AInROI" className="w-8 h-8" />
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AInROI</h1>
@@ -149,6 +149,11 @@ function App() {
                 )}
               </button>
             </div>
+
+            {/* Site Description */}
+            <p className="text-xs md:text-sm text-gray-600 leading-relaxed max-w-4xl">
+              Enterprise AI insights informed by extensive building, deep customer listening, and advisory work—validated through analytics and real-world feedback from widely used projects with 1000+ downloads per week.
+            </p>
 
             {/* Mobile Navigation Menu */}
             {mobileMenuOpen && (
