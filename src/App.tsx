@@ -490,9 +490,11 @@ function App() {
                 <Card className="bg-white border border-gray-200">
                   <CardContent className="p-5 md:p-8">
                     <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold flex-shrink-0">
-                        SH
-                      </div>
+                      <img
+                        src="https://unavatar.io/linkedin/shailendrahegde"
+                        alt="Shailendra Hegde"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-blue-500 to-purple-600"
+                      />
                       <div className="flex-1">
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                           Shailendra Hegde
@@ -531,9 +533,11 @@ function App() {
                 <Card className="bg-white border border-gray-200">
                   <CardContent className="p-5 md:p-8">
                     <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold flex-shrink-0">
-                        KM
-                      </div>
+                      <img
+                        src="https://unavatar.io/linkedin/keith-mcgrane-46184029"
+                        alt="Keith McGrane"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600"
+                      />
                       <div className="flex-1">
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Keith McGrane</h3>
                         <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
