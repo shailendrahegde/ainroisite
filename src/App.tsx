@@ -6,6 +6,13 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { GithubLogo, LinkedinLogo, List, X, XLogo, ShareNetwork, Link as LinkIcon, Check } from "@phosphor-icons/react"
 
+// Google Analytics type declaration
+declare global {
+  interface Window {
+    gtag?: (command: string, ...args: any[]) => void
+  }
+}
+
 interface Project {
   title: string
   description: string
@@ -166,6 +173,20 @@ function App() {
       const canonical = document.querySelector('link[rel="canonical"]')
       if (canonical) {
         canonical.setAttribute('href', `https://www.ainroi.com/?blog=${selectedBlog.id}`)
+      }
+
+      // Track blog view in Google Analytics
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'page_view', {
+          page_title: selectedBlog.title,
+          page_location: `https://www.ainroi.com/?blog=${selectedBlog.id}`,
+          page_path: `/?blog=${selectedBlog.id}`
+        })
+        window.gtag('event', 'blog_view', {
+          blog_title: selectedBlog.title,
+          blog_category: selectedBlog.category,
+          blog_id: selectedBlog.id
+        })
       }
     } else {
       // Reset to homepage title and canonical when no blog selected
