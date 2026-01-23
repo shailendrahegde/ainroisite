@@ -596,10 +596,6 @@ function App() {
             <div className="max-w-4xl mx-auto">
               <div className="mb-8 md:mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">About Us</h2>
-                <p className="text-base md:text-lg text-gray-600">
-                  We are passionate about helping organizations unlock the full potential of AI and
-                  Copilot through actionable insights, advanced analytics, and strategic guidance.
-                </p>
               </div>
 
               <div className="space-y-6 md:space-y-10">
