@@ -62,13 +62,13 @@ If habit formation is rising, value will follow.
 
 Every organization already has high engagement AI superusers. The top 10% reveal what the future can look like at scale.
 
-Three metrics matter: frequency, intensity, and breadth.
+Those superusers are worth studying because three metrics tell you whether AI is becoming part of how work gets done: frequency (is it becoming a daily habit), intensity (are people using it as a thought partner for real work), and breadth (are they applying it across app surfaces and workflows). Together, they're a window into your company's near-term future—what scaled adoption looks like once the rest of the org catches up.
 
-Why focus on them?
+That's why the top 10% is so useful to an investment committee:
 
 They are living proof points of what full-value AI adoption looks like—today, not in a hypothetical future.
 
-For investment committees that do demand value narration in dollar terms, you can generate conservative productivity estimates by multiplying their interactions or sessions by simple constants of hourly salary and time savings per interaction. The point isn't precise accounting—it's illustrating the order of magnitude difference between average and peak usage.
+If committees want dollar terms, you can produce conservative productivity ranges by multiplying superuser sessions by simple constants (loaded hourly cost and estimated minutes saved per session). The goal isn't precise accounting—it's to show the order-of-magnitude gap between average and peak usage.
 
 That contrast is powerful because it reveals how much latent value remains unlocked.
 
