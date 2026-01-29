@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="gradientLetter1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Large "AI" letters -->
+  <text x="15" y="65" font-size="48" font-weight="bold" fill="url(#gradientLetter1)" font-family="Arial, sans-serif">AI</text>
+
+  <!-- Bar chart pattern inside the letters using clipPath -->
+  <defs>
+    <clipPath id="textClip1">
+      <text x="15" y="65" font-size="48" font-weight="bold" font-family="Arial, sans-serif">AI</text>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#textClip1)">
+    <rect x="20" y="50" width="6" height="10" fill="url(#gradientLetter1)" opacity="0.3"/>
+    <rect x="28" y="45" width="6" height="15" fill="url(#gradientLetter1)" opacity="0.3"/>
+    <rect x="36" y="38" width="6" height="22" fill="url(#gradientLetter1)" opacity="0.3"/>
+    <rect x="52" y="42" width="6" height="18" fill="url(#gradientLetter1)" opacity="0.3"/>
+  </g>
+
+  <!-- Growth arrow -->
+  <path d="M 65 35 L 85 15" stroke="url(#gradientLetter1)" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="87,17 85,11 81,15" fill="url(#gradientLetter1)"/>
+</svg>

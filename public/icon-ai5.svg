@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="gradientAI5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Bar chart with data flow particles rising -->
+  <rect x="15" y="70" width="12" height="15" fill="url(#gradientAI5)" rx="2"/>
+  <rect x="32" y="60" width="12" height="25" fill="url(#gradientAI5)" rx="2"/>
+  <rect x="49" y="45" width="12" height="40" fill="url(#gradientAI5)" rx="2"/>
+  <rect x="66" y="30" width="12" height="55" fill="url(#gradientAI5)" rx="2"/>
+
+  <!-- Data particles flowing up from bars -->
+  <circle cx="21" cy="66" r="1.5" fill="url(#gradientAI5)" opacity="0.8"/>
+  <circle cx="21" cy="62" r="1.5" fill="url(#gradientAI5)" opacity="0.6"/>
+  <circle cx="21" cy="58" r="1.5" fill="url(#gradientAI5)" opacity="0.4"/>
+
+  <circle cx="38" cy="56" r="1.5" fill="url(#gradientAI5)" opacity="0.8"/>
+  <circle cx="38" cy="52" r="1.5" fill="url(#gradientAI5)" opacity="0.6"/>
+  <circle cx="38" cy="48" r="1.5" fill="url(#gradientAI5)" opacity="0.4"/>
+
+  <circle cx="55" cy="41" r="1.5" fill="url(#gradientAI5)" opacity="0.8"/>
+  <circle cx="55" cy="37" r="1.5" fill="url(#gradientAI5)" opacity="0.6"/>
+  <circle cx="55" cy="33" r="1.5" fill="url(#gradientAI5)" opacity="0.4"/>
+
+  <circle cx="72" cy="26" r="1.5" fill="url(#gradientAI5)" opacity="0.8"/>
+  <circle cx="72" cy="22" r="1.5" fill="url(#gradientAI5)" opacity="0.6"/>
+  <circle cx="72" cy="18" r="1.5" fill="url(#gradientAI5)" opacity="0.4"/>
+
+  <!-- Growth arrow -->
+  <path d="M 70 25 L 85 25 L 85 15" stroke="url(#gradientAI5)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="88,15 85,10 82,15" fill="url(#gradientAI5)"/>
+</svg>

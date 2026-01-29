@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Clean hexagon with upward trend line -->
+  <path d="M 50 15 L 75 30 L 75 60 L 50 75 L 25 60 L 25 30 Z"
+        fill="none" stroke="url(#gradient5)" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Trend line going up inside hexagon -->
+  <path d="M 35 55 L 43 48 L 50 45 L 57 38 L 65 30"
+        fill="none" stroke="url(#gradient5)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data points on trend line -->
+  <circle cx="35" cy="55" r="3" fill="url(#gradient5)"/>
+  <circle cx="43" cy="48" r="3" fill="url(#gradient5)"/>
+  <circle cx="50" cy="45" r="3" fill="url(#gradient5)"/>
+  <circle cx="57" cy="38" r="3" fill="url(#gradient5)"/>
+  <circle cx="65" cy="30" r="3" fill="url(#gradient5)"/>
+</svg>

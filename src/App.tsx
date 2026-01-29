@@ -41,6 +41,13 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
   },
   {
+    title: "Superuser Impact",
+    description: "Understand workpatterns and work impact of M365 Copilot Superusers",
+    tags: ["Power BI", "Copilot Analytics"],
+    githubUrl: "https://github.com/microsoft/superuserimpact",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&hue=240"
+  },
+  {
     title: "AI in One",
     description: "Simplified single report that brings M365 Copilot, Free Chat and Agent usage in a single view.",
     tags: ["Power BI", "Copilot Analytics", "Microsoft Purview"],
