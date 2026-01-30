@@ -471,8 +471,8 @@ function App() {
                                 <span>{blog.readTime}</span>
                               </div>
 
-                              <div className="flex flex-wrap gap-2 mb-3">
-                                <Badge variant="outline" className="text-xs uppercase font-normal border-blue-200 text-blue-700 bg-blue-50">
+                              <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 overflow-hidden">
+                                <Badge variant="outline" className="text-[10px] md:text-xs uppercase font-normal border-blue-200 text-blue-700 bg-blue-50 px-2 py-0.5">
                                   {blog.category}
                                 </Badge>
                               </div>
@@ -569,9 +569,9 @@ function App() {
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 mb-3 md:mb-4">
+                    <div className="flex flex-wrap gap-1 md:gap-1.5 mb-3 md:mb-4 overflow-hidden">
                       {project.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="text-[10px] md:text-xs py-0 px-2">
+                        <Badge key={tagIndex} variant="secondary" className="text-[10px] md:text-xs py-0.5 px-2 md:px-2.5">
                           {tag}
                         </Badge>
                       ))}
