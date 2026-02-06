@@ -1,5 +1,15 @@
 [
   {
+    "id": "ai-license-allocation-strategies",
+    "title": "AI License Allocation: Finding Your Organization's Right Path",
+    "summary": "Three distinct allocation strategies for AI licenses—Big Bang, Drip Feed, and Learn-and-Scale. Learn which approach fits your organization's maturity, resources, and adoption goals",
+    "category": "License Allocation",
+    "readTime": "5 min read",
+    "filename": "ai-license-allocation-strategies.md",
+    "date": "Feb 6, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop"
+  },
+  {
     "id": "cio-dilemma-ai-expansion-decisions",
     "title": "The CIO's Dilemma: How to Make AI Expansion Decisions Before the Outcomes Arrive",
     "summary": "Investment committees need confidence before long-term ROI materializes. Learn how to demonstrate AI traction through habit formation velocity, superuser benchmarks, and workflow infusion signals",
