@@ -1,4 +1,4 @@
-# AI License Allocation: Finding Your Organization's Right Path
+# How to Roll Out AI Licenses: Big Bang, Drip Feed, or Learn-and-Scale?
 
 ## How to Allocate Licenses
 

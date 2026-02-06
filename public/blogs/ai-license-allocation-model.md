@@ -1,4 +1,4 @@
-# Choosing an AI License Allocation Model: How to Decide Who Gets Access First
+# Who Gets AI Licenses First? Five Allocation Models Compared
 
 Rolling out an AI tool across an organization quickly turns into a practical (and sometimes political) question: how many licenses should we buy, and who should get them first? The answer matters, because early allocation shapes adoption, learning, and the stories people tell about whether the investment "worked."
 

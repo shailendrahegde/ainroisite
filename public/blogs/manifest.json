@@ -1,7 +1,7 @@
 [
   {
     "id": "ai-license-allocation-strategies",
-    "title": "AI License Allocation: Finding Your Organization's Right Path",
+    "title": "How to Roll Out AI Licenses: Big Bang, Drip Feed, or Learn-and-Scale?",
     "summary": "Three distinct allocation strategies for AI licenses—Big Bang, Drip Feed, and Learn-and-Scale. Learn which approach fits your organization's maturity, resources, and adoption goals",
     "category": "License Allocation",
     "readTime": "5 min read",
@@ -21,7 +21,7 @@
   },
   {
     "id": "ai-license-allocation-model",
-    "title": "Choosing an AI License Allocation Model: How to Decide Who Gets Access First",
+    "title": "Who Gets AI Licenses First? Five Allocation Models Compared",
     "summary": "How many licenses should you buy, and who gets them first? Explore five allocation models—from lottery to behavior-based—and the guiding principles for maximizing AI adoption velocity",
     "category": "License Allocation",
     "readTime": "5 min read",
