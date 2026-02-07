@@ -1,5 +1,15 @@
 [
   {
+    "id": "beyond-adoption-counts-ai-maturity",
+    "title": "Beyond Adoption Counts: Three Dimensions That Reveal Real AI Maturity",
+    "summary": "Most organizations measure AI progress with blunt metrics. Three dimensions—Volume & Consistency, Complexity, and Breadth of Adoption—capture the behavioral signature of a genuinely AI-mature organization",
+    "category": "AI Adoption",
+    "readTime": "5 min read",
+    "filename": "beyond-adoption-counts-ai-maturity.md",
+    "date": "Feb 7, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+  },
+  {
     "id": "ai-license-allocation-strategies",
     "title": "How to Roll Out AI Licenses: Big Bang, Drip Feed, or Learn-and-Scale?",
     "summary": "Three distinct allocation strategies for AI licenses—Big Bang, Drip Feed, and Learn-and-Scale. Learn which approach fits your organization's maturity, resources, and adoption goals",
