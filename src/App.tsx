@@ -611,112 +611,119 @@ function App() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">About Us</h2>
               </div>
 
-              <div className="space-y-6 md:space-y-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                 {/* Shailendra */}
-                <Card className="bg-white border border-gray-200">
-                  <CardContent className="p-5 md:p-8">
-                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
-                      <img
-                        src="/shailendra-hegde.png"
-                        alt="Shailendra Hegde"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0"
-                      />
-                      <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                          Shailendra Hegde
-                        </h3>
-                        <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
-                          Principal Product Manager, Microsoft
-                        </p>
-                        <a
-                          href="https://www.linkedin.com/in/shailendrahegde"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600 hover:text-gray-900"
-                        >
-                          <LinkedinLogo size={16} weight="fill" className="md:w-[18px] md:h-[18px]" />
-                          LinkedIn Profile
-                        </a>
-                      </div>
+                <div className="flex flex-col group">
+                  {/* Photo */}
+                  <div className="relative overflow-hidden rounded-lg aspect-square mb-6 shadow-lg">
+                    <img
+                      src="/shailendra-hegde-new.jpg"
+                      alt="Shailendra Hegde"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-75"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-1">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      Shailendra Hegde
+                    </h3>
+                    <p className="text-base md:text-lg text-gray-700 font-semibold mb-4">
+                      Principal Product Manager, Microsoft
+                    </p>
+
+                    <div className="mb-6 flex-1">
+                      <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Why I Do This Work</h4>
+                      <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                        I've seen firsthand how AI can transform organizations—but only when teams can measure and understand its impact. My passion lies in bridging the gap between AI adoption and AI value, creating analytics frameworks that help enterprises turn Copilot investments into measurable business outcomes.
+                      </p>
                     </div>
 
-                    <div className="space-y-2 md:space-y-3 text-sm md:text-base text-gray-700 leading-relaxed">
-                      <p>
-                        Shailendra is a Product Manager at Microsoft, specializing in AI and Copilot
-                        analytics. With a deep passion for data-driven insights, he helps organizations
-                        measure and maximize the impact of their AI investments.
-                      </p>
-                      <p>
-                        His work focuses on creating actionable analytics frameworks that help
-                        enterprises understand usage patterns, adoption metrics, and ROI from Microsoft
-                        365 Copilot, GitHub Copilot, and other AI solutions.
-                      </p>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
+                        AI Analytics
+                      </span>
+                      <a
+                        href="https://www.linkedin.com/in/shailendrahegde"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm font-medium"
+                      >
+                        <LinkedinLogo size={20} weight="fill" />
+                        <span>Connect on LinkedIn</span>
+                      </a>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
                 {/* Keith */}
-                <Card className="bg-white border border-gray-200">
-                  <CardContent className="p-5 md:p-8">
-                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-5 md:mb-6">
-                      {!keithAvatarFailed ? (
-                        <img
-                          src={keithAvatarSources[keithAvatarIndex]}
-                          alt="Keith McGrane"
-                          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600"
-                          loading="lazy"
-                          decoding="async"
-                          onError={() => {
-                            setKeithAvatarIndex((currentIndex) => {
-                              const nextIndex = currentIndex + 1
-                              if (nextIndex < keithAvatarSources.length) return nextIndex
-                              setKeithAvatarFailed(true)
-                              return currentIndex
-                            })
-                          }}
-                        />
-                      ) : (
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex-shrink-0 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl md:text-2xl font-bold">
-                          KM
-                        </div>
-                      )}
-                      <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">Keith McGrane</h3>
-                        <p className="text-base md:text-lg text-blue-600 font-semibold mb-2 md:mb-3">
-                          AI & Data Solutions Specialist
-                        </p>
-                        <a
-                          href="https://www.linkedin.com/in/keith-mcgrane-46184029/?originalSubdomain=uk"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600 hover:text-gray-900"
-                        >
-                          <LinkedinLogo size={16} weight="fill" className="md:w-[18px] md:h-[18px]" />
-                          LinkedIn Profile
-                        </a>
+                <div className="flex flex-col group">
+                  {/* Photo */}
+                  <div className="relative overflow-hidden rounded-lg aspect-square mb-6 shadow-lg">
+                    {!keithAvatarFailed ? (
+                      <img
+                        src={keithAvatarSources[keithAvatarIndex]}
+                        alt="Keith McGrane"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                        onError={() => {
+                          setKeithAvatarIndex((currentIndex) => {
+                            const nextIndex = currentIndex + 1
+                            if (nextIndex < keithAvatarSources.length) return nextIndex
+                            setKeithAvatarFailed(true)
+                            return currentIndex
+                          })
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-6xl md:text-7xl font-bold">
+                        KM
                       </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-600/30 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-75"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-1">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                      Keith McGrane
+                    </h3>
+                    <p className="text-base md:text-lg text-gray-700 font-semibold mb-4">
+                      AI & Data Solutions Specialist
+                    </p>
+
+                    <div className="mb-6 flex-1">
+                      <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Why I Do This Work</h4>
+                      <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                        AI transformation isn't about the technology—it's about the people and processes that make it work. I'm driven by helping organizations cut through the complexity and hype to find practical, results-driven approaches to AI deployment that deliver real-world business impact teams can see and stakeholders can trust.
+                      </p>
                     </div>
 
-                    <div className="space-y-2 md:space-y-3 text-sm md:text-base text-gray-700 leading-relaxed">
-                      <p>
-                        Keith is an experienced AI and Data Solutions Specialist based in the UK, with
-                        extensive expertise in helping organizations leverage artificial intelligence and
-                        data analytics to drive business outcomes.
-                      </p>
-                      <p>
-                        Keith brings a practical, results-oriented approach to AI transformation, helping
-                        organizations navigate the complexities of enterprise AI deployment while
-                        maintaining focus on real-world business impact and user adoption.
-                      </p>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                        Data Solutions
+                      </span>
+                      <a
+                        href="https://www.linkedin.com/in/keith-mcgrane-46184029"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-colors text-sm font-medium"
+                      >
+                        <LinkedinLogo size={20} weight="fill" />
+                        <span>Connect on LinkedIn</span>
+                      </a>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
+              </div>
 
-                {/* Get In Touch Section */}
-                <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-200">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-10">
-                    Work With Us
-                  </h3>
+              {/* Get In Touch Section */}
+              <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-200">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-10">
+                  Work With Us
+                </h3>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                     {/* Form Column */}
@@ -846,7 +853,6 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
           </TabsContent>
         </main>
       </Tabs>
