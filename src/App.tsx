@@ -725,10 +725,11 @@ function App() {
                         Send us a message
                       </h4>
 
-                      <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
+                      <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4" data-recaptcha="true">
                         <input type="hidden" name="access_key" value="228605c2-71af-4f86-8710-14cbde9dc57b" />
                         <input type="hidden" name="subject" value="New Contact Form Submission from AInROI" />
                         <input type="hidden" name="redirect" value="https://www.ainroi.com/?submitted=true" />
+                        <input type="hidden" name="recaptcha_site_key" value="6LfaDWYsAAAAALv-6n_dEYjC4TO_OeeZvdgcai20" />
 
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -769,10 +770,9 @@ function App() {
                             className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                           >
                             <option value="">Select an option</option>
-                            <option value="consulting">Consulting & Advisory</option>
-                            <option value="collaboration">Project Collaboration</option>
-                            <option value="speaking">Speaking/Workshop</option>
-                            <option value="general">General Inquiry</option>
+                            <option value="analytics">Analytics suggestions</option>
+                            <option value="opensource">Open source collaboration</option>
+                            <option value="general">General inquiry</option>
                           </select>
                         </div>
 
