@@ -494,15 +494,6 @@ function App() {
                               <div className="mt-4">{blog.readTime}</div>
                             </div>
 
-                            {/* Thumbnail */}
-                            <div className="w-full md:w-48 h-32 md:h-28 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
-                              <img
-                                src={blog.thumbnail}
-                                alt={blog.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-
                             {/* Content */}
                             <div className="flex-1">
                               <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
@@ -528,6 +519,17 @@ function App() {
                                 {blog.summary}
                               </p>
                             </div>
+
+                            {/* Thumbnail - Right side, only for blogs with local images */}
+                            {blog.thumbnail.startsWith('/') && (
+                              <div className="w-full md:w-48 h-32 md:h-28 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100 order-first md:order-last">
+                                <img
+                                  src={blog.thumbnail}
+                                  alt={blog.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                            )}
                           </div>
 
                           {/* Share buttons for preview */}
