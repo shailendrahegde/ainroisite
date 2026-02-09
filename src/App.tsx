@@ -85,6 +85,15 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [copiedBlogId, setCopiedBlogId] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<string>("insights")
+
+  // Clear hash when switching tabs away from projects
+  const handleTabChange = (value: string) => {
+    setActiveTab(value)
+    // Clear hash when leaving projects tab
+    if (value !== 'projects' && window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+  }
   const baseUrl = import.meta.env.BASE_URL
   const keithAvatarSources = useMemo(
     () => [
@@ -305,7 +314,7 @@ function App() {
 
   return (
     <div id="spark-app" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 md:py-6">
