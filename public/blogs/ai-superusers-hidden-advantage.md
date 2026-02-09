@@ -20,7 +20,7 @@ Superusers matter because they have solved the hardest part of AI adoption: maki
 
 Superusers pull ahead quickly. In the first one to two months, when the company average might be ~8 AI interactions per week, superusers average ~35-40. When the average climbs to ~20, they are often at ~80. This gap persists until usage eventually plateaus around ~100–120 actions per week, a natural saturation point. The specific tasks that drive this peak are still an area of active study—but the pattern is remarkably consistent.
 
-![Superuser interaction intensity across deciles](/superuser-intensity-chart.png)
+<img src="/superuser-intensity-chart.png" alt="Superuser interaction intensity across deciles" style="max-width: 600px; width: 100%; height: auto; margin: 1.5rem 0;" />
 
 ### 2. Depth Before Breadth
 
