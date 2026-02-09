@@ -600,7 +600,7 @@ function App() {
             </div>
 
             <div className="mt-8 md:mt-12 text-sm md:text-base text-gray-600 text-center">
-              <p>Additional contributors: Olivier Pecheux, Jordan King, Jennifer Stoll, Stephanie Downey, Luz Lorenz, Stephanie Smith, Brian Middendorf</p>
+              <p>Additional contributors: Olivier Pecheux, Jordan King, Jennifer Stoll, Stephanie Downey, Luz Lorenz, Stephanie Smith, Brian Middendorf, Fernando Manzano</p>
             </div>
           </TabsContent>
 
