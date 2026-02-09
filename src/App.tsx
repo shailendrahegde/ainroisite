@@ -84,6 +84,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [copiedBlogId, setCopiedBlogId] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<string>("insights")
   const baseUrl = import.meta.env.BASE_URL
   const keithAvatarSources = useMemo(
     () => [
@@ -95,6 +96,29 @@ function App() {
   )
   const [keithAvatarIndex, setKeithAvatarIndex] = useState(0)
   const [keithAvatarFailed, setKeithAvatarFailed] = useState(false)
+
+  // Handle navigation to project anchors
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      // Check if hash corresponds to a project card
+      const projectIds = projects.map(p => p.title.toLowerCase().replace(/\s+/g, '-'))
+      const hashId = hash.replace('#', '')
+
+      if (projectIds.includes(hashId)) {
+        // Switch to projects tab
+        setActiveTab('projects')
+
+        // Scroll to the element after a brief delay to ensure tab is rendered
+        setTimeout(() => {
+          const element = document.getElementById(hashId)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          }
+        }, 100)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     // Fetch blog manifest
@@ -269,7 +293,7 @@ function App() {
 
   return (
     <div id="spark-app" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <Tabs defaultValue="insights" className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 md:py-6">

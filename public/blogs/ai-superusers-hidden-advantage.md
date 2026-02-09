@@ -50,7 +50,7 @@ Because they are well connected, their habits spread through everyday exposure. 
 
 Many organizations formalize superusers into an AI Champions program. Champions share practical examples, host lightweight show-and-tell sessions, and reduce trial-and-error for others. The key is credibility: champions should be practitioners (identified through analytics), not evangelists detached from real work.
 
-If you want to move beyond intuition and identify superusers systematically, the open-source [Decoding Super Usage toolkit](https://www.ainroi.com/#decoding-super-usage) was built specifically for this purpose. It analyzes M365 Copilot usage patterns to reveal who your superusers are, what makes them different, and which behaviors correlate with high-value outcomes. The toolkit surfaces usage intensity, feature adoption breadth, and habit formation metrics—giving you a data-driven starting point for building your Champions program.
+If you want to move beyond intuition and identify superusers systematically, the open-source [Decoding Super Usage toolkit](/#decoding-super-usage) was built specifically for this purpose. It analyzes M365 Copilot usage patterns to reveal who your superusers are, what makes them different, and which behaviors correlate with high-value outcomes. The toolkit surfaces usage intensity, feature adoption breadth, and habit formation metrics—giving you a data-driven starting point for building your Champions program.
 
 ### 2. Make Success Visible and Transferable
 
