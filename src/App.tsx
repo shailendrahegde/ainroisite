@@ -464,6 +464,8 @@ function App() {
                                 {blog.title}
                               </h2>
 
+                              <p className="text-xs md:text-sm text-gray-500 mb-2 md:mb-3">By Shailendra Hegde, Keith Mcgrane</p>
+
                               {/* Date and Time - Mobile only (inline with content) */}
                               <div className="flex md:hidden items-center gap-3 text-xs text-gray-500 mb-3">
                                 <span>{blog.date}</span>
@@ -542,7 +544,7 @@ function App() {
             <div className="mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">Featured Projects</h2>
               <p className="text-base md:text-lg text-gray-600 max-w-3xl">
-                Explore projects that help organizations unlock the full potential of Copilot.
+                Open source self serve tools to help organizations maximize the full potential of Copilot.
               </p>
             </div>
 
@@ -595,6 +597,10 @@ function App() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            <div className="mt-8 md:mt-12 text-sm md:text-base text-gray-600 text-center">
+              <p>Additional contributors: Olivier Pecheux, Jordan King, Jennifer Stoll, Stephanie Downey, Luz Lorenz, Stephanie Smith, Brian Middendorf</p>
             </div>
           </TabsContent>
 
