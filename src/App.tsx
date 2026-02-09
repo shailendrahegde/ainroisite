@@ -552,6 +552,7 @@ function App() {
               {projects.map((project, index) => (
                 <Card
                   key={index}
+                  id={project.title.toLowerCase().replace(/\s+/g, '-')}
                   className="overflow-hidden hover:shadow-lg transition-all duration-300 bg-white border border-gray-200"
                 >
                   <div className="relative h-24 md:h-28 overflow-hidden bg-gray-100">

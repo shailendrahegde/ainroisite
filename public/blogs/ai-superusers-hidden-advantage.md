@@ -20,6 +20,8 @@ Superusers matter because they have solved the hardest part of AI adoption: maki
 
 Superusers pull ahead quickly. In the first one to two months, when the company average might be ~8 AI interactions per week, superusers average ~35-40. When the average climbs to ~20, they are often at ~80. This gap persists until usage eventually plateaus around ~100–120 actions per week, a natural saturation point. The specific tasks that drive this peak are still an area of active study—but the pattern is remarkably consistent.
 
+![Superuser interaction intensity across deciles](/superuser-intensity-chart.png)
+
 ### 2. Depth Before Breadth
 
 Superusers master a small number of "surfaces" first—such as chat or collaboration surface like meetings—where AI fits naturally into their daily work. They build fluency and muscle memory before expanding into adjacent workflows. Average users tend to spread their usage thinly across many tools and struggle to reach the same depth of usage.
@@ -47,6 +49,8 @@ Because they are well connected, their habits spread through everyday exposure. 
 ### 1. Identify and Support AI Champions
 
 Many organizations formalize superusers into an AI Champions program. Champions share practical examples, host lightweight show-and-tell sessions, and reduce trial-and-error for others. The key is credibility: champions should be practitioners (identified through analytics), not evangelists detached from real work.
+
+If you want to move beyond intuition and identify superusers systematically, the open-source [Decoding Super Usage toolkit](https://www.ainroi.com/#decoding-super-usage) was built specifically for this purpose. It analyzes M365 Copilot usage patterns to reveal who your superusers are, what makes them different, and which behaviors correlate with high-value outcomes. The toolkit surfaces usage intensity, feature adoption breadth, and habit formation metrics—giving you a data-driven starting point for building your Champions program.
 
 ### 2. Make Success Visible and Transferable
 
