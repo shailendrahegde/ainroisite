@@ -398,6 +398,7 @@ function App() {
                     onClick={() => {
                       setSelectedBlog(null)
                       setBlogContent("")
+                      window.history.pushState(null, '', window.location.pathname)
                     }}
                     className="text-gray-600 hover:text-gray-900 text-sm md:text-base font-medium"
                   >
@@ -494,7 +495,10 @@ function App() {
                           className="group pb-8 md:pb-12 border-b border-gray-200 last:border-0"
                         >
                           <div
-                            onClick={() => setSelectedBlog(blog)}
+                            onClick={() => {
+                              setSelectedBlog(blog)
+                              window.history.pushState(null, '', `?blog=${blog.id}`)
+                            }}
                             className="cursor-pointer flex flex-col md:flex-row gap-3 md:gap-6"
                           >
                             {/* Date and Time - Desktop only (left column) */}
