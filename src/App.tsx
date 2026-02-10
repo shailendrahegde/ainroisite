@@ -539,7 +539,7 @@ function App() {
                                 <img
                                   src={blog.thumbnail}
                                   alt={blog.title}
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                  className="w-full h-full object-cover object-left group-hover:scale-105 transition-transform duration-300"
                                 />
                               </div>
                             )}
