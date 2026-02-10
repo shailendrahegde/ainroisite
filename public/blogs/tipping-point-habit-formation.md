@@ -2,25 +2,27 @@
 
 To turn general-purpose AI (like Copilot) from a novelty into a genuine assistant, users must cross a usage threshold where the value becomes obvious and repeatable.
 
-Our data shows a clear tipping point: when people reach around **11–15 AI actions per week**, their behavior shifts from casual experimentation to sustained, habit-like use.
+Our data shows a clear tipping point: when people reach around **12–15 AI actions per week**, their behavior shifts from casual experimentation to sustained, habit-like use.
 
 ## Before the Tipping Point: Inconsistent, Low-Confidence Usage
 
-Until a user reaches roughly **11–15 actions a week**, their interaction pattern tends to be erratic. One week they might use AI 4 times, the next week 7, then drop to 2, 0, and back to 5.
+Until a user reaches roughly **12–15 actions a week**, their interaction pattern tends to be erratic. One week they might use AI 4 times, the next week 7, then drop to 2, 0, and back to 5.
 
 At this stage, the value proposition is not yet clear to them. They are still **"kicking the tires,"** some of the usage is accidental, and AI has not yet earned a reliable place in their workflow.
 
 ## After the Tipping Point: Stable Habits and Rising Value
 
-Once users consistently cross the **11–15 actions-per-week threshold**, their usage stabilizes and typically increases over time. The week-to-week swings narrow, and AI interactions become an expected part of how they work.
+Once users consistently cross the **12–15 actions-per-week threshold**, their usage stabilizes and typically increases over time. The week-to-week swings narrow, and AI interactions become an expected part of how they work.
 
 This is the moment when a user has figured out where AI can help in their job and is now returning to it with **intent, not curiosity**.
+
+<img src="/usage-bands-movement.png" alt="Movement of users across usage bands" style="max-width: 800px; width: 100%; height: auto; margin: 1.5rem 0;" />
 
 > **Note:** For specialized tools like coding assistants, this tipping point may occur at a higher action count because individual interactions are more frequent.
 
 ## Your Goal: Compress Time-to-Habit
 
-Left on their own, curious users tend to reach this **11–15 actions-per-week level** somewhere around **months 4–6**. As an IT decision maker or adoption lead, your challenge is to pull that tipping point forward.
+Left on their own, curious users tend to reach this **12–15 actions-per-week level** somewhere around **months 4–6**. As an IT decision maker or adoption lead, your challenge is to pull that tipping point forward.
 
 Conceptually, 15 actions a week is not a big number—roughly **two-three meaningful AI interactions per workday**—but it won't happen by accident at scale.
 
