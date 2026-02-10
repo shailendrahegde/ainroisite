@@ -661,8 +661,15 @@ function App() {
               ))}
             </div>
 
-            <div className="mt-8 md:mt-12 text-sm md:text-base text-gray-600 text-center">
-              <p>Additional contributors: Olivier Pecheux, Jordan King, Jennifer Stoll, Stephanie Downey, Luz Lorenz, Stephanie Smith, Brian Middendorf, Fernando Manzano</p>
+            <div className="mt-12 md:mt-16">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 md:p-8 border border-blue-100">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 text-center">
+                  Built With Contributions From
+                </h3>
+                <p className="text-sm md:text-base text-gray-700 text-center leading-relaxed">
+                  Special thanks to Olivier Pecheux, Jordan King, Jennifer Stoll, Stephanie Downey, Luz Lorenz, Stephanie Smith, Brian Middendorf, and Fernando Manzano for their valuable contributions to these projects.
+                </p>
+              </div>
             </div>
           </TabsContent>
 
