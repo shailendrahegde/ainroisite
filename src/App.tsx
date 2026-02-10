@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import rehypeRaw from "rehype-raw"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
@@ -437,7 +438,7 @@ function App() {
                 </div>
 
                 <article className="max-w-none text-gray-800 [&>h1]:text-2xl md:[&>h1]:text-3xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:mb-4 md:[&>h1]:mb-6 [&>h1]:mt-0 [&>h2]:text-xl md:[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 [&>h2]:mb-4 md:[&>h2]:mb-5 [&>h2]:mt-6 md:[&>h2]:mt-8 [&>h3]:text-base md:[&>h3]:text-lg [&>h3]:font-bold [&>h3]:text-gray-900 [&>h3]:mb-3 md:[&>h3]:mb-4 [&>h3]:mt-5 md:[&>h3]:mt-6 [&>p]:text-sm md:[&>p]:text-base [&>p]:leading-relaxed md:[&>p]:leading-7 [&>p]:mb-4 md:[&>p]:mb-6 [&>p]:text-gray-800 [&_strong]:font-bold [&_strong]:text-gray-900 [&>ul]:my-4 md:[&>ul]:my-5 [&>ul]:list-disc [&>ul]:pl-5 md:[&>ul]:pl-6 [&>ol]:my-4 md:[&>ol]:my-5 [&>ol]:list-decimal [&>ol]:pl-5 md:[&>ol]:pl-6 [&_li]:text-gray-800 [&_li]:my-1.5 md:[&_li]:my-2 [&_li]:leading-relaxed md:[&_li]:leading-7 [&>blockquote]:border-l-4 [&>blockquote]:border-blue-500 [&>blockquote]:pl-3 md:[&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-700 [&>blockquote]:bg-blue-50 [&>blockquote]:py-2 md:[&>blockquote]:py-3 [&>blockquote]:my-4 md:[&>blockquote]:my-6 [&_code]:text-blue-600 [&_code]:bg-blue-50 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs md:[&_code]:text-sm [&>pre]:bg-gray-900 [&>pre]:text-gray-100 [&>pre]:p-3 md:[&>pre]:p-4 [&>pre]:rounded-lg [&>pre]:overflow-x-auto [&>pre]:my-4 md:[&>pre]:my-6 [&>pre]:text-xs md:[&>pre]:text-sm [&_a]:text-blue-600 [&_a]:no-underline hover:[&_a]:underline [&>table]:w-full [&>table]:my-4 md:[&>table]:my-6 [&>table]:border-collapse [&>table]:text-sm [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-100 [&_th]:px-2 md:[&_th]:px-4 [&_th]:py-1.5 md:[&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:border-gray-300 [&_td]:px-2 md:[&_td]:px-4 [&_td]:py-1.5 md:[&_td]:py-2">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{blogContent}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{blogContent}</ReactMarkdown>
                 </article>
               </div>
             ) : (
