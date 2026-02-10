@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(PYTHONIOENCODING=utf-8 python:*)",
+      "Bash(python:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd bylines and update Projects page content\n\n- Add author bylines \\(Shailendra Hegde, Keith Mcgrane\\) to all blog articles\n- Update Featured Projects description to emphasize open source self-serve tools\n- Add contributors acknowledgment to Projects page\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "WebSearch",
+      "WebFetch(domain:blog.hubspot.com)",
+      "WebFetch(domain:colorlib.com)",
+      "WebFetch(domain:www.shopify.com)",
+      "WebFetch(domain:www.gsplugins.com)",
+      "Bash(ls:*)",
+      "Bash(gh run list:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

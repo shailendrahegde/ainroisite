@@ -673,11 +673,146 @@ function App() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">About Us</h2>
               </div>
 
+              {/* Work With Us Section */}
+              <div className="mb-12 md:mb-16 pb-8 md:pb-12 border-b border-gray-200">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-10">
+                  Work With Us
+                </h3>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                  {/* Form Column */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-6 md:p-8">
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6">
+                      Send us a message
+                    </h4>
+
+                    <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4" data-recaptcha="true">
+                      <input type="hidden" name="access_key" value="228605c2-71af-4f86-8710-14cbde9dc57b" />
+                      <input type="hidden" name="subject" value="New Contact Form Submission from AInROI" />
+                      <input type="hidden" name="redirect" value="https://www.ainroi.com/?submitted=true" />
+                      <input type="hidden" name="recaptcha_site_key" value="6LfaDWYsAAAAALv-6n_dEYjC4TO_OeeZvdgcai20" />
+
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="Your name"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="your@email.com"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="inquiry_type" className="block text-sm font-medium text-gray-700 mb-1">
+                          Inquiry Type
+                        </label>
+                        <select
+                          id="inquiry_type"
+                          name="inquiry_type"
+                          required
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        >
+                          <option value="">Select an option</option>
+                          <option value="analytics">Analytics suggestions</option>
+                          <option value="opensource">Open source collaboration</option>
+                          <option value="general">General inquiry</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                          Message
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={5}
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="Tell us more about your inquiry..."
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-md font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg"
+                      >
+                        Send Message
+                      </button>
+                    </form>
+                  </div>
+
+                  {/* Info Column */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 md:p-8 border border-blue-100">
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">
+                        Quick Response
+                      </h4>
+                      <p className="text-sm md:text-base text-gray-700 mb-4">
+                        We review all inquiries within 24 hours and typically respond with next steps within 48 hours.
+                      </p>
+                      <div className="text-sm text-gray-600 space-y-2">
+                        <p>📧 Response time: 24-48 hours</p>
+                        <p>🌍 Timezone: EST (UTC-5) & GMT</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 md:p-8">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4">
+                        Connect on LinkedIn
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-4">
+                        Prefer a more direct connection? Reach out to us on LinkedIn.
+                      </p>
+                      <div className="flex flex-col gap-3">
+                        <a
+                          href="https://www.linkedin.com/in/shailendrahegde"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
+                          <LinkedinLogo size={18} weight="fill" className="text-blue-600" />
+                          <span className="font-medium text-gray-900">Message Shailendra</span>
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/keith-mcgrane-46184029"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
+                          <LinkedinLogo size={18} weight="fill" className="text-blue-600" />
+                          <span className="font-medium text-gray-900">Message Keith</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Team Bios Section */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                 {/* Shailendra */}
                 <div className="flex flex-col group">
                   {/* Photo */}
-                  <div className="relative overflow-hidden rounded-lg aspect-square mb-6 shadow-lg">
+                  <div className="relative overflow-hidden rounded-lg aspect-square max-w-xs mx-auto mb-6 shadow-lg">
                     <img
                       src="/shailendra-hegde-new.jpg"
                       alt="Shailendra Hegde"
@@ -722,7 +857,7 @@ function App() {
                 {/* Keith */}
                 <div className="flex flex-col group">
                   {/* Photo */}
-                  <div className="relative overflow-hidden rounded-lg aspect-square mb-6 shadow-lg">
+                  <div className="relative overflow-hidden rounded-lg aspect-square max-w-xs mx-auto mb-6 shadow-lg">
                     {!keithAvatarFailed ? (
                       <img
                         src={keithAvatarSources[keithAvatarIndex]}
@@ -780,141 +915,7 @@ function App() {
                   </div>
                 </div>
               </div>
-
-              {/* Get In Touch Section */}
-              <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-gray-200">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-10">
-                  Work With Us
-                </h3>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                    {/* Form Column */}
-                    <div className="bg-white border border-gray-200 rounded-lg p-6 md:p-8">
-                      <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-6">
-                        Send us a message
-                      </h4>
-
-                      <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4" data-recaptcha="true">
-                        <input type="hidden" name="access_key" value="228605c2-71af-4f86-8710-14cbde9dc57b" />
-                        <input type="hidden" name="subject" value="New Contact Form Submission from AInROI" />
-                        <input type="hidden" name="redirect" value="https://www.ainroi.com/?submitted=true" />
-                        <input type="hidden" name="recaptcha_site_key" value="6LfaDWYsAAAAALv-6n_dEYjC4TO_OeeZvdgcai20" />
-
-                        <div>
-                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                            Name
-                          </label>
-                          <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                            placeholder="Your name"
-                          />
-                        </div>
-
-                        <div>
-                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                            placeholder="your@email.com"
-                          />
-                        </div>
-
-                        <div>
-                          <label htmlFor="inquiry_type" className="block text-sm font-medium text-gray-700 mb-1">
-                            Inquiry Type
-                          </label>
-                          <select
-                            id="inquiry_type"
-                            name="inquiry_type"
-                            required
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                          >
-                            <option value="">Select an option</option>
-                            <option value="analytics">Analytics suggestions</option>
-                            <option value="opensource">Open source collaboration</option>
-                            <option value="general">General inquiry</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                            Message
-                          </label>
-                          <textarea
-                            id="message"
-                            name="message"
-                            required
-                            rows={5}
-                            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                            placeholder="Tell us more about your inquiry..."
-                          />
-                        </div>
-
-                        <button
-                          type="submit"
-                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-md font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg"
-                        >
-                          Send Message
-                        </button>
-                      </form>
-                    </div>
-
-                    {/* Info Column */}
-                    <div className="space-y-6">
-                      <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 md:p-8 border border-blue-100">
-                        <h4 className="text-lg font-bold text-gray-900 mb-3">
-                          Quick Response
-                        </h4>
-                        <p className="text-sm md:text-base text-gray-700 mb-4">
-                          We review all inquiries within 24 hours and typically respond with next steps within 48 hours.
-                        </p>
-                        <div className="text-sm text-gray-600 space-y-2">
-                          <p>📧 Response time: 24-48 hours</p>
-                          <p>🌍 Timezone: EST (UTC-5) & GMT</p>
-                        </div>
-                      </div>
-
-                      <div className="bg-white border border-gray-200 rounded-lg p-6 md:p-8">
-                        <h4 className="text-lg font-bold text-gray-900 mb-4">
-                          Connect on LinkedIn
-                        </h4>
-                        <p className="text-sm text-gray-600 mb-4">
-                          Prefer a more direct connection? Reach out to us on LinkedIn.
-                        </p>
-                        <div className="flex flex-col gap-3">
-                          <a
-                            href="https://www.linkedin.com/in/shailendrahegde"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
-                          >
-                            <LinkedinLogo size={18} weight="fill" className="text-blue-600" />
-                            <span className="font-medium text-gray-900">Message Shailendra</span>
-                          </a>
-                          <a
-                            href="https://www.linkedin.com/in/keith-mcgrane-46184029"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
-                          >
-                            <LinkedinLogo size={18} weight="fill" className="text-blue-600" />
-                            <span className="font-medium text-gray-900">Message Keith</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
           </TabsContent>
         </main>
       </Tabs>
