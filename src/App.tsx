@@ -536,7 +536,7 @@ function App() {
 
                             {/* Thumbnail - Right side, only for blogs with local images */}
                             {blog.thumbnail.startsWith('/') && (
-                              <div className="w-full md:w-48 h-32 md:h-28 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100 order-first md:order-last">
+                              <div className={`w-full ${blog.id === 'roi-demands-patience' ? 'md:w-72' : 'md:w-48'} h-32 md:h-28 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100 order-first md:order-last`}>
                                 <img
                                   src={blog.thumbnail}
                                   alt={blog.title}
