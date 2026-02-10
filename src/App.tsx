@@ -669,10 +669,6 @@ function App() {
           {/* About Us Tab */}
           <TabsContent value="about" className="mt-0">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-8 md:mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-gray-900">About Us</h2>
-              </div>
-
               {/* Work With Us Section */}
               <div className="mb-12 md:mb-16 pb-8 md:pb-12 border-b border-gray-200">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 md:mb-10">
