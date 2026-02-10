@@ -14,6 +14,8 @@ We are likely to see meaningful results and patterns that tell us whether AI is 
 
 ## Value Measurement Journey
 
+<img src="/roi-measurement-journey.png" alt="What to measure by weeks since activation" style="max-width: 800px; width: 100%; height: auto; margin: 1.5rem 0;" />
+
 ### Deep Usage
 
 Great usage precedes great value. We must first ask: **"Are users engaging with AI often enough for it to become part of how they work, not just an occasional experiment?"**
