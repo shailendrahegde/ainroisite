@@ -74,6 +74,13 @@ const projects: Project[] = [
     description: "Analyze M365 app usage to inform likelihood of Copilot Adoption",
     tags: ["Power BI", "Microsoft Graph"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&brightness=1.1"
+  },
+  {
+    title: "Dash to Deck",
+    description: "Convert any dashboard to a compelling exec ready presentation.",
+    tags: ["Python", "Claude", "PowerBI"],
+    githubUrl: "https://github.com/shailendrahegde/pbi-to-exec-deck",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=450&fit=crop"
   }
 ]
 
@@ -87,11 +94,15 @@ function App() {
   const [copiedBlogId, setCopiedBlogId] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<string>("insights")
 
-  // Clear hash when switching tabs away from projects
+  // Handle tab changes and update URL
   const handleTabChange = (value: string) => {
     setActiveTab(value)
+    // Set hash to #projects when on projects tab
+    if (value === 'projects') {
+      window.history.replaceState(null, '', '#projects')
+    }
     // Clear hash when leaving projects tab
-    if (value !== 'projects' && window.location.hash) {
+    else if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname)
     }
   }
@@ -107,26 +118,33 @@ function App() {
   const [keithAvatarIndex, setKeithAvatarIndex] = useState(0)
   const [keithAvatarFailed, setKeithAvatarFailed] = useState(false)
 
-  // Handle navigation to project anchors
+  // Handle navigation to projects tab and project anchors
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash
       if (hash) {
-        // Check if hash corresponds to a project card
-        const projectIds = projects.map(p => p.title.toLowerCase().replace(/\s+/g, '-'))
         const hashId = hash.replace('#', '')
 
-        if (projectIds.includes(hashId)) {
-          // Switch to projects tab
+        // Check if hash is just "projects" - switch to projects tab
+        if (hashId === 'projects') {
           setActiveTab('projects')
+        }
+        // Check if hash corresponds to a project card
+        else {
+          const projectIds = projects.map(p => p.title.toLowerCase().replace(/\s+/g, '-'))
 
-          // Scroll to the element after a brief delay to ensure tab is rendered
-          setTimeout(() => {
-            const element = document.getElementById(hashId)
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-            }
-          }, 300)
+          if (projectIds.includes(hashId)) {
+            // Switch to projects tab
+            setActiveTab('projects')
+
+            // Scroll to the element after a brief delay to ensure tab is rendered
+            setTimeout(() => {
+              const element = document.getElementById(hashId)
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+              }
+            }, 300)
+          }
         }
       }
     }
