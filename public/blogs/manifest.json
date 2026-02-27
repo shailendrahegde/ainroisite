@@ -1,5 +1,15 @@
 [
   {
+    "id": "ai-culture-ladder",
+    "title": "The AI Culture Ladder: Four Stages From Curious to AI-Native — And How to Measure the Climb",
+    "summary": "95% of AI pilots fail to scale, and 70% of the gap is culture, not technology. A four-stage Culture Maturity Ladder with measurable behavioral signals, leadership actions, and how AI agents change the equation",
+    "category": "AI Adoption",
+    "readTime": "7 min read",
+    "filename": "ai-culture-ladder.md",
+    "date": "Feb 27, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop"
+  },
+  {
     "id": "beyond-adoption-counts-ai-maturity",
     "title": "Beyond Adoption Counts: Three Dimensions That Reveal Real AI Maturity",
     "summary": "Most organizations measure AI progress with blunt metrics. Three dimensions—Volume & Consistency, Complexity, and Breadth of Adoption—capture the behavioral signature of a genuinely AI-mature organization",
