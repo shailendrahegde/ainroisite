@@ -35,13 +35,13 @@ interface BlogMeta {
 
 // Category visual config for blog tile abstract backgrounds
 const categoryVisuals: Record<string, { gradient: string, Icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }> }> = {
-  'AI Adoption': { gradient: 'linear-gradient(135deg, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.14) 100%)', Icon: Brain },
-  'License Allocation': { gradient: 'linear-gradient(135deg, rgba(139,92,246,0.18) 0%, rgba(236,72,153,0.14) 100%)', Icon: Key },
-  'ROI Analysis': { gradient: 'linear-gradient(135deg, rgba(6,182,212,0.18) 0%, rgba(59,130,246,0.14) 100%)', Icon: ChartLineUp },
-  'Superusers': { gradient: 'linear-gradient(135deg, rgba(236,72,153,0.18) 0%, rgba(167,139,250,0.14) 100%)', Icon: UsersFour },
-  'Investment Decisions': { gradient: 'linear-gradient(135deg, rgba(96,165,250,0.18) 0%, rgba(139,92,246,0.14) 100%)', Icon: TrendUp },
+  'AI Adoption': { gradient: 'linear-gradient(135deg, rgba(59,130,246,0.28) 0%, rgba(6,182,212,0.22) 100%)', Icon: Brain },
+  'License Allocation': { gradient: 'linear-gradient(135deg, rgba(139,92,246,0.28) 0%, rgba(236,72,153,0.22) 100%)', Icon: Key },
+  'ROI Analysis': { gradient: 'linear-gradient(135deg, rgba(6,182,212,0.28) 0%, rgba(59,130,246,0.22) 100%)', Icon: ChartLineUp },
+  'Superusers': { gradient: 'linear-gradient(135deg, rgba(236,72,153,0.28) 0%, rgba(167,139,250,0.22) 100%)', Icon: UsersFour },
+  'Investment Decisions': { gradient: 'linear-gradient(135deg, rgba(96,165,250,0.28) 0%, rgba(139,92,246,0.22) 100%)', Icon: TrendUp },
 }
-const defaultCategoryVisual = { gradient: 'linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(59,130,246,0.14) 100%)', Icon: Brain }
+const defaultCategoryVisual = { gradient: 'linear-gradient(135deg, rgba(99,102,241,0.28) 0%, rgba(59,130,246,0.22) 100%)', Icon: Brain }
 
 const projects: Project[] = [
   {
@@ -94,36 +94,348 @@ const projects: Project[] = [
   }
 ]
 
-// Inline Logo SVG component
+// Dashboard visual SVG components for project tiles
+function DashboardSuperUsage() {
+  return (
+    <svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <rect width="800" height="450" fill="#0F1629"/>
+      {/* Trend line chart - top left */}
+      <rect x="20" y="20" width="380" height="180" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="44" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Trend — Weekly Actions and Users</text>
+      {/* Grid lines */}
+      <line x1="36" y1="70" x2="384" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"/>
+      <line x1="36" y1="110" x2="384" y2="110" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"/>
+      <line x1="36" y1="150" x2="384" y2="150" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"/>
+      {/* Pink trend line */}
+      <polyline points="40,130 70,120 100,135 130,125 160,140 190,128 220,115 250,120 280,110 310,105 340,100 370,95" fill="none" stroke="#EC4899" strokeWidth="2" opacity="0.9"/>
+      {/* Gray area - users */}
+      <polyline points="40,90 70,88 100,87 130,86 160,85 190,84 220,83 250,82 280,81 310,80 340,78 370,76" fill="none" stroke="#6B7280" strokeWidth="1.5" opacity="0.5"/>
+      {/* Bar chart - top right */}
+      <rect x="420" y="20" width="360" height="180" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="436" y="44" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Weekly Actions by Group</text>
+      {/* Bars ascending */}
+      <rect x="460" y="145" width="40" height="40" rx="2" fill="#3B82F6" opacity="0.7"/>
+      <rect x="520" y="125" width="40" height="60" rx="2" fill="#3B82F6" opacity="0.75"/>
+      <rect x="580" y="100" width="40" height="85" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="640" y="80" width="40" height="105" rx="2" fill="#3B82F6" opacity="0.85"/>
+      <rect x="700" y="60" width="40" height="125" rx="2" fill="#3B82F6" opacity="0.95"/>
+      {/* Donut chart - bottom left */}
+      <rect x="20" y="220" width="240" height="210" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="244" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Avg Weekly Actions per User Rank</text>
+      <circle cx="140" cy="340" r="60" fill="none" stroke="#1E3A5F" strokeWidth="24"/>
+      <circle cx="140" cy="340" r="60" fill="none" stroke="#3B82F6" strokeWidth="24" strokeDasharray="200 377" strokeDashoffset="0" transform="rotate(-90 140 340)"/>
+      <circle cx="140" cy="340" r="60" fill="none" stroke="#60A5FA" strokeWidth="24" strokeDasharray="80 377" strokeDashoffset="-200" transform="rotate(-90 140 340)"/>
+      <circle cx="140" cy="340" r="60" fill="none" stroke="#93C5FD" strokeWidth="24" strokeDasharray="40 377" strokeDashoffset="-280" transform="rotate(-90 140 340)"/>
+      <text x="126" y="345" fill="#F9FAFB" fontSize="16" fontWeight="700" fontFamily="Inter,sans-serif">51</text>
+      {/* Treemap - bottom right */}
+      <rect x="280" y="220" width="500" height="210" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="296" y="244" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Popular Features</text>
+      <rect x="296" y="260" width="180" height="155" rx="4" fill="#EC4899" opacity="0.8"/>
+      <text x="310" y="285" fill="#FFF" fontSize="11" fontWeight="500" fontFamily="Inter,sans-serif">Chat (work) prompts</text>
+      <rect x="486" y="260" width="140" height="90" rx="4" fill="#FACC15" opacity="0.6"/>
+      <text x="498" y="285" fill="#1F2937" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">Chat (web) prompts</text>
+      <rect x="636" y="260" width="130" height="90" rx="4" fill="#3B82F6" opacity="0.5"/>
+      <text x="648" y="285" fill="#FFF" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">Intelligent recap</text>
+      <rect x="486" y="358" width="140" height="57" rx="4" fill="#1E3A5F" opacity="0.8"/>
+      <text x="498" y="380" fill="#9CA3AF" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">Email draft</text>
+      <rect x="636" y="358" width="60" height="57" rx="4" fill="#6B7280" opacity="0.4"/>
+      <rect x="704" y="358" width="62" height="57" rx="4" fill="#8B5CF6" opacity="0.3"/>
+    </svg>
+  )
+}
+
+function DashboardSuperuserImpact() {
+  return (
+    <svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <rect width="800" height="450" fill="#0F1629"/>
+      {/* Header */}
+      <text x="300" y="36" fill="#D1D5DB" fontSize="16" fontWeight="700" fontFamily="Inter,sans-serif" textAnchor="middle">Collaboration</text>
+      {/* Tab pills */}
+      <rect x="380" y="20" width="90" height="26" rx="13" fill="#8B5CF6" opacity="0.3"/>
+      <text x="425" y="37" fill="#C4B5FD" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Meetings</text>
+      <rect x="480" y="20" width="100" height="26" rx="13" fill="rgba(255,255,255,0.06)"/>
+      <text x="530" y="37" fill="#9CA3AF" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Work Life</text>
+      <rect x="590" y="20" width="80" height="26" rx="13" fill="rgba(255,255,255,0.06)"/>
+      <text x="630" y="37" fill="#9CA3AF" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Networks</text>
+      {/* % of workweek chart */}
+      <text x="40" y="76" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">% of 40h workweek spent in collaboration</text>
+      {/* Purple bars with % labels */}
+      <rect x="80" y="130" width="80" height="120" rx="4" fill="#C4B5FD" opacity="0.5"/>
+      <text x="120" y="125" fill="#D1D5DB" fontSize="11" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">41.5%</text>
+      <rect x="220" y="115" width="80" height="135" rx="4" fill="#C4B5FD" opacity="0.55"/>
+      <text x="260" y="110" fill="#D1D5DB" fontSize="11" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">48.4%</text>
+      <rect x="360" y="95" width="80" height="155" rx="4" fill="#C4B5FD" opacity="0.65"/>
+      <text x="400" y="90" fill="#D1D5DB" fontSize="11" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">62.6%</text>
+      <rect x="500" y="95" width="80" height="155" rx="4" fill="#C4B5FD" opacity="0.7"/>
+      <text x="540" y="90" fill="#D1D5DB" fontSize="11" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">62.5%</text>
+      <rect x="640" y="80" width="80" height="170" rx="4" fill="#C4B5FD" opacity="0.8"/>
+      <text x="680" y="75" fill="#D1D5DB" fontSize="11" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">73.5%</text>
+      {/* Dashed trend line */}
+      <polyline points="120,185 260,170 400,140 540,138 680,120" fill="none" stroke="#6B7280" strokeWidth="1.5" strokeDasharray="4,4"/>
+      {/* Labels */}
+      <text x="120" y="268" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif" textAnchor="middle">Non-users</text>
+      <text x="260" y="268" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif" textAnchor="middle">Low Users</text>
+      <text x="400" y="268" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif" textAnchor="middle">Novice</text>
+      <text x="540" y="268" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif" textAnchor="middle">Habitual</text>
+      <text x="680" y="268" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif" textAnchor="middle">Power</text>
+      {/* Stacked bar chart bottom */}
+      <text x="40" y="300" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">On average, total hours spent per week in...</text>
+      {/* Stacked bars */}
+      <rect x="80" y="330" width="80" height="50" rx="3" fill="#4C1D95"/>
+      <rect x="80" y="380" width="80" height="30" rx="3" fill="#7C3AED"/>
+      <rect x="80" y="410" width="80" height="15" rx="3" fill="#A78BFA"/>
+      <rect x="220" y="315" width="80" height="50" rx="3" fill="#4C1D95"/>
+      <rect x="220" y="365" width="80" height="35" rx="3" fill="#7C3AED"/>
+      <rect x="220" y="400" width="80" height="25" rx="3" fill="#A78BFA"/>
+      <rect x="360" y="300" width="80" height="55" rx="3" fill="#4C1D95"/>
+      <rect x="360" y="355" width="80" height="40" rx="3" fill="#7C3AED"/>
+      <rect x="360" y="395" width="80" height="30" rx="3" fill="#A78BFA"/>
+      <rect x="500" y="305" width="80" height="50" rx="3" fill="#4C1D95"/>
+      <rect x="500" y="355" width="80" height="40" rx="3" fill="#7C3AED"/>
+      <rect x="500" y="395" width="80" height="30" rx="3" fill="#A78BFA"/>
+      <rect x="640" y="290" width="80" height="55" rx="3" fill="#4C1D95"/>
+      <rect x="640" y="345" width="80" height="45" rx="3" fill="#7C3AED"/>
+      <rect x="640" y="390" width="80" height="35" rx="3" fill="#A78BFA"/>
+    </svg>
+  )
+}
+
+function DashboardAIinOne() {
+  return (
+    <svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <rect width="800" height="450" fill="#0F1629"/>
+      {/* KPI cards top row */}
+      <rect x="20" y="16" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="70" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Active Agents</text>
+      <text x="70" y="54" fill="#8B5CF6" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">29</text>
+      <rect x="130" y="16" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="180" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Users</text>
+      <text x="180" y="54" fill="#8B5CF6" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">36</text>
+      <rect x="240" y="16" width="110" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="295" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Users Adopt Agents</text>
+      <text x="295" y="54" fill="#8B5CF6" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">100%</text>
+      <rect x="360" y="16" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="410" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Sessions (Weekly)</text>
+      <text x="410" y="54" fill="#8B5CF6" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">5.79</text>
+      <rect x="470" y="16" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="520" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">MoM %</text>
+      <text x="520" y="54" fill="#10B981" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">+12.3%</text>
+      <rect x="580" y="16" width="100" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="630" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Return Rate</text>
+      <text x="630" y="54" fill="#8B5CF6" fontSize="18" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">79.1%</text>
+      {/* Agent Actions Trend - left */}
+      <rect x="20" y="80" width="380" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="100" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Agent Actions Trends</text>
+      {/* Gray line - Active Users */}
+      <polyline points="50,150 90,140 130,142 170,138 210,136 250,135 290,136 330,135 370,160" fill="none" stroke="#6B7280" strokeWidth="1.5"/>
+      {/* Purple line - Total Sessions */}
+      <polyline points="50,180 90,165 130,145 170,140 210,135 250,130 290,132 330,130 370,200" fill="none" stroke="#8B5CF6" strokeWidth="2"/>
+      {/* Data points */}
+      <circle cx="50" cy="180" r="3" fill="#8B5CF6"/>
+      <circle cx="130" cy="145" r="3" fill="#8B5CF6"/>
+      <circle cx="210" cy="135" r="3" fill="#8B5CF6"/>
+      <circle cx="290" cy="132" r="3" fill="#8B5CF6"/>
+      <circle cx="370" cy="200" r="3" fill="#8B5CF6"/>
+      {/* Bar chart - right */}
+      <rect x="420" y="80" width="360" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="436" y="100" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Weekly Sessions Per User</text>
+      {/* Purple gradient bars descending */}
+      <rect x="445" y="120" width="35" height="115" rx="2" fill="#4C1D95"/>
+      <rect x="488" y="120" width="35" height="115" rx="2" fill="#5B21B6"/>
+      <rect x="531" y="125" width="35" height="110" rx="2" fill="#6D28D9"/>
+      <rect x="574" y="128" width="35" height="107" rx="2" fill="#7C3AED"/>
+      <rect x="617" y="130" width="35" height="105" rx="2" fill="#8B5CF6"/>
+      <rect x="660" y="132" width="35" height="103" rx="2" fill="#A78BFA"/>
+      <rect x="703" y="135" width="35" height="100" rx="2" fill="#C4B5FD"/>
+      <text x="462" y="140" fill="#F9FAFB" fontSize="9" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">6.1</text>
+      <text x="505" y="140" fill="#F9FAFB" fontSize="9" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">6.1</text>
+      <text x="548" y="145" fill="#F9FAFB" fontSize="9" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">5.9</text>
+      {/* Treemap bottom */}
+      <rect x="20" y="265" width="500" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="285" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Total Sessions by Agent</text>
+      <rect x="36" y="300" width="240" height="120" rx="4" fill="#4C1D95" opacity="0.8"/>
+      <text x="52" y="320" fill="#C4B5FD" fontSize="11" fontWeight="500" fontFamily="Inter,sans-serif">ESS</text>
+      <text x="52" y="340" fill="#6B7280" fontSize="10" fontFamily="Inter,sans-serif">2400</text>
+      <rect x="284" y="300" width="110" height="60" rx="4" fill="#6D28D9" opacity="0.6"/>
+      <text x="296" y="320" fill="#C4B5FD" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">IT Service</text>
+      <rect x="400" y="300" width="108" height="60" rx="4" fill="#7C3AED" opacity="0.5"/>
+      <text x="412" y="320" fill="#C4B5FD" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">Meeting Prep</text>
+      <rect x="284" y="366" width="110" height="54" rx="4" fill="#8B5CF6" opacity="0.4"/>
+      <text x="296" y="386" fill="#C4B5FD" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif">Risk & Compliance</text>
+      <rect x="400" y="366" width="55" height="54" rx="4" fill="#A78BFA" opacity="0.35"/>
+      <rect x="460" y="366" width="48" height="54" rx="4" fill="#C4B5FD" opacity="0.25"/>
+      {/* Filters - right side */}
+      <rect x="540" y="265" width="240" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="556" y="285" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Agent Detail</text>
+      <rect x="556" y="300" width="200" height="24" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="566" y="316" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif">Organization: All</text>
+      <rect x="556" y="330" width="200" height="24" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="566" y="346" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif">Agent Type: All</text>
+      <rect x="556" y="360" width="200" height="24" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="566" y="376" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif">Agent Name: All</text>
+      <rect x="556" y="396" width="200" height="30" rx="4" fill="rgba(255,255,255,0.03)"/>
+      <text x="566" y="412" fill="#6B7280" fontSize="9" fontFamily="Inter,sans-serif">Description</text>
+      <text x="566" y="424" fill="#9CA3AF" fontSize="8" fontFamily="Inter,sans-serif">Advanced research assistant</text>
+    </svg>
+  )
+}
+
+function DashboardGitHubCopilot() {
+  return (
+    <svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <rect width="800" height="450" fill="#0F1629"/>
+      {/* Header */}
+      <text x="40" y="36" fill="#D1D5DB" fontSize="14" fontWeight="700" fontFamily="Inter,sans-serif">GitHub Copilot Engagement</text>
+      {/* KPI row */}
+      <rect x="20" y="50" width="140" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="90" y="70" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Share of Power Users</text>
+      <text x="90" y="90" fill="#EC4899" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">14%</text>
+      <rect x="170" y="50" width="160" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="250" y="70" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Power User Weekly Interactions</text>
+      <text x="250" y="90" fill="#EC4899" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">121</text>
+      <rect x="340" y="50" width="160" height="50" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="420" y="70" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Weekly Growth Rate</text>
+      <text x="420" y="90" fill="#10B981" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">10%</text>
+      {/* Donut chart - left */}
+      <rect x="20" y="115" width="280" height="320" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="140" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Segmentation (Last 7 days)</text>
+      <circle cx="160" cy="260" r="70" fill="none" stroke="#1E1E3F" strokeWidth="28"/>
+      <circle cx="160" cy="260" r="70" fill="none" stroke="#3B82F6" strokeWidth="28" strokeDasharray="140 440" strokeDashoffset="0" transform="rotate(-90 160 260)"/>
+      <circle cx="160" cy="260" r="70" fill="none" stroke="#8B5CF6" strokeWidth="28" strokeDasharray="100 440" strokeDashoffset="-140" transform="rotate(-90 160 260)"/>
+      <circle cx="160" cy="260" r="70" fill="none" stroke="#EC4899" strokeWidth="28" strokeDasharray="80 440" strokeDashoffset="-240" transform="rotate(-90 160 260)"/>
+      <circle cx="160" cy="260" r="70" fill="none" stroke="#60A5FA" strokeWidth="28" strokeDasharray="60 440" strokeDashoffset="-320" transform="rotate(-90 160 260)"/>
+      {/* Legend */}
+      <circle cx="50" y="360" r="4" fill="#3B82F6"/><text x="60" y="364" fill="#9CA3AF" fontSize="9" fontFamily="Inter,sans-serif">Power (11+)</text>
+      <circle cx="50" y="380" r="4" fill="#8B5CF6"/><text x="60" y="384" fill="#9CA3AF" fontSize="9" fontFamily="Inter,sans-serif">Engaged (26-50)</text>
+      <circle cx="50" y="400" r="4" fill="#EC4899"/><text x="60" y="404" fill="#9CA3AF" fontSize="9" fontFamily="Inter,sans-serif">Beginners (1-10)</text>
+      <circle cx="50" y="420" r="4" fill="#60A5FA"/><text x="60" y="424" fill="#9CA3AF" fontSize="9" fontFamily="Inter,sans-serif">Explorers (11-25)</text>
+      {/* Stacked bar chart - right */}
+      <rect x="320" y="115" width="460" height="320" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="336" y="140" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Growing vs. Shrinking User Segments</text>
+      {/* Stacked bars */}
+      <rect x="360" y="200" width="45" height="80" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="360" y="280" width="45" height="40" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="360" y="320" width="45" height="30" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="360" y="350" width="45" height="20" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="420" y="190" width="45" height="85" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="420" y="275" width="45" height="45" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="420" y="320" width="45" height="30" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="420" y="350" width="45" height="25" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="480" y="185" width="45" height="90" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="480" y="275" width="45" height="45" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="480" y="320" width="45" height="35" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="480" y="355" width="45" height="25" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="540" y="180" width="45" height="90" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="540" y="270" width="45" height="50" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="540" y="320" width="45" height="35" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="540" y="355" width="45" height="30" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="600" y="175" width="45" height="95" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="600" y="270" width="45" height="55" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="600" y="325" width="45" height="30" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="600" y="355" width="45" height="25" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="660" y="170" width="45" height="100" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="660" y="270" width="45" height="55" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="660" y="325" width="45" height="30" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="660" y="355" width="45" height="30" rx="2" fill="#60A5FA" opacity="0.5"/>
+      <rect x="720" y="165" width="45" height="100" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <rect x="720" y="265" width="45" height="60" rx="2" fill="#8B5CF6" opacity="0.7"/>
+      <rect x="720" y="325" width="45" height="30" rx="2" fill="#EC4899" opacity="0.6"/>
+      <rect x="720" y="355" width="45" height="30" rx="2" fill="#60A5FA" opacity="0.5"/>
+      {/* X axis labels */}
+      <text x="382" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Aug 4</text>
+      <text x="442" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Aug 11</text>
+      <text x="502" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Aug 18</text>
+      <text x="562" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Aug 25</text>
+      <text x="622" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Sep 1</text>
+      <text x="682" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Sep 8</text>
+      <text x="742" y="395" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Sep 15</text>
+    </svg>
+  )
+}
+
+function DashboardChatIntelligence() {
+  return (
+    <svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+      <rect width="800" height="450" fill="#0F1629"/>
+      {/* KPIs */}
+      <rect x="20" y="16" width="120" height="55" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="80" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Chat Users</text>
+      <text x="80" y="58" fill="#06B6D4" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">482</text>
+      <rect x="150" y="16" width="120" height="55" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="210" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Agent Sessions</text>
+      <text x="210" y="58" fill="#06B6D4" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">1.2K</text>
+      <rect x="280" y="16" width="120" height="55" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="340" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Prompts/User</text>
+      <text x="340" y="58" fill="#06B6D4" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">8.4</text>
+      <rect x="410" y="16" width="120" height="55" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="470" y="36" fill="#6B7280" fontSize="8" fontFamily="Inter,sans-serif" textAnchor="middle">Avg Turns/Chat</text>
+      <text x="470" y="58" fill="#06B6D4" fontSize="20" fontWeight="800" fontFamily="Inter,sans-serif" textAnchor="middle">3.2</text>
+      {/* Usage trend */}
+      <rect x="20" y="85" width="380" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="108" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Chat & Agent Usage Trend</text>
+      <polyline points="50,200 90,190 130,180 170,175 210,165 250,160 290,150 330,145 370,140" fill="none" stroke="#06B6D4" strokeWidth="2"/>
+      <polyline points="50,210 90,205 130,200 170,198 210,195 250,188 290,185 330,178 370,170" fill="none" stroke="#8B5CF6" strokeWidth="2" strokeDasharray="4,3"/>
+      {/* Area fill */}
+      <polygon points="50,200 90,190 130,180 170,175 210,165 250,160 290,150 330,145 370,140 370,240 50,240" fill="#06B6D4" opacity="0.08"/>
+      {/* Bubble chart / topics */}
+      <rect x="420" y="85" width="360" height="170" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="436" y="108" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Popular Topics</text>
+      <circle cx="520" cy="170" r="35" fill="#06B6D4" opacity="0.25"/>
+      <text x="520" y="174" fill="#06B6D4" fontSize="10" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">Code</text>
+      <circle cx="600" cy="155" r="28" fill="#8B5CF6" opacity="0.25"/>
+      <text x="600" y="159" fill="#A78BFA" fontSize="10" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">Email</text>
+      <circle cx="670" cy="175" r="22" fill="#EC4899" opacity="0.25"/>
+      <text x="670" y="179" fill="#F472B6" fontSize="9" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">Strategy</text>
+      <circle cx="560" cy="210" r="18" fill="#3B82F6" opacity="0.25"/>
+      <text x="560" y="214" fill="#60A5FA" fontSize="8" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">Data</text>
+      <circle cx="640" cy="215" r="15" fill="#FACC15" opacity="0.2"/>
+      <text x="640" y="219" fill="#FACC15" fontSize="8" fontWeight="600" fontFamily="Inter,sans-serif" textAnchor="middle">HR</text>
+      {/* Agent sessions */}
+      <rect x="20" y="270" width="760" height="165" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+      <text x="36" y="293" fill="#9CA3AF" fontSize="11" fontFamily="Inter,sans-serif" fontWeight="600">Agent Session Distribution</text>
+      <rect x="36" y="310" width="120" height="110" rx="4" fill="#06B6D4" opacity="0.3"/>
+      <text x="96" y="335" fill="#22D3EE" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Research</text>
+      <text x="96" y="355" fill="#6B7280" fontSize="14" fontWeight="700" fontFamily="Inter,sans-serif" textAnchor="middle">340</text>
+      <rect x="166" y="310" width="100" height="110" rx="4" fill="#8B5CF6" opacity="0.25"/>
+      <text x="216" y="335" fill="#A78BFA" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Writing</text>
+      <text x="216" y="355" fill="#6B7280" fontSize="14" fontWeight="700" fontFamily="Inter,sans-serif" textAnchor="middle">280</text>
+      <rect x="276" y="310" width="90" height="110" rx="4" fill="#EC4899" opacity="0.2"/>
+      <text x="321" y="335" fill="#F472B6" fontSize="10" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Analysis</text>
+      <text x="321" y="355" fill="#6B7280" fontSize="14" fontWeight="700" fontFamily="Inter,sans-serif" textAnchor="middle">210</text>
+      <rect x="376" y="310" width="80" height="55" rx="4" fill="#3B82F6" opacity="0.2"/>
+      <text x="416" y="340" fill="#60A5FA" fontSize="9" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Support</text>
+      <rect x="466" y="310" width="70" height="55" rx="4" fill="#FACC15" opacity="0.15"/>
+      <text x="501" y="340" fill="#FACC15" fontSize="9" fontWeight="500" fontFamily="Inter,sans-serif" textAnchor="middle">Planning</text>
+      <rect x="376" y="373" width="80" height="47" rx="4" fill="#6B7280" opacity="0.15"/>
+      <rect x="466" y="373" width="70" height="47" rx="4" fill="#06B6D4" opacity="0.12"/>
+    </svg>
+  )
+}
+
+// Map project titles to dashboard SVG components
+const projectDashboards: Record<string, () => JSX.Element> = {
+  "Decoding Super Usage": DashboardSuperUsage,
+  "Superuser Impact": DashboardSuperuserImpact,
+  "AI in One": DashboardAIinOne,
+  "GitHub Copilot Impact": DashboardGitHubCopilot,
+  "Chat & Agent Intelligence": DashboardChatIntelligence,
+}
+
+// Inline Logo SVG component — clean monochrome network mark
 function LogoSVG({ size = 42 }: { size?: number }) {
   return (
     <svg viewBox="0 0 42 42" width={size} height={size} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="logoGrad1" x1="0" y1="0" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#3B82F6"/>
-          <stop offset="50%" stopColor="#8B5CF6"/>
-          <stop offset="100%" stopColor="#EC4899"/>
-        </linearGradient>
-        <linearGradient id="logoGrad2" x1="10" y1="10" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#60A5FA"/>
-          <stop offset="100%" stopColor="#A78BFA"/>
-        </linearGradient>
-      </defs>
       <path d="M21 2 L36 9 L40 21 L36 33 L21 40 L6 33 L2 21 L6 9 Z"
-            fill="none" stroke="url(#logoGrad1)" strokeWidth="1.5" opacity="0.6"/>
-      <circle cx="21" cy="14" r="3" fill="url(#logoGrad2)"/>
-      <circle cx="14" cy="26" r="2.5" fill="url(#logoGrad2)" opacity="0.8"/>
-      <circle cx="28" cy="26" r="2.5" fill="url(#logoGrad2)" opacity="0.8"/>
-      <line x1="21" y1="17" x2="14" y2="23.5" stroke="url(#logoGrad2)" strokeWidth="1" opacity="0.5"/>
-      <line x1="21" y1="17" x2="28" y2="23.5" stroke="url(#logoGrad2)" strokeWidth="1" opacity="0.5"/>
-      <line x1="14" y1="28.5" x2="28" y2="28.5" stroke="url(#logoGrad2)" strokeWidth="1" opacity="0.3"/>
-      <circle cx="21" cy="14" r="5" fill="none" stroke="#60A5FA" strokeWidth="0.5" opacity="0.4">
-        <animate attributeName="r" values="5;8;5" dur="3s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="21" cy="32" r="1.5" fill="#F472B6" opacity="0.6"/>
-      <circle cx="10" cy="18" r="1" fill="#06B6D4" opacity="0.5"/>
-      <circle cx="32" cy="18" r="1" fill="#06B6D4" opacity="0.5"/>
+            fill="none" stroke="#60A5FA" strokeWidth="1.5" opacity="0.45"/>
+      <line x1="21" y1="17" x2="14" y2="23.5" stroke="#60A5FA" strokeWidth="1" opacity="0.35"/>
+      <line x1="21" y1="17" x2="28" y2="23.5" stroke="#60A5FA" strokeWidth="1" opacity="0.35"/>
+      <line x1="14" y1="28.5" x2="28" y2="28.5" stroke="#60A5FA" strokeWidth="1" opacity="0.25"/>
+      <circle cx="21" cy="14" r="3" fill="#60A5FA"/>
+      <circle cx="14" cy="26" r="2.5" fill="#60A5FA" opacity="0.7"/>
+      <circle cx="28" cy="26" r="2.5" fill="#60A5FA" opacity="0.7"/>
+      <circle cx="21" cy="32" r="1.5" fill="#60A5FA" opacity="0.4"/>
+      <circle cx="10" cy="18" r="1" fill="#60A5FA" opacity="0.35"/>
+      <circle cx="32" cy="18" r="1" fill="#60A5FA" opacity="0.35"/>
     </svg>
   )
 }
@@ -223,7 +535,11 @@ function App() {
     if (selectedBlog) {
       fetch(`/blogs/${selectedBlog.filename}`)
         .then((res) => res.text())
-        .then((text) => setBlogContent(text))
+        .then((text) => {
+          // Strip the leading H1 title (and optional italic byline) since the blog reader already renders them
+          const stripped = text.replace(/^#\s+.+[\r\n]+(\*[^*]+\*[\r\n]+)?/, '')
+          setBlogContent(stripped)
+        })
         .catch((err) => console.error("Error loading blog content:", err))
 
       const structuredData = {
@@ -708,9 +1024,9 @@ function App() {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ fontSize: '24px', fontWeight: 900, letterSpacing: '-1px', lineHeight: 1, color: 'var(--text-primary)' }}>
-                    <span style={{ color: 'var(--accent-blue-light)' }}>AI</span>
-                    <span style={{ color: 'var(--text-primary)', fontWeight: 400, opacity: 0.5, fontSize: '18px' }}>n</span>
-                    <span style={{ background: 'linear-gradient(135deg, var(--accent-purple-light), var(--accent-pink-light))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>ROI</span>
+                    <span style={{ color: '#FFFFFF' }}>AI</span>
+                    <span style={{ color: 'var(--accent-purple-light)', fontWeight: 400, fontSize: '18px' }}>n</span>
+                    <span style={{ color: '#FFFFFF' }}>ROI</span>
                   </div>
                   <div style={{ fontSize: '10px', fontWeight: 500, letterSpacing: '2.5px', textTransform: 'uppercase', color: 'var(--text-muted)', marginTop: '2px' }}>
                     Insights &middot; Analytics &middot; Impact
@@ -1048,7 +1364,7 @@ function App() {
                     </h1>
 
                     <div style={{ fontSize: '14px', color: 'var(--text-dim)', marginBottom: '8px' }}>
-                      <strong style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>By Shailendra Hegde, Keith McGrane</strong>
+                      <strong style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>by Keith McGrane, Shailendra Hegde</strong>
                     </div>
                     <div style={{ fontSize: '14px', color: 'var(--text-dim)' }}>
                       {selectedBlog.date} &middot; {selectedBlog.readTime}
@@ -1227,7 +1543,7 @@ function App() {
                               {heroBlog.summary}
                             </p>
                             <div className="hero-blog-meta" style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-dim)' }}>
-                              <span>By Shailendra Hegde, Keith McGrane</span>
+                              <span>by Keith McGrane, Shailendra Hegde</span>
                               <span>&middot;</span>
                               <span>{heroBlog.date}</span>
                               <span>&middot;</span>
@@ -1288,7 +1604,7 @@ function App() {
                               style={{
                                 background: 'var(--bg-surface)',
                                 borderRadius: '16px',
-                                border: '1px solid rgba(255,255,255,0.05)',
+                                border: '1px solid rgba(255,255,255,0.10)',
                                 overflow: 'hidden',
                                 cursor: 'pointer',
                                 transition: 'all 0.4s var(--ease-out)',
@@ -1320,7 +1636,7 @@ function App() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                   }}>
-                                    <CategoryIcon size={36} weight="duotone" style={{ color: 'rgba(255,255,255,0.10)' }} />
+                                    <CategoryIcon size={36} weight="duotone" style={{ color: 'rgba(255,255,255,0.55)' }} />
                                     {/* Top gradient accent line */}
                                     <div style={{
                                       position: 'absolute',
@@ -1495,11 +1811,15 @@ function App() {
 
                     {/* Image */}
                     <div style={{ height: '140px', overflow: 'hidden', position: 'relative' }}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
-                      />
+                      {projectDashboards[project.title] ? (
+                        (() => { const DashComp = projectDashboards[project.title]; return <DashComp />; })()
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                        />
+                      )}
                       <div style={{
                         position: 'absolute',
                         inset: 0,
@@ -1924,9 +2244,9 @@ function App() {
                   }}
                 >
                   <span style={{ fontSize: '20px', fontWeight: 900, letterSpacing: '-0.5px', color: 'var(--text-primary)' }}>
-                    <span style={{ color: 'var(--accent-blue-light)' }}>AI</span>
-                    <span>n</span>
-                    <span style={{ background: 'linear-gradient(135deg, var(--accent-purple-light), var(--accent-pink-light))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>ROI</span>
+                    <span style={{ color: '#FFFFFF' }}>AI</span>
+                    <span style={{ color: 'var(--accent-purple-light)' }}>n</span>
+                    <span style={{ color: '#FFFFFF' }}>ROI</span>
                   </span>
                 </a>
                 <p style={{ fontSize: '13px', color: 'var(--text-dim)', lineHeight: 1.7, maxWidth: '280px', marginBottom: '20px' }}>

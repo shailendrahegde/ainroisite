@@ -37,8 +37,8 @@
 
   /* Dark Knowledge design tokens */
   --bg-primary: #060B18;
-  --bg-surface: rgba(17,24,39,0.6);
-  --bg-surface-hover: rgba(17,24,39,0.85);
+  --bg-surface: rgba(17,24,39,0.75);
+  --bg-surface-hover: rgba(17,24,39,0.92);
   --bg-elevated: rgba(255,255,255,0.03);
   --border-subtle: rgba(255,255,255,0.06);
   --border-medium: rgba(255,255,255,0.08);
@@ -60,7 +60,7 @@
   /* Shadcn compatibility — dark values */
   --background: #060B18;
   --foreground: #F9FAFB;
-  --card: rgba(17,24,39,0.6);
+  --card: rgba(17,24,39,0.75);
   --card-foreground: #F9FAFB;
   --popover: #111827;
   --popover-foreground: #F9FAFB;
