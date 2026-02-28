@@ -31,17 +31,25 @@ interface BlogMeta {
   filename: string
   date: string
   thumbnail: string
+  author?: string
 }
 
-// Category visual config for blog tile abstract backgrounds
-const categoryVisuals: Record<string, { gradient: string, Icon: React.ComponentType<{ size?: number; weight?: string; style?: React.CSSProperties }> }> = {
-  'AI Adoption': { gradient: 'linear-gradient(135deg, rgba(59,130,246,0.28) 0%, rgba(6,182,212,0.22) 100%)', Icon: Brain },
-  'License Allocation': { gradient: 'linear-gradient(135deg, rgba(139,92,246,0.28) 0%, rgba(236,72,153,0.22) 100%)', Icon: Key },
-  'ROI Analysis': { gradient: 'linear-gradient(135deg, rgba(6,182,212,0.28) 0%, rgba(59,130,246,0.22) 100%)', Icon: ChartLineUp },
-  'Superusers': { gradient: 'linear-gradient(135deg, rgba(236,72,153,0.28) 0%, rgba(167,139,250,0.22) 100%)', Icon: UsersFour },
-  'Investment Decisions': { gradient: 'linear-gradient(135deg, rgba(96,165,250,0.28) 0%, rgba(139,92,246,0.22) 100%)', Icon: TrendUp },
+// Category visual config for blog tile accent bars
+const categoryVisuals: Record<string, { accent: string, accentBg: string }> = {
+  'AI Adoption': { accent: 'linear-gradient(90deg, #3B82F6, #6366F1)', accentBg: 'rgba(59,130,246,0.12)' },
+  'License Allocation': { accent: 'linear-gradient(90deg, #06B6D4, #0EA5E9)', accentBg: 'rgba(6,182,212,0.12)' },
+  'ROI Analysis': { accent: 'linear-gradient(90deg, #06B6D4, #3B82F6)', accentBg: 'rgba(6,182,212,0.12)' },
+  'Superusers': { accent: 'linear-gradient(90deg, #EC4899, #F43F5E)', accentBg: 'rgba(236,72,153,0.12)' },
+  'Investment Decisions': { accent: 'linear-gradient(90deg, #8B5CF6, #A855F7)', accentBg: 'rgba(139,92,246,0.12)' },
 }
-const defaultCategoryVisual = { gradient: 'linear-gradient(135deg, rgba(99,102,241,0.28) 0%, rgba(59,130,246,0.22) 100%)', Icon: Brain }
+const categoryTextColors: Record<string, string> = {
+  'AI Adoption': '#60A5FA',
+  'License Allocation': '#22D3EE',
+  'ROI Analysis': '#22D3EE',
+  'Superusers': '#F472B6',
+  'Investment Decisions': '#A78BFA',
+}
+const defaultCategoryVisual = { accent: 'linear-gradient(90deg, #6366F1, #3B82F6)', accentBg: 'rgba(99,102,241,0.12)' }
 
 const projects: Project[] = [
   {
@@ -1364,7 +1372,7 @@ function App() {
                     </h1>
 
                     <div style={{ fontSize: '14px', color: 'var(--text-dim)', marginBottom: '8px' }}>
-                      <strong style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>by Keith McGrane, Shailendra Hegde</strong>
+                      <strong style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>by {selectedBlog.author || 'Keith McGrane, Shailendra Hegde'}</strong>
                     </div>
                     <div style={{ fontSize: '14px', color: 'var(--text-dim)' }}>
                       {selectedBlog.date} &middot; {selectedBlog.readTime}
@@ -1543,7 +1551,7 @@ function App() {
                               {heroBlog.summary}
                             </p>
                             <div className="hero-blog-meta" style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-dim)' }}>
-                              <span>by Keith McGrane, Shailendra Hegde</span>
+                              <span>by {heroBlog.author || 'Keith McGrane, Shailendra Hegde'}</span>
                               <span>&middot;</span>
                               <span>{heroBlog.date}</span>
                               <span>&middot;</span>
@@ -1622,67 +1630,41 @@ function App() {
                                 e.currentTarget.style.background = 'var(--bg-surface)'
                               }}
                             >
-                              {/* Abstract category gradient + icon */}
+                              {/* 3px gradient accent bar */}
                               {(() => {
                                 const vis = categoryVisuals[blog.category] || defaultCategoryVisual
-                                const CategoryIcon = vis.Icon
                                 return (
                                   <div style={{
-                                    height: '80px',
-                                    overflow: 'hidden',
-                                    position: 'relative',
-                                    background: vis.gradient,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                  }}>
-                                    <CategoryIcon size={36} weight="duotone" style={{ color: 'rgba(255,255,255,0.55)' }} />
-                                    {/* Top gradient accent line */}
-                                    <div style={{
-                                      position: 'absolute',
-                                      top: 0,
-                                      left: 0,
-                                      right: 0,
-                                      height: '2px',
-                                      background: index % 3 === 0
-                                        ? 'linear-gradient(90deg, var(--accent-blue), var(--accent-purple))'
-                                        : index % 3 === 1
-                                          ? 'linear-gradient(90deg, var(--accent-purple), var(--accent-pink))'
-                                          : 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))',
-                                      opacity: 0,
-                                      transition: 'opacity 0.4s',
-                                    }}
-                                      className="card-accent"
-                                    />
-                                    {/* Subtle bottom fade into card body */}
-                                    <div style={{
-                                      position: 'absolute',
-                                      bottom: 0,
-                                      left: 0,
-                                      right: 0,
-                                      height: '24px',
-                                      background: 'linear-gradient(to bottom, transparent, var(--bg-surface))',
-                                    }} />
-                                  </div>
+                                    height: '3px',
+                                    background: vis.accent,
+                                    borderRadius: '16px 16px 0 0',
+                                  }} />
                                 )
                               })()}
 
                               <div style={{ padding: '24px', position: 'relative', zIndex: 1 }}>
-                                <span style={{
-                                  display: 'inline-block',
-                                  padding: '3px 10px',
-                                  borderRadius: '6px',
-                                  fontSize: '10px',
-                                  fontWeight: 600,
-                                  textTransform: 'uppercase',
-                                  letterSpacing: '0.5px',
-                                  background: 'rgba(139,92,246,0.12)',
-                                  color: 'var(--accent-purple-light)',
-                                  border: '1px solid rgba(139,92,246,0.18)',
-                                  marginBottom: '14px',
-                                }}>
-                                  {blog.category}
-                                </span>
+                                {/* Category pill badge */}
+                                {(() => {
+                                  const vis = categoryVisuals[blog.category] || defaultCategoryVisual
+                                  const textColor = categoryTextColors[blog.category] || '#818CF8'
+                                  return (
+                                    <span style={{
+                                      display: 'inline-block',
+                                      padding: '3px 10px',
+                                      borderRadius: '6px',
+                                      fontSize: '10px',
+                                      fontWeight: 600,
+                                      textTransform: 'uppercase',
+                                      letterSpacing: '0.5px',
+                                      background: vis.accentBg,
+                                      color: textColor,
+                                      border: `1px solid ${textColor}30`,
+                                      marginBottom: '14px',
+                                    }}>
+                                      {blog.category}
+                                    </span>
+                                  )
+                                })()}
                                 <h3 style={{
                                   fontSize: '18px',
                                   fontWeight: 700,

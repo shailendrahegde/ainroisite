@@ -7,7 +7,8 @@
     "readTime": "7 min read",
     "filename": "ai-culture-ladder.md",
     "date": "Feb 27, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+    "author": "Keith McGrane, Shailendra Hegde"
   },
   {
     "id": "beyond-adoption-counts-ai-maturity",
@@ -17,7 +18,8 @@
     "readTime": "5 min read",
     "filename": "beyond-adoption-counts-ai-maturity.md",
     "date": "Feb 7, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    "author": "Shailendra Hegde, Keith McGrane"
   },
   {
     "id": "ai-license-allocation-strategies",
@@ -27,7 +29,8 @@
     "readTime": "5 min read",
     "filename": "ai-license-allocation-strategies.md",
     "date": "Feb 6, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
+    "author": "Keith McGrane, Shailendra Hegde"
   },
   {
     "id": "cio-dilemma-ai-expansion-decisions",
@@ -37,7 +40,8 @@
     "readTime": "5 min read",
     "filename": "cio-dilemma-ai-expansion-decisions.md",
     "date": "Jan 28, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "author": "Shailendra Hegde, Keith McGrane"
   },
   {
     "id": "ai-license-allocation-model",
@@ -47,7 +51,8 @@
     "readTime": "5 min read",
     "filename": "ai-license-allocation-model.md",
     "date": "Jan 22, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    "author": "Keith McGrane, Shailendra Hegde"
   },
   {
     "id": "ai-superusers-hidden-advantage",
@@ -57,7 +62,8 @@
     "readTime": "4 min read",
     "filename": "ai-superusers-hidden-advantage.md",
     "date": "Jan 16, 2026",
-    "thumbnail": "/superuser-intensity-chart.png"
+    "thumbnail": "/superuser-intensity-chart.png",
+    "author": "Shailendra Hegde, Keith McGrane"
   },
   {
     "id": "data-driven-ai-adoption",
@@ -67,7 +73,8 @@
     "readTime": "5 min read",
     "filename": "data-driven-ai-adoption.md",
     "date": "Jan 14, 2026",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    "author": "Keith McGrane, Shailendra Hegde"
   },
   {
     "id": "roi-demands-patience",
@@ -77,7 +84,8 @@
     "readTime": "3 min read",
     "filename": "roi-demands-patience.md",
     "date": "Jan 10, 2025",
-    "thumbnail": "/roi-measurement-journey.png"
+    "thumbnail": "/roi-measurement-journey.png",
+    "author": "Shailendra Hegde, Keith McGrane"
   },
   {
     "id": "early-ai-adoption",
@@ -87,7 +95,8 @@
     "readTime": "2 min read",
     "filename": "early-ai-adoption.md",
     "date": "Jan 8, 2025",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    "author": "Keith McGrane, Shailendra Hegde"
   },
   {
     "id": "tipping-point-habit-formation",
@@ -97,6 +106,7 @@
     "readTime": "2 min read",
     "filename": "tipping-point-habit-formation.md",
     "date": "Jan 12, 2025",
-    "thumbnail": "/usage-bands-movement.png"
+    "thumbnail": "/usage-bands-movement.png",
+    "author": "Shailendra Hegde, Keith McGrane"
   }
 ]
