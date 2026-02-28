@@ -881,23 +881,6 @@ function App() {
                 — validated through analytics and real-world feedback from widely used projects.
               </p>
 
-              {/* Typing accent */}
-              <div style={{
-                display: 'inline-block',
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '14px',
-                fontWeight: 500,
-                color: 'var(--accent-cyan)',
-                padding: '8px 16px',
-                background: 'rgba(6,182,212,0.06)',
-                border: '1px solid rgba(6,182,212,0.12)',
-                borderRadius: '8px',
-                marginBottom: '40px',
-                animation: 'fadeInUp 0.8s 0.3s var(--ease-smooth) both',
-              }}>
-                &gt; analyzing 1000+ weekly downloads across enterprise AI tools
-                <span style={{ animation: 'blink 1s step-end infinite', color: 'var(--accent-cyan)', marginLeft: '2px' }}>|</span>
-              </div>
             </section>
           )}
 
@@ -1214,7 +1197,7 @@ function App() {
                             inset: 0,
                             background: 'linear-gradient(to top, rgba(6,11,24,0.97) 0%, rgba(6,11,24,0.7) 35%, rgba(6,11,24,0.15) 100%)',
                           }} />
-                          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px' }}>
+                          <div className="hero-blog-overlay" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px' }}>
                             <span style={{
                               display: 'inline-block',
                               padding: '5px 14px',
@@ -1230,7 +1213,7 @@ function App() {
                             }}>
                               {heroBlog.category}
                             </span>
-                            <h2 style={{
+                            <h2 className="hero-blog-title" style={{
                               fontSize: '32px',
                               fontWeight: 800,
                               color: 'var(--text-primary)',
@@ -1240,10 +1223,10 @@ function App() {
                             }}>
                               {heroBlog.title}
                             </h2>
-                            <p style={{ fontSize: '15px', color: '#9CA3AF', lineHeight: 1.65, maxWidth: '640px', marginBottom: '20px' }}>
+                            <p className="hero-blog-summary" style={{ fontSize: '15px', color: '#9CA3AF', lineHeight: 1.65, maxWidth: '640px', marginBottom: '20px' }}>
                               {heroBlog.summary}
                             </p>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-dim)' }}>
+                            <div className="hero-blog-meta" style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-dim)' }}>
                               <span>By Shailendra Hegde, Keith McGrane</span>
                               <span>&middot;</span>
                               <span>{heroBlog.date}</span>

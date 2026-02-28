@@ -260,6 +260,24 @@
     border: 1px solid rgba(255,255,255,0.05);
   }
 
+  /* Hero blog card — mobile responsive overrides */
+  @media (max-width: 640px) {
+    .hero-blog-overlay {
+      padding: 20px !important;
+    }
+    .hero-blog-title {
+      font-size: 22px !important;
+      letter-spacing: -0.3px !important;
+    }
+    .hero-blog-summary {
+      display: none !important;
+    }
+    .hero-blog-meta {
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+  }
+
   /* Drop cap for first paragraph in articles */
   .drop-cap::first-letter {
     float: left;
