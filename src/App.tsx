@@ -1625,10 +1625,10 @@ function App() {
                           <label htmlFor="inquiry_type" style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '6px' }}>Inquiry Type</label>
                           <select id="inquiry_type" name="inquiry_type" required
                             style={{ width: '100%', borderRadius: '10px', border: '1px solid var(--border-medium)', background: 'rgba(255,255,255,0.04)', color: 'var(--text-primary)', padding: '12px 16px', fontSize: '14px', outline: 'none', fontFamily: 'inherit' }}>
-                            <option value="">Select an option</option>
-                            <option value="analytics">Analytics suggestions</option>
-                            <option value="opensource">Open source collaboration</option>
-                            <option value="general">General inquiry</option>
+                            <option value="" style={{ color: '#111', background: '#fff' }}>Select an option</option>
+                            <option value="analytics" style={{ color: '#111', background: '#fff' }}>Analytics suggestions</option>
+                            <option value="opensource" style={{ color: '#111', background: '#fff' }}>Open source collaboration</option>
+                            <option value="general" style={{ color: '#111', background: '#fff' }}>General inquiry</option>
                           </select>
                         </div>
                         <div>
@@ -1660,16 +1660,6 @@ function App() {
 
                     {/* Info column */}
                     <div className="space-y-6">
-                      <div className="glass-surface" style={{ borderRadius: '16px', padding: '32px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>Quick Response</h4>
-                        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: 1.6 }}>
-                          We review all inquiries within 24 hours and typically respond with next steps within 48 hours.
-                        </p>
-                        <div style={{ fontSize: '13px', color: 'var(--text-dim)' }}>
-                          <p style={{ marginBottom: '8px' }}>Response time: 24-48 hours</p>
-                          <p>Timezone: EST (UTC-5) & GMT</p>
-                        </div>
-                      </div>
                       <div className="glass-surface" style={{ borderRadius: '16px', padding: '32px' }}>
                         <h4 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px' }}>Connect on LinkedIn</h4>
                         <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>
