@@ -99,6 +99,27 @@ const projects: Project[] = [
     tags: ["Python", "Claude", "PowerBI"],
     githubUrl: "https://github.com/shailendrahegde/pbi-to-exec-deck",
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=450&fit=crop"
+  },
+  {
+    title: "What I Did — Claude",
+    description: "Learn what you produced and how you produced with Claude.",
+    tags: ["Claude", "Python", "Productivity"],
+    githubUrl: "https://github.com/shailendrahegde/What-I-Did-Claude",
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=450&fit=crop"
+  },
+  {
+    title: "What I Did — AI",
+    description: "For the ambidextrous AI user working across Copilot and Claude, learn what you produced and how you produced.",
+    tags: ["Claude", "GitHub Copilot", "Productivity"],
+    githubUrl: "https://github.com/shailendrahegde/What-I-Did-AI",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=450&fit=crop"
+  },
+  {
+    title: "What I Did — Copilot",
+    description: "Learn what you produced and how you produced with GitHub Copilot.",
+    tags: ["Copilot", "Microsoft 365", "Productivity"],
+    githubUrl: "https://github.com/microsoft/What-I-Did-Copilot",
+    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=450&fit=crop"
   }
 ]
 

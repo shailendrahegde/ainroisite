@@ -1,5 +1,15 @@
 [
   {
+    "id": "where-did-the-tokens-go",
+    "title": "I Tracked Every Instruction I Gave to AI Coding Agents for 30 Days. Here's What I Found.",
+    "summary": "20 hours of directed effort. 105 hours of human effort equivalent. A 5.4× multiplier across GitHub Copilot and Claude Code — and the uncomfortable data on attention cost, late nights, and what it actually takes to direct AI well.",
+    "category": "ROI Analysis",
+    "readTime": "8 min read",
+    "filename": "where-did-the-tokens-go.md",
+    "date": "Apr 8, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop"
+  },
+  {
     "id": "ai-culture-ladder",
     "title": "The AI Culture Ladder: Four Stages From Curious to AI-Native — And How to Measure the Climb",
     "summary": "95% of AI pilots fail to scale, and 70% of the gap is culture, not technology. A four-stage Culture Maturity Ladder with measurable behavioral signals, leadership actions, and how AI agents change the equation",
