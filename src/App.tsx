@@ -1111,10 +1111,12 @@ function App() {
               </button>
             </div>
 
-            {/* Site description */}
-            <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 32px 20px', fontSize: '13px', color: 'var(--text-dim)', lineHeight: 1.6, letterSpacing: '0.01em' }}>
-              Enterprise AI insights informed by extensive building, deep customer listening, and advisory work—validated through analytics and real-world feedback from widely used projects with 1000+ downloads per week.
-            </div>
+            {/* Site description — hidden when reading an article */}
+            {!selectedBlog && (
+              <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 32px 20px', fontSize: '13px', color: 'var(--text-dim)', lineHeight: 1.6, letterSpacing: '0.01em' }}>
+                Enterprise AI insights informed by extensive building, deep customer listening, and advisory work—validated through analytics and real-world feedback from widely used projects with 1000+ downloads per week.
+              </div>
+            )}
 
             {/* Mobile nav menu */}
             {mobileMenuOpen && (
