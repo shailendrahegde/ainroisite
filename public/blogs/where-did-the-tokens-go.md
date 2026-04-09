@@ -95,15 +95,13 @@ What I'm taking from the data: having measured this, I'll do my best to limit th
 
 The starkest number in the 30-day data wasn't the leverage ratio. It was the interaction overhead.
 
-Substantive instructions with descriptive prompts — the ones that actually advance the work — ran at **48 per hour on Copilot, 58 per hour on Claude**. Close. Both tools drive meaningful, focused collaboration at roughly the same rate.
+Substantive instructions with descriptive prompts — the ones that actually advance the work — ran at **48 per hour on Copilot, 55 per hour on Claude**. Close. Both tools drive meaningful, focused collaboration at roughly the same rate.
 
-But when you include trivial interactions — confirmations, permission approvals, tool-use gates — **Claude's total jumps to around 450 per hour**. Nearly ten times more noise than signal.
+But when you include trivial interactions — confirmations, permission approvals, tool-use gates — the picture diverges sharply. **Copilot's total barely moves: 48 to 49.** Trivials are essentially noise-free. **Claude's total rises to around 70 per hour** — almost 40% more total interactions than its substantive rate alone.
 
-This isn't Claude being autonomous. This is the cost of Claude Code's safety model: every file read, every bash execution, every tool invocation wants a human confirmation before proceeding. In a session with 100 tool calls, that's 100 micro-interruptions requiring a response — even if that response is just pressing Enter. Each one is a context break. Individually they cost two or three seconds; collectively they fragment the sustained concentration that complex work requires.
+This is the cost of Claude Code's safety model — prompting for confirmation on file reads, bash executions, and tool invocations. Each confirmation costs only a few seconds, but the cumulative effect is a different cognitive contract: you're periodically pulled back into a gatekeeper role rather than staying in the flow of directing work. I'm aware that `--dangerously-skip-permissions` exists. I won't use it. I triggered a security incident with that flag once, and that was enough. It's not a setting I'm willing to normalize.
 
-I'm aware that `--dangerously-skip-permissions` exists. I won't use it. I triggered a security incident with that flag once, and that was enough. It's not a setting I'm willing to normalize.
-
-Copilot is far more judicious in seeking your attention. The difference between 54 total interactions per hour on Copilot and ~450 on Claude isn't a marginal UX preference — it's a fundamentally different cognitive contract. One keeps you in flow. The other makes you a gatekeeper for your own tool.
+Copilot simply doesn't impose this. The difference between 49 total interactions per hour on Copilot and ~70 on Claude isn't catastrophic — but it's real enough to shape when and how I reach for each tool.
 
 This explains the time-of-day pattern exactly. Nearly all of my Claude interactions happened during business hours and early afternoons, when I had the focused attention to supervise long autonomous runs. Copilot claimed the evenings — its low-friction model is genuinely compatible with lower attention states and split presence.
 
