@@ -1229,68 +1229,6 @@ function App() {
             </section>
           )}
 
-          {/* Stats bar — only when not reading a blog and on insights tab */}
-          {activeTab === 'insights' && !selectedBlog && (
-            <div
-              ref={statsRef}
-              className="reveal-up"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: '1px',
-                maxWidth: '1152px',
-                margin: '0 auto 64px',
-                padding: '0 32px',
-              }}
-            >
-              {[
-                { value: statValues[0], suffix: '+', label: 'Weekly downloads' },
-                { value: statValues[1], suffix: '', label: 'Published insights' },
-                { value: statValues[2], suffix: '%', label: 'AI pilots fail to scale' },
-                { value: statValues[3], suffix: 'x', label: 'Higher success with culture focus' },
-              ].map((stat, i) => (
-                <div
-                  key={i}
-                  style={{
-                    textAlign: 'center',
-                    padding: '32px 24px',
-                    position: 'relative',
-                    background: 'rgba(17,24,39,0.3)',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: i === 0 ? '16px 0 0 16px' : i === 3 ? '0 16px 16px 0' : '0',
-                    transition: 'all 0.4s var(--ease-out)',
-                  }}
-                  className="group"
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = 'rgba(17,24,39,0.6)'
-                    e.currentTarget.style.borderColor = 'rgba(99,102,241,0.2)'
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = 'rgba(17,24,39,0.3)'
-                    e.currentTarget.style.borderColor = 'var(--border-subtle)'
-                  }}
-                >
-                  <div style={{
-                    fontSize: '36px',
-                    fontWeight: 900,
-                    letterSpacing: '-1.5px',
-                    lineHeight: 1,
-                    marginBottom: '8px',
-                    background: 'linear-gradient(135deg, var(--accent-blue-light), var(--accent-purple-light))',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}>
-                    {stat.value.toLocaleString()}
-                    <span style={{ fontSize: '20px', fontWeight: 700 }}>{stat.suffix}</span>
-                  </div>
-                  <div style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5, fontWeight: 500 }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
 
           {/* Labeled divider */}
           {activeTab === 'insights' && !selectedBlog && (
