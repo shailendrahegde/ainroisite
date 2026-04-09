@@ -31,7 +31,7 @@ I built a deterministic formula anchored to four signals per session:
 - **File reads and searches** — captures investigation work that has real cost even when nothing gets written
 - **Total tool invocations** — captures non-coding tasks like analysis and presentations where code output is near zero
 
-These four signals produce a floor estimate. An AI then reads the full session transcript and applies semantic judgment, distinguishing a 200-line HTML scaffold from a 50-line algorithm that required real architectural thinking. The full methodology is linked in the appendix.
+These four signals produce a floor estimate. An AI then reads the full session transcript and applies semantic judgment, distinguishing a 200-line HTML scaffold from a 50-line algorithm that required real architectural thinking. I wasn't going for perfection — I was going for something more defensible than intuition. The [full methodology is documented here](https://github.com/microsoft/What-I-Did-Copilot/blob/main/docs/effort-estimation-methodology.md).
 
 The result is a **human effort equivalent**: the hours a skilled professional would need to produce the same output, unassisted.
 
@@ -136,3 +136,7 @@ And the **cost is real too** — not just API use, but the attention cost, the l
 The AI didn't make me more efficient in the way a faster car makes you a better driver. It changed what kind of work was possible, what kind of skills it requires to direct it well, and what kind of discipline it demands to use without letting it consume everything adjacent to it.
 
 That's a more interesting story than 5×. And it's the one the data actually tells.
+
+---
+
+*P.S. If you want to understand your own journey — what you built, how you built it, and what the leverage actually looks like — [What-I-Did-Copilot](https://github.com/microsoft/What-I-Did-Copilot) and [What-I-Did-Claude](https://github.com/shailendrahegde/What-I-Did-Claude) will do that for each tool individually. If you use both and want to compare and contrast how your collaboration with each shapes your output, [What-I-Did-AI](https://github.com/shailendrahegde/What-I-Did-AI) is built for exactly that.*
