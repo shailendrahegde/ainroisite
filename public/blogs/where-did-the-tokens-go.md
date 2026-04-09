@@ -83,9 +83,11 @@ The AI generates; you curate, redirect, and decide what's good enough to keep. T
 
 Here's the uncomfortable data point.
 
-A meaningful share of my Copilot work happened at night. At the kids' soccer practice. During the swimming lesson. While dinner was on. I wasn't watching — I was providing instructions. I wasn't present — I was in a conversation with a coding agent.
+**27% of my Copilot sessions happened in the evenings and at night.** At the kids' soccer practice. During the swimming lesson. While dinner was on. I wasn't watching — I was providing instructions. I wasn't present — I was in a conversation with a coding agent.
 
-I've thought carefully about why, and I think it comes down to a specific feeling: the output always feels *so close*, but not quite there. One more refinement. One more polish. The perfectionist in you keeps reaching, because the distance between where it is and where you want it is always small and always bridgeable. That gap keeps you engaged. There's no natural stopping point because the work is never technically done — it's just a little short of good enough, and good enough keeps moving.
+That number matters because it doesn't show up in any productivity metric. The leverage calculation looks great. The output is real. But the 27% is a tax paid in a different currency — attention, presence, the half-watched soccer game. No dashboard captures that, which is exactly why it's worth naming.
+
+I've thought carefully about why it happens, and I think it comes down to a specific feeling: the output always feels *so close*, but not quite there. One more refinement. One more polish. The perfectionist in you keeps reaching, because the distance between where it is and where you want it is always small and always bridgeable. That gap keeps you engaged. There's no natural stopping point because the work is never technically done — it's just a little short of good enough, and good enough keeps moving.
 
 This is a new kind of interference, and it's different from answering late emails or checking Teams/Slack. It's cognitively absorbing in a way that passive consumption isn't. You're not scrolling — you're producing, deciding, steering. The presence cost is real. The family time definitely suffers.
 
