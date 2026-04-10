@@ -8,7 +8,7 @@
 
 **The method:** A deterministic formula anchored to four signals per session — conversation depth, logic lines of code, file reads/searches, and total tool invocations — validated against peer-reviewed productivity research (Cambon et al., Peng et al., Forsgren et al.).
 
-**The result:** 20 hours of directed effort produced 105.5 hours of human effort equivalent — a 5.4× multiplier — across twelve professional roles, at a fraction of what a single hire would cost. Both GitHub Copilot and Claude delivered identical leverage ratios. The starkest difference between the two tools wasn't productivity — it was cognitive overhead.
+**The result:** 20 hours of directed effort produced 105.5 hours of human effort equivalent — a 5.4× multiplier — across twelve professional roles. Both GitHub Copilot and Claude delivered identical leverage ratios. The starkest difference between the two tools wasn't productivity — it was cognitive overhead.
 
 ---
 
