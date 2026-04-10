@@ -8,7 +8,7 @@
 
 **The method:** A deterministic formula anchored to four signals per session — conversation depth, logic lines of code, file reads/searches, and total tool invocations — validated against peer-reviewed productivity research (Cambon et al., Peng et al., Forsgren et al.).
 
-**The result:** 20 hours of directed effort produced 105.5 hours of human effort equivalent — a 5.4× multiplier — across twelve professional roles, on a combined tool cost of $481. Both GitHub Copilot and Claude delivered identical leverage ratios. The starkest difference between the two tools wasn't productivity — it was cognitive overhead.
+**The result:** 20 hours of directed effort produced 105.5 hours of human effort equivalent — a 5.4× multiplier — across twelve professional roles, at a fraction of what a single hire would cost. Both GitHub Copilot and Claude delivered identical leverage ratios. The starkest difference between the two tools wasn't productivity — it was cognitive overhead.
 
 ---
 
@@ -43,7 +43,7 @@ Over March 10 to April 8, I harvested session data from GitHub Copilot and Claud
 
 That's a **5.4× speed multiplier**. Both tools delivered essentially identical leverage — Copilot at 5.5×, Claude at 5.4× — which was itself a finding. The tools feel different to use; they perform the same in output.
 
-At a conservative professional services rate of $72/hour, the work carried a **market value of approximately $7,600**. My combined tool cost for the month was $39 for a GitHub Copilot enterprise seat, $19 for a Claude enterprise seat, and $423 in API usage — **$481 total**. That's a **15× return on actual spend**, not on seat cost alone.
+At a conservative professional services rate of $72/hour, the work carried a **market value of approximately $7,600**. The combined tool cost for the month — seats and API usage — was a small fraction of that. The return on actual spend was well over 10×, and closer to 15× when you factor in API usage rather than seat cost alone.
 
 ## The Work I Couldn't Do Before
 
@@ -117,7 +117,7 @@ The last thing the data revealed was something I didn't know about myself: I had
 
 **Research and exploration went to Copilot.** When I didn't yet know what I was building, or needed to compare approaches and investigate the unknown, Copilot's Research rate (14%) was nearly double Claude's (8%). This is counterintuitive given how strong Claude's plan mode is and I will examine this further.
 
-**Complex sustained execution went to Claude.** Large builds, multi-file refactors, anything requiring deep context across many files. Claude's 681 million cache-read tokens over 30 days tell the story: long, context-heavy sessions that earned their overhead.
+**Complex sustained execution went to Claude.** Large builds, multi-file refactors, anything requiring deep context across many files. The session length and cache usage tells the story: long, context-heavy runs that earned their overhead.
 
 **Delegation went to Copilot.** Git operations, README updates, configuration changes, package installs. Routine tasks that don't warrant a long agentic session and where the approval friction of Claude would cost more than the task is worth.
 
@@ -127,7 +127,7 @@ None of this was a rule I wrote down. It was behavior the data surfaced.
 
 I set out to answer a simple question — where did the tokens go? — and ended up with something more layered.
 
-The **leverage is real**: 105 hours of equivalent output from 20 hours of directed effort, across twelve professional roles, on twenty projects, worth approximately $7,600 at market rate, for $481 in tool costs.
+The **leverage is real**: 105 hours of equivalent output from 20 hours of directed effort, across twelve professional roles, on twenty projects — worth approximately $7,600 at market rate, for a tool spend that's a rounding error by comparison.
 
 The **independence is real**: work that used to require queues, negotiations, handoffs, and months is now a directed session. The dependency on headcount, budget cycles, and other people's tolerance for iteration is largely gone.
 
