@@ -1,5 +1,16 @@
 [
   {
+    "id": "valuing-cowork-assistance",
+    "title": "Valuing Cowork Assistance: Why Measuring AI Value Has to Move From Prompts to Tasks",
+    "summary": "When AI orchestrates whole tasks end to end, counting prompts no longer captures its value. A task-based methodology that starts with intent, deconstructs work into activities, and anchors time saved in published research",
+    "category": "ROI Analysis",
+    "readTime": "5 min read",
+    "filename": "valuing-cowork-assistance.md",
+    "date": "Oct 15, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+    "author": "Shailendra Hegde"
+  },
+  {
     "id": "where-did-the-tokens-go",
     "title": "I Tracked Every Instruction I Gave to AI Coding Agents for 30 Days. Here's What I Found.",
     "summary": "20 hours of directed effort. 105 hours of human effort equivalent. A 5.4× multiplier across GitHub Copilot and Claude Code — and the uncomfortable data on attention cost, late nights, and what it actually takes to direct AI well.",
