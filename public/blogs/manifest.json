@@ -1,5 +1,16 @@
 [
   {
+    "id": "learning-curve-hidden-inside-ai-adoption",
+    "title": "The Learning Curve Hidden Inside AI Adoption",
+    "summary": "AI maturity isn't a usage curve — it's a curve of adopting specific behaviors. Each stage has a behavioral signature, and because later-stage behaviors carry far higher time benchmarks, the value curve is far steeper than the usage curve",
+    "category": "AI Adoption",
+    "readTime": "6 min read",
+    "filename": "learning-curve-hidden-inside-ai-adoption.md",
+    "date": "Oct 15, 2026",
+    "thumbnail": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=600&h=400&fit=crop",
+    "author": "Shailendra Hegde, Keith McGrane"
+  },
+  {
     "id": "valuing-cowork-assistance",
     "title": "Valuing Cowork Assistance: Why Measuring AI Value Has to Move From Prompts to Tasks",
     "summary": "When AI orchestrates whole tasks end to end, counting prompts no longer captures its value. A task-based methodology that starts with intent, deconstructs work into activities, and anchors time saved in published research",
