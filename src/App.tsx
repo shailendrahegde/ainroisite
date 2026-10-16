@@ -769,9 +769,9 @@ function App() {
     }
   }
 
-  // First blog as hero/featured card
-  const heroBlog = filteredBlogs.length > 0 ? filteredBlogs[0] : null
-  const gridBlogs = filteredBlogs.slice(1)
+  // Two newest blogs as spotlight cards
+  const heroBlogs = filteredBlogs.slice(0, 2)
+  const gridBlogs = filteredBlogs.slice(2)
 
   // Markdown components for dark article styling
   let paragraphCount = 0
@@ -1457,9 +1457,17 @@ function App() {
                     <div style={{ textAlign: 'center', padding: '80px 0', color: 'var(--text-muted)' }}>Loading...</div>
                   ) : (
                     <>
-                      {/* Hero/featured card — first blog */}
-                      {heroBlog && (
+                      {/* Spotlight cards — two newest blogs */}
+                      {heroBlogs.length > 0 && (
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${heroBlogs.length > 1 ? '420px' : '100%'}), 1fr))`,
+                          gap: '24px',
+                          marginBottom: '48px',
+                        }}>
+                        {heroBlogs.map((heroBlog) => (
                         <div
+                          key={heroBlog.id}
                           className="reveal-scale"
                           onClick={() => {
                             setSelectedBlog(heroBlog)
@@ -1470,7 +1478,6 @@ function App() {
                             position: 'relative',
                             borderRadius: '20px',
                             overflow: 'hidden',
-                            marginBottom: '48px',
                             background: '#111827',
                             border: '1px solid var(--border-subtle)',
                             cursor: 'pointer',
@@ -1491,7 +1498,7 @@ function App() {
                             alt={heroBlog.title}
                             style={{
                               width: '100%',
-                              height: '320px',
+                              height: heroBlogs.length > 1 ? '400px' : '320px',
                               objectFit: 'cover',
                               display: 'block',
                               transition: 'transform 0.6s ease',
@@ -1503,7 +1510,7 @@ function App() {
                             inset: 0,
                             background: 'linear-gradient(to top, rgba(6,11,24,0.97) 0%, rgba(6,11,24,0.7) 35%, rgba(6,11,24,0.15) 100%)',
                           }} />
-                          <div className="hero-blog-overlay" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px' }}>
+                          <div className="hero-blog-overlay" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: heroBlogs.length > 1 ? '32px' : '40px' }}>
                             <span style={{
                               display: 'inline-block',
                               padding: '5px 14px',
@@ -1520,7 +1527,7 @@ function App() {
                               {heroBlog.category}
                             </span>
                             <h2 className="hero-blog-title" style={{
-                              fontSize: '32px',
+                              fontSize: heroBlogs.length > 1 ? '24px' : '32px',
                               fontWeight: 800,
                               color: 'var(--text-primary)',
                               lineHeight: 1.2,
@@ -1529,7 +1536,10 @@ function App() {
                             }}>
                               {heroBlog.title}
                             </h2>
-                            <p className="hero-blog-summary" style={{ fontSize: '15px', color: '#9CA3AF', lineHeight: 1.65, maxWidth: '640px', marginBottom: '20px' }}>
+                            <p className="hero-blog-summary" style={{
+                              fontSize: '15px', color: '#9CA3AF', lineHeight: 1.65, maxWidth: '640px', marginBottom: '20px',
+                              display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                            }}>
                               {heroBlog.summary}
                             </p>
                             <div className="hero-blog-meta" style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '13px', color: 'var(--text-dim)' }}>
@@ -1540,6 +1550,8 @@ function App() {
                               <span>{heroBlog.readTime}</span>
                             </div>
                           </div>
+                        </div>
+                        ))}
                         </div>
                       )}
 
