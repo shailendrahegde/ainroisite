@@ -1,6 +1,6 @@
 # Valuing Cowork Assistance: Why Measuring AI Value Has to Move From Prompts to Tasks
 
-*By Shailendra Hegde | ROI Analysis | ~5 min read*
+*By Shailendra Hegde, Keith McGrane | ROI Analysis | ~5 min read*
 
 ## TL;DR
 
