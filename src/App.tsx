@@ -53,6 +53,27 @@ const defaultCategoryVisual = { accent: 'linear-gradient(90deg, #6366F1, #3B82F6
 
 const projects: Project[] = [
   {
+    title: "Universal Lake",
+    description: "Deploy one Microsoft Fabric Lakehouse for M365 Copilot analytics: audit logs, Copilot and agent usage, M365 app usage, Entra ID org data and AI spend.",
+    tags: ["Microsoft Fabric", "Power BI", "Copilot Analytics"],
+    githubUrl: "https://github.com/microsoft/universal-lake",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
+  },
+  {
+    title: "ValueLens",
+    description: "Measure AI business value, ROI and cost, plus adoption, governance and user feedback across your whole Copilot estate in one place.",
+    tags: ["Power BI", "Copilot Analytics", "ROI"],
+    githubUrl: "https://github.com/microsoft/ValueLens-for-Microsoft-Copilot",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=450&fit=crop"
+  },
+  {
+    title: "Consumption Central",
+    description: "One report for Copilot credit consumption and cost across Cowork/Work IQ, Copilot Studio, GitHub Copilot and Azure AI Foundry.",
+    tags: ["Power BI", "Copilot Credits", "Cost"],
+    githubUrl: "https://github.com/microsoft/ConsumptionCentral-for-Microsoft-Copilot",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=450&fit=crop"
+  },
+  {
     title: "Decoding Super Usage",
     description: "Learn what your best users of M365 Copilot do differently.",
     tags: ["Power BI", "Copilot Analytics"],
